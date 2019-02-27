@@ -1,32 +1,27 @@
-@extends('Flooflix.websiteManagement.layouts.base')
+@extends('Flooflix.layouts.base')
 @section('content')
-@include('Flooflix.websiteManagement.layouts.header')
-<!-- Main -->
+@include('Flooflix_websiteManagement.layouts.header')
+ <!-- Main -->
     <article class="">
         <div class="container">
             <div class="row pt-5">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 bg-white">
                     <header class="text-center mt-4">
-                        <h1 class="font-alfa black">Ajouter une image</h1>
+                        <h1 class="font-alfa black">Ajouter une police</h1>
                     </header>
-                    <form action="{{ action('PictureController@storePictureFromManagement') }}" class="mt-5 mx-5" method="POST" enctype="multipart/form-data">
-                        @csrf
+                    <form action="" class="mt-5 mx-5">
                         <div class="form-group mt-5">
                             <label for="name" class="font-alfa black">Nom</label>
-                            <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}">
-                            @if ($errors->has('name'))
-                                <p class="invalid-feedback" role="alert">{{ __($errors->first('name')) }}</p>
-                            @endif
+                            <input type="text" class="form-control" name="name" id="name" placeholder="exemple : Roboto">
                         </div>
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" name="picture" class="custom-file-input {{ $errors->has('picture') ? ' is-invalid' : '' }}" id="picture">
-                                <label class="custom-file-label" for="picture">{{ __('Choisir un fichier') }}</label>
-                                @if ($errors->has('picture'))
-                                    <p class="invalid-feedback" role="alert">{{ __($errors->first('picture')) }}</p>
-                                @endif
-                            </div>
+                        <div class="form-group mt-3">
+                            <label for="link" class="font-alfa black">Lien</label>
+                            <input type="text" class="form-control" name="link" id="link" placeholder="exemple : https://fonts.googleapis.com/css?family=Roboto">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="link" class="font-alfa black">Règle css</label>
+                            <input type="text" class="form-control" name="link" id="link" placeholder="exemple : font-family: 'Roboto', sans-serif;">
                         </div>
                         <div class="row mt-5 justify-content-center">
                             <div class="col col-auto">
@@ -43,6 +38,7 @@
                 <div class="col-lg-3"></div>
             </div>
         </div>
+
     </article>
 @include('Flooflix.layouts.scripts')
 <script>

@@ -1,4 +1,4 @@
-@extends('Flooflix.websiteManagement.layouts.base')
+@extends('Flooflix_websiteManagement.layouts.base')
 @section('content')
 @include('Flooflix.websiteManagement.layouts.header')
 

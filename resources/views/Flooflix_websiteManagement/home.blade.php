@@ -1,4 +1,4 @@
-@extends('Flooflix.websiteManagement.layouts.base')
+@extends('Flooflix_websiteManagement.layouts.base')
 @section('content')
 <!-- Main -->
 <article role="main" class="container font-alfa">

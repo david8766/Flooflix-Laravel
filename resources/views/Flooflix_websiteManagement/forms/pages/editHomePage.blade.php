@@ -1,6 +1,6 @@
 @extends('Flooflix.layouts.base')
 @section('content')
-@include('Flooflix.websiteManagement.layouts.header')
+@include('Flooflix_websiteManagement.layouts.header')
 
 <!-- Main -->
 <section role="main" class="container-fluid font-alfa azure">

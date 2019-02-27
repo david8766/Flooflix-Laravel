@@ -1,6 +1,6 @@
-@extends('Flooflix.websiteManagement.layouts.base')
+@extends('Flooflix_websiteManagement.layouts.base')
 @section('content')
-@include('Flooflix.websiteManagement.layouts.header')
+@include('Flooflix_websiteManagement.layouts.header')
 <!-- Main -->
 <article role="main" class="container font-alfa azure" role="main">
     <h1 class="mt-5 separator">Gestion des films</h1>

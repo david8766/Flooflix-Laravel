@@ -1,6 +1,6 @@
-@extends('Flooflix.websiteManagement.layouts.base')
+@extends('Flooflix_websiteManagement.layouts.base')
 @section('content')
-@include('Flooflix.websiteManagement.layouts.header')
+@include('Flooflix_websiteManagement.layouts.header')
 <!-- Main -->
 @include('Flooflix.partials.message')
 <article class="container-fluid azure font-alfa mt-5">
