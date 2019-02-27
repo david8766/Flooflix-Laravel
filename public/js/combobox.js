@@ -1,7 +1,4 @@
-$('document').ready(function () {
-    document.body.style.backgroundColor = 'black';
-})
-
+// functions to research something in research fields
 function ComboBoxCore(e, l) {
     var editField = e;
     var list = l;
