@@ -1,0 +1,321 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One');
+/* CSS Document */
+
+
+/* Tags */
+html {
+    box-sizing: border-box;
+    position: relative;
+    font-size: 14px;
+    height: 100%;
+
+}
+
+body {
+    height: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-family: 'Anton', sans-serif;
+}
+
+section {
+    margin: 0rem;
+    padding: 1rem;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0;
+}
+
+select.hideComboBoxList {
+    visibility: hidden;
+    display: none;
+}
+/**************************************************************************************/
+/* Classes */
+/**************************************************************************************/
+.alert{
+    padding: 0.5rem;
+}
+.below {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.carousel-control-prev {
+    width: 2%;
+}
+
+.carousel-control-next {
+    width: 2%;
+}
+
+.container-fluid {
+    padding: 0rem;
+}
+
+.custom-caption {
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.jumbotron {
+    margin-bottom: 0rem;
+}
+
+.row {
+    margin: 0rem;
+}
+
+.separator {
+    border-bottom: 1px solid;
+}
+
+.separator-top {
+    border-top: 1px solid;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.top-caption {
+    top: 1rem;
+    bottom: 0;
+}
+
+.relief {
+    text-shadow: 0 -3px 0 #333,
+        0 6px 8px rgba(0, 0, 0, .4),
+        0 9px 10px rgba(0, 0, 0, .15),
+        0 30px 10px rgba(0, 0, 0, .18),
+        0 15px 10px rgba(0, 0, 0, .21);
+}
+
+.text-3d {
+    text-shadow: 0 1px 0 hsl(174, 5%, 80%),
+        0 2px 0 hsl(174, 5%, 75%),
+        0 3px 0 hsl(174, 5%, 70%),
+        0 4px 0 hsl(175, 8%, 69%),
+        0 5px 0 hsl(174, 5%, 64%),
+        0 6px 0 hsl(174, 5%, 62%),
+        0 7px 0 hsl(174, 5%, 61%),
+        0 8px 0 hsl(174, 5%, 60%),
+
+        0 0 5px rgba(0, 0, 0, .05),
+        0 1px 3px rgba(0, 0, 0, .2),
+        0 3px 5px rgba(0, 0, 0, .2),
+        0 5px 10px rgba(0, 0, 0, .2),
+        0 10px 10px rgba(0, 0, 0, .2),
+        0 20px 20px rgba(0, 0, 0, .3);
+}
+
+/* Heights*/
+.min-100 {
+    min-height: 100vh;
+}
+
+.min-80 {
+    min-height: 80vh;
+}
+
+.min-60 {
+    min-height: 60vh;
+}
+.min-20{
+    min-height: 20vh;
+}
+
+.min-6 {
+    min-height: 6vh;
+}
+
+.min-88 {
+    min-height: 88vh;
+}
+
+/* Padding */
+.p-0 {
+    padding: 0px;
+}
+
+.pt-4 {
+    padding-top: 1.5rem;
+}
+
+.pt-5 {
+    padding-top: 3rem;
+}
+
+.pl-4 {
+    padding-left: 1.5rem;
+}
+.pr-4 {
+    padding-right: 1.5rem;
+}
+
+.pb-4 {
+    padding-bottom: 1.5rem;
+}
+
+.pb-5 {
+    padding-bottom: 3rem;
+}
+
+.px-5 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+/* Marging */
+.m-0{
+    margin: 0rem;
+}
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.mx-6 {
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+/* Display */
+.display-inline {
+    display: inline-block;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
+
+
+a[href^="movie"]:hover {
+    text-decoration-line: none;
+}
+
+a.navlink:hover {
+    color: coral !important;
+}
+
+.font-alfa {
+    font-family: 'Alfa Slab One',
+        cursive;
+}
+.font-size1{
+    font-size: 1rem;
+}
+.fs-2{
+    font-size: 2rem;
+}
+
+.font-anton {
+    font-family: 'Anton',
+        sans-serif;
+}
+
+/* Background-color */
+
+.image{
+    height: 250px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.poster{
+    height: 500px;
+    width: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-black {
+    background-color: black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-coral {
+    background-color: coral;
+}
+
+
+/* Colors */
+.azure {
+    color: azure;
+}
+
+.black {
+    color: black;
+}
+.red {
+    color: red;
+}
+
+.crimson {
+    color: crimson;
+}
+
+/* Borders */
+.border-style {
+    border: 0.1em dashed;
+}
+
+.border-azure {
+    border: 0.1em dashed azure;
+}
+
+.bl-azure {
+    border-left: 0.1em solid azure;
+}
+
+
+.bg-cine {
+    background-image: url("../../images/cine.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-bobine {
+    background-image: url("../../images/bobine.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-soleil {
+    background-image: url("../../images/soleil.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-size {
+    height: 15rem;
+    width: 20rem;
+}
+
+/****************************************************************************************************************/
+/* Ids */
+/****************************************************************************************************************/
+#hover-coral:hover {
+    color: coral;
+}
+
+.hover-red:hover {
+    color: red;
+}
+#hover-red:hover {
+    color: red;
+}
