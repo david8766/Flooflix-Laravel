@@ -59,7 +59,7 @@ class PersonController extends Controller
      */
     public function edit( Movie $movie,Person $person)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editPerson', compact('movie','person')); 
+        return view('Flooflix_websiteManagement.forms.movie.editPerson', compact('movie','person')); 
     }
 
     /**

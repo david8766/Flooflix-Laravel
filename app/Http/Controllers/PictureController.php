@@ -153,7 +153,7 @@ class PictureController extends Controller
     public function picturesList()
     {
         $pictures = Picture::all();
-        return view('Flooflix.websiteManagement.picturesList',compact('pictures'));
+        return view('Flooflix_websiteManagement.picturesList',compact('pictures'));
     }
 
     /**

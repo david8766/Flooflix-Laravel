@@ -546,7 +546,7 @@ class UserController extends Controller
         ->whereDay('created_at',$day)
         ->first();
         
-        return view('Flooflix.websiteManagement.usersManagement',compact('total_users','total_customers','total_ca','total_year','total_month','total_day','year','year2','year3','month2','month3','day'));
+        return view('Flooflix_websiteManagement.usersManagement',compact('total_users','total_customers','total_ca','total_year','total_month','total_day','year','year2','year3','month2','month3','day'));
     }
 
     /**
@@ -569,7 +569,7 @@ class UserController extends Controller
             $user = User::find($value->id);
             $users[$key] = $user;   
         }
-        return view('Flooflix.websiteManagement.usersList',compact('users'));
+        return view('Flooflix_websiteManagement.usersList',compact('users'));
     }
 
     /**
@@ -595,7 +595,7 @@ class UserController extends Controller
               $movie->grade = 'Pas de note attribuée';
             }
         } 
-        return view('Flooflix.websiteManagement.userInformations',compact('user','bank_card','movies'));  
+        return view('Flooflix_websiteManagement.userInformations',compact('user','bank_card','movies'));  
     }
 
     /**
@@ -616,7 +616,7 @@ class UserController extends Controller
             return redirect()->route('user.informations',$user);
         }
         
-        return view('Flooflix.websiteManagement.userInformations',compact('user'));
+        return view('Flooflix_websiteManagement.userInformations',compact('user'));
         
     }
 

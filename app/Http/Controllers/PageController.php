@@ -279,7 +279,7 @@ class PageController extends Controller
         $texts = Text::where('page_id',$page->id)->get();
         $movies = Movie::all()->sortBy('title');
     
-        return view('Flooflix.websiteManagement.forms.pages.editHomePage',compact('fonts','colors','pictures','texts','movies'));
+        return view('Flooflix_websiteManagement.forms.pages.editHomePage',compact('fonts','colors','pictures','texts','movies'));
     }
 
     /**
@@ -305,6 +305,6 @@ class PageController extends Controller
             'top_movies' => $top_movies,
             'new_movies' => $new_movies,
         ]);
-        return view('Flooflix.websiteManagement.previews.home',compact('fonts','colors','pictures','top_movies','new_movies'));
+        return view('Flooflix_websiteManagement.previews.home',compact('fonts','colors','pictures','top_movies','new_movies'));
     }
 }

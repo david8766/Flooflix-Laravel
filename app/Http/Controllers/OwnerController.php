@@ -29,7 +29,7 @@ class OwnerController extends Controller
      */
     public function home()
     {
-        return view('Flooflix.websiteManagement.home');
+        return view('Flooflix_websiteManagement.home');
     }
 
     /**
@@ -39,7 +39,7 @@ class OwnerController extends Controller
      */
     public function moviesManagement()
     {
-        return view('Flooflix.websiteManagement.moviesManagement');
+        return view('Flooflix_websiteManagement.moviesManagement');
     }
 
     
@@ -50,7 +50,7 @@ class OwnerController extends Controller
      */
     public function usersManagement()
     {
-        return view('Flooflix.websiteManagement.usersManagement');
+        return view('Flooflix_websiteManagement.usersManagement');
     }
 
     /**
@@ -60,7 +60,7 @@ class OwnerController extends Controller
      */
     public function usersList()
     {
-        return view('Flooflix.websiteManagement.usersList');
+        return view('Flooflix_websiteManagement.usersList');
     }
 
     /**
@@ -70,7 +70,7 @@ class OwnerController extends Controller
      */
     public function showUserMoviesCollection()
     {
-        return view('Flooflix.websiteManagement.userMoviesCollection');
+        return view('Flooflix_websiteManagement.userMoviesCollection');
     }
 
     /**
@@ -80,7 +80,7 @@ class OwnerController extends Controller
      */
     public function pagesManagement()
     {
-        return view('Flooflix.websiteManagement.pagesManagement');
+        return view('Flooflix_websiteManagement.pagesManagement');
     }
 
     /**
@@ -90,7 +90,7 @@ class OwnerController extends Controller
      */
     public function generalInformationManagement()
     {
-        return view('Flooflix.websiteManagement.generalInformationManagement');
+        return view('Flooflix_websiteManagement.generalInformationManagement');
     }
 
     /**
@@ -100,7 +100,7 @@ class OwnerController extends Controller
      */
     public function visualElementsManagement()
     {
-        return view('Flooflix.websiteManagement.visualElementsManagement');
+        return view('Flooflix_websiteManagement.visualElementsManagement');
     }
 
     /**
@@ -110,7 +110,7 @@ class OwnerController extends Controller
      */
     public function fontsList()
     {
-        return view('Flooflix.websiteManagement.fontsList');
+        return view('Flooflix_websiteManagement.fontsList');
     }
 
     /**
@@ -120,7 +120,7 @@ class OwnerController extends Controller
      */
     public function addFont()
     {
-        return view('Flooflix.websiteManagement.forms.createFont');
+        return view('Flooflix_websiteManagement.forms.createFont');
     }
     /**
      * Displays the view colors list. 
@@ -129,7 +129,7 @@ class OwnerController extends Controller
      */
     public function colorsList()
     {
-        return view('Flooflix.websiteManagement.colorsList');
+        return view('Flooflix_websiteManagement.colorsList');
     }
 
     /**
@@ -139,7 +139,7 @@ class OwnerController extends Controller
      */
     public function addcolor()
     {
-        return view('Flooflix.websiteManagement.forms.createColor');
+        return view('Flooflix_websiteManagement.forms.createColor');
     }
 
     /**
@@ -149,7 +149,7 @@ class OwnerController extends Controller
      */
     public function addPicture()
     {
-        return view('Flooflix.websiteManagement.forms.createPicture');
+        return view('Flooflix_websiteManagement.forms.createPicture');
     }
 
     /**

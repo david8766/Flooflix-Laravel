@@ -128,7 +128,7 @@ class MovieController extends Controller
         Javascript::put([
             'category' => $category
         ]);
-        return view('Flooflix.websiteManagement.moviesManagement',compact('movies','movies_by_category','top_copies_by_category','min_copies_by_category','top_copies','min_copies','total_sales_by_category','total_sales','categories'));
+        return view('Flooflix_websiteManagement.moviesManagement',compact('movies','movies_by_category','top_copies_by_category','min_copies_by_category','top_copies','min_copies','total_sales_by_category','total_sales','categories'));
     }
 
     /**
@@ -142,7 +142,7 @@ class MovieController extends Controller
         $movies = Movie::orderBy('created_at', 'DESC')->paginate(15);
         $categories = Category::all();
         $people = Person::all();
-        return view('Flooflix.websiteManagement.moviesList',compact('movies','people','categories'));
+        return view('Flooflix_websiteManagement.moviesList',compact('movies','people','categories'));
     }
 
     /**
@@ -187,7 +187,7 @@ class MovieController extends Controller
             $users[] = ['user' => $user,'date' => $item->created_at,'price' => $item->price];
         }
         //dd($users);
-        return view('Flooflix.websiteManagement.customersList',compact('users'));
+        return view('Flooflix_websiteManagement.customersList',compact('users'));
     }
 
     /**
@@ -202,7 +202,7 @@ class MovieController extends Controller
         $pictures = Picture::all();
         $categories = Category::all();
         $people = Person::all();
-        return view('Flooflix.websiteManagement.movieInformations',compact('movie','movies','pictures','people','categories'));
+        return view('Flooflix_websiteManagement.movieInformations',compact('movie','movies','pictures','people','categories'));
     }
 
     /* functions for displays forms to store movies informations by step */
@@ -215,7 +215,7 @@ class MovieController extends Controller
     public function createStep1()
     {    
         $categories = Category::all();
-        return view('Flooflix.websiteManagement.forms.movie.createMovieStep1', compact('categories'));
+        return view('Flooflix_websiteManagement.forms.movie.createMovieStep1', compact('categories'));
     }
 
     /**
@@ -238,7 +238,7 @@ class MovieController extends Controller
         natcasesort($collection); 
         $film_directors = $collection;
         
-        return view('Flooflix.websiteManagement.forms.movie.createMovieStep2', compact('film_directors','movie'));
+        return view('Flooflix_websiteManagement.forms.movie.createMovieStep2', compact('film_directors','movie'));
     }
 
     /**
@@ -260,7 +260,7 @@ class MovieController extends Controller
         // Sort the table in alphabetical order
         natcasesort($collection); 
         $actors = $collection;
-        return view('Flooflix.websiteManagement.forms.movie.createMovieStep3', compact('actors','movie'));
+        return view('Flooflix_websiteManagement.forms.movie.createMovieStep3', compact('actors','movie'));
     }
 
     /**
@@ -279,7 +279,7 @@ class MovieController extends Controller
         // Sort the table in alphabetical order
         natcasesort($collection); 
         $pictures = $collection;
-        return view('Flooflix.websiteManagement.forms.movie.createMovieStep4', compact('pictures','movie'));
+        return view('Flooflix_websiteManagement.forms.movie.createMovieStep4', compact('pictures','movie'));
     }
 
     /**
@@ -291,7 +291,7 @@ class MovieController extends Controller
     public function createStep5($movie)
     {  
         $movie = Movie::find($movie);
-        return view('Flooflix.websiteManagement.forms.movie.createMovieStep5', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.createMovieStep5', compact('movie'));
     }
 
     /** Functions to store movies informations by step */
@@ -575,7 +575,7 @@ class MovieController extends Controller
     public function editCategory(Movie $movie)
     {
         $categories = Category::all();
-        return view('Flooflix.websiteManagement.forms.movie.editCategory', compact('movie','categories'));
+        return view('Flooflix_websiteManagement.forms.movie.editCategory', compact('movie','categories'));
     }
 
     /**
@@ -611,7 +611,7 @@ class MovieController extends Controller
         }
         natcasesort($collection); 
         $pictures = $collection;
-        return view('Flooflix.websiteManagement.forms.movie.editPoster', compact('pictures','movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editPoster', compact('pictures','movie'));
     }
 
     /**
@@ -671,7 +671,7 @@ class MovieController extends Controller
      */
     public function editTitle(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editTitle', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editTitle', compact('movie'));
     }
 
     /**
@@ -699,7 +699,7 @@ class MovieController extends Controller
      */
     public function editDuration(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editDuration', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editDuration', compact('movie'));
     }
 
     /**
@@ -727,7 +727,7 @@ class MovieController extends Controller
      */
     public function editReleaseDate(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editReleaseDate', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editReleaseDate', compact('movie'));
     }
 
     /**
@@ -755,7 +755,7 @@ class MovieController extends Controller
      */
     public function editPrice(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editPrice', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editPrice', compact('movie'));
     }
 
     /**
@@ -783,7 +783,7 @@ class MovieController extends Controller
      */
     public function editSynopsis(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editSynopsis', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editSynopsis', compact('movie'));
     }
 
     /**
@@ -819,7 +819,7 @@ class MovieController extends Controller
         }
         natcasesort($collection); 
         $film_directors = $collection;
-        return view('Flooflix.websiteManagement.forms.movie.addFilmDirector', compact('movie','film_directors'));
+        return view('Flooflix_websiteManagement.forms.movie.addFilmDirector', compact('movie','film_directors'));
     }
 
     /**
@@ -916,7 +916,7 @@ class MovieController extends Controller
         }
         natcasesort($collection); 
         $actors = $collection;
-        return view('Flooflix.websiteManagement.forms.movie.addActor', compact('movie','actors'));
+        return view('Flooflix_websiteManagement.forms.movie.addActor', compact('movie','actors'));
     }
 
     /**
@@ -1015,7 +1015,7 @@ class MovieController extends Controller
      */
     public function editTrailerLink(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editTrailerLink', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editTrailerLink', compact('movie'));
     }
 
     /**
@@ -1044,7 +1044,7 @@ class MovieController extends Controller
      */
     public function editMovieLink(Movie $movie)
     {
-        return view('Flooflix.websiteManagement.forms.movie.editMovieLink', compact('movie'));
+        return view('Flooflix_websiteManagement.forms.movie.editMovieLink', compact('movie'));
     }
 
     /**
