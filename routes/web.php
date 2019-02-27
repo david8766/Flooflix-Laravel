@@ -134,9 +134,14 @@ Route::group(['middleware' => ['App\Http\Middleware\IsOwner']], function(){
     Route::get('/AjouterUnePolice','OwnerController@addFont');
     Route::get('/ListeDesCouleurs','OwnerController@colorsList');
     Route::get('/AjouterUneCouleur','OwnerController@addColor');
-    Route::get('/ListeDesImages','PictureController@picturesList');
+    Route::get('/ListeDesImages','PictureController@picturesList')->name('pictures.list');
     Route::get('/AjouterUneImage','OwnerController@addPicture');
     Route::post('/AjouterUneImage','PictureController@storePictureFromManagement');
+    Route::get('/ModifierLeNomDeLimage/{picture}','PictureController@editPictureName')->name('edit.picture.name');
+    Route::post('UpdatePictureName/{picture}','PictureController@updatePictureName')->name('update.picture.name');
+    Route::get('/ModifierLeVisuelDeLimage/{picture}','PictureController@editVisualOfPicture')->name('edit.picture.visual');
+    Route::post('/MettreAjourLeVisuelDeLimage/{picture}','PictureController@updateVisualOfPicture')->name('update.picture.visual');
+    Route::get('/SupprimerLimage/{picture}','PictureController@deletePicture')->name('delete.picture');
     Route::get('/CollectionDeFilmsDunUtilisateur','OwnerController@showUserMoviesCollection');
     
     // les pages modifiables

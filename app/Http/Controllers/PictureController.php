@@ -99,6 +99,13 @@ class PictureController extends Controller
         return view('admin.forms.editPicture',compact('picture'));
     }
 
+    /**
+     * Update the picture.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Picture  $picture
+     * @return view
+     */
     public function update(Request $request, Picture $picture)
     {
         // Validate the fields
@@ -164,7 +171,6 @@ class PictureController extends Controller
      */
     public function storePictureFromManagement(Request $request)
     {
-
         // Validate the fields
         request()->validate(['name' => ['required','string']]);
         request()->validate(['picture' => ['required','file','image']]);
@@ -203,6 +209,115 @@ class PictureController extends Controller
         }
         return redirect('/ListeDesImages')->with('message', "L'image a bien été ajoutée");         
     }
+
+    /** 
+     * Show the form for editing the picture name.
+     *
+     * @param  \App\Picture  $picture
+     * @return view
+     */
+    public function editPictureName(Picture $picture)
+    {
+        return view('Flooflix_websiteManagement.forms.pictures.editPictureName', compact('picture'));
+    }
+
+    /**
+     * Update the picture name.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Picture  $picture
+     * @return view
+     */
+    public function updatePictureName(Request $request,Picture $picture)
+    {
+        //Validate fields
+        request()->validate(['name' => ['required','string']]);
+
+        // Save data
+        $name = $request->name;
+        if(isset($name) && !is_null($name) && is_string($name)){
+            $picture->name =  $request->name;
+            $picture->save();
+            return redirect('/ListeDesImages')->with('message', "Le nom de l'image a bien été modifié");
+        }else{
+            return redirect('/ListeDesImages')->with('messageError', "Un problème est survenu lors de l'enrtegistrement des données"); 
+        }
+    }
+
+    /** 
+     * Show the form for editing the visual of the picture.
+     *
+     * @param  \App\Picture  $picture
+     * @return view
+     */
+    public function editVisualOfPicture(Picture $picture)
+    {
+        return view('Flooflix_websiteManagement.forms.pictures.editVisualPicture', compact('picture'));
+    }
+
+    /**
+     * Update the visual of the picture.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Picture  $picture
+     * @return view
+     */
+    public function updateVisualOfPicture(Request $request,Picture $picture)
+    {
+        // Validate the fields
+        request()->validate(['picture' => ['required','file','image']]);
+        
+        // Check if an image is downloaded
+        if($request->hasFile('picture') && $request->file('picture')->isValid()){
+            
+            // Delete old picture
+            $result = Storage::delete($picture->link);
+            // Get the extension file
+            $extension = $request->picture->extension();
+            
+            // Modify jpeg extension
+            if($extension == "jpeg"){
+                $extension = "jpg";
+            }
+            // Data verification
+            $res = $request->picture->storeAs('public/images', $picture->name . '.' . $extension);
+            dump($res); 
+
+            // Create path for style tag
+            $path = 'storage/images/' . $picture->name . '.' . $extension;
+            
+            // Save Path for style tag
+            $picture->link = $res;
+            $picture->style = $path;
+            $picture->save();
+            
+        }else{
+            return redirect('/ListeDesImages')->with('messageError', "l'image n'a pas été reconnu par le système.");
+        }
+        return redirect('/ListeDesImages')->with('message',"L'image a bien été modifiée"); 
+    }
+
+    /**
+     * Delete picture.
+     *
+     * @param  \App\Picture  $picture
+     * @return view
+     */
+    public function deletePicture(Picture $picture)
+    {
+        // Delete picture file in storage
+        $result = Storage::delete($picture->link);
+        // Delete picture in database
+        $picture->delete();
+        
+        return redirect('/ListeDesImages')->with('message', "L'image a bien été supprimée");
+        
+    }
+
+
+
+
+
 }
 
 

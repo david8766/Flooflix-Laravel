@@ -3,6 +3,7 @@
 @include('Flooflix_websiteManagement.layouts.header')
 <!-- Main -->
 <article role="main" class="container azure font-alfa">
+    @include('Flooflix.partials.message')
     <header>
         <h1 class="mt-5 separator">Liste des images</h1>
     </header>
@@ -13,22 +14,28 @@
                     <tr>
                         <th>NOM</th>
                         <th>IMAGE</th>
-                        <th colspan="2">ACTIONS</th>
+                        <th>ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td colspan="3">Cliquer sur un élément pour le modifier</td>
+                    </tr>
                     @foreach ($pictures as $picture)      
                     @if (!is_null($picture))
                     <tr>       
-                        <td class="font-alfa black">{{ $picture->name }}</td>
                         <td>
-                            <div class="image" style="background-image: url('{{asset($picture['style'])}}"></div>
+                            <a href="{{ route('edit.picture.name',$picture) }}" class="font-alfa black hover-red">
+                                {{ $picture->name }}
+                            </a>
                         </td>
                         <td>
-                            <a href="" class="black font-alfa" id="hover-red">Modifier</a>
+                            <a href="{{ route('edit.picture.visual',$picture) }}">
+                                <img src="{{ asset($picture->style) }}" alt="{{ $picture->name }}" class="img-fluid figure-img">
+                            </a>
                         </td>
                         <td>
-                            <a href="" class="black font-alfa" id="hover-red">Supprimer</a>
+                            <a href="{{ action('PictureController@deletePicture',$picture) }}" class="black font-alfa hover-red">Supprimer</a>
                         </td>
                     </tr>
                     @else
@@ -39,7 +46,7 @@
             </table>
         </div>
     </div>
-    <a href="/AjouterUneImage" class="azure" id="hover-red">Ajouter une image</a>
+    <a href="/AjouterUneImage" class="azure hover-red">Ajouter une image</a>
     <div class="row separator-top mt-4 justify-content-center">
         <div class="col col-auto mt-4">
             <nav aria-label="Navigation">

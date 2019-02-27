@@ -9,7 +9,7 @@
             <div class="col-lg-6 bg-white">
                 @include('Flooflix.partials.message')
                 <header class="text-center mt-4">
-                    <h1 class="font-alfa black">{{ __('Ajouter les liens - Etape 5') }}</h1>
+                    <h1 class="font-alfa black">Ajouter les liens - Etape 5</h1>
                 </header>
                 <form action="{{ action('MovieController@storeStep5', $movie) }}" class="mt-5 mb-5 mx-5" method="POST">
                     @csrf
