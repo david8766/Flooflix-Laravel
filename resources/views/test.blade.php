@@ -1,10 +1,8 @@
 @extends('layouts.base')
 @section('content')
 <body>
-    <h1>mes tests</h1>
-    <div class="row" style="height: 30rem; width: 50rem; background-image: url('{{ asset('storage/images/cinoche.jpg')}}');">
-
-    </div>
+    <h1>Page de test</h1>
+    
     
     
 </body>

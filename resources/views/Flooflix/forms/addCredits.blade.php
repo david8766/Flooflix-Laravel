@@ -53,5 +53,5 @@
 @include('Flooflix.layouts.footer')
 @include('Flooflix.layouts.varJS')
 @include('Flooflix.layouts.scripts')
-<script src="http://127.0.0.1:8000/js/flooflix/addCreditsScript.js"></script>
+<script src="http://127.0.0.1:8000/js/flooflix/addCredits.js"></script>
 @endsection
