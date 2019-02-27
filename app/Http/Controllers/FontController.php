@@ -10,7 +10,7 @@ class FontController extends Controller
     /**
      * Display a listing of fonts.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -21,7 +21,7 @@ class FontController extends Controller
     /**
      * Show the form for creating a new font.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -32,7 +32,7 @@ class FontController extends Controller
      * Store a newly created font in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function store(Request $request)
     {
@@ -67,7 +67,7 @@ class FontController extends Controller
      * Display the specified font.
      *
      * @param  \App\Font  $font
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show(Font $font)
     {
@@ -78,7 +78,7 @@ class FontController extends Controller
      * Show the form for editing the specified font.
      *
      * @param  \App\Font  $font
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit(Font $font)
     {
@@ -90,7 +90,7 @@ class FontController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Font  $font
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function update(Request $request, Font $font)
     {
@@ -122,7 +122,7 @@ class FontController extends Controller
      * Remove the specified font from storage.
      *
      * @param  \App\Font  $font
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function destroy(Font $font)
     {

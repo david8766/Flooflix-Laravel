@@ -12,7 +12,7 @@ class TextController extends Controller
     /**
      * Display a listing of the text.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class TextController extends Controller
     /**
      * Show the form for select a website to create a text.
      *  
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function selectWebsite()
     {
@@ -38,7 +38,7 @@ class TextController extends Controller
      * Get pages for the selected website.
      *  
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function getPages(Request $request)
     {
@@ -58,7 +58,7 @@ class TextController extends Controller
      * Show the form for creating a new text.
      * 
      * @param mixed $pages
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function createText($id)
     {  
@@ -70,7 +70,7 @@ class TextController extends Controller
      * Store a newly created text in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function store(Request $request)
     {
@@ -112,7 +112,7 @@ class TextController extends Controller
      * @param  \App\Text  $text
      * 
      * 
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show(Text $text)
     {
@@ -127,7 +127,7 @@ class TextController extends Controller
      * Display texts for a page.
      *
      * @param  \App\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function showTextsForPage(Page $page)
     {
@@ -140,7 +140,7 @@ class TextController extends Controller
      * Show the form for editing the specified text.
      *
      * @param  \App\Text  $text
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit(Text $text)
     {
@@ -152,7 +152,7 @@ class TextController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Text  $text
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function update(Request $request, Text $text)
     {
@@ -168,7 +168,7 @@ class TextController extends Controller
      * Remove the specified text from storage.
      *
      * @param  \App\Text  $text
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function destroy(Text $text)
     {

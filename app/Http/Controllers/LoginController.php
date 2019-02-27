@@ -49,7 +49,7 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      *
-     * @return Response
+     * @return view
      */
     public function authenticate(Request $request)
     {
@@ -82,7 +82,7 @@ class LoginController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      *
-     * @return Response
+     * @return view
      */
     public function logout()
     {

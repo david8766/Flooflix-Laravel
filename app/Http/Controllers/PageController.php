@@ -17,7 +17,7 @@ class PageController extends Controller
     /**
      * Display a listing of the page.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -29,7 +29,7 @@ class PageController extends Controller
     /**
      * Show the form for creating a new page.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -41,7 +41,7 @@ class PageController extends Controller
      * Store a newly created page in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function store(Request $request)
     {
@@ -78,7 +78,7 @@ class PageController extends Controller
      * Display the specified page.
      *
      * @param  \App\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show(Page $page)
     {
@@ -93,7 +93,7 @@ class PageController extends Controller
      * Show the form for editing the specified page.
      *
      * @param  \App\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit(Page $page)
     {
@@ -105,7 +105,7 @@ class PageController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function update(Request $request, Page $page)
     {
@@ -136,7 +136,7 @@ class PageController extends Controller
      * Remove the specified page from storage.
      *
      * @param  \App\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function destroy(Page $page)
     {
@@ -148,7 +148,7 @@ class PageController extends Controller
      * Join resources.
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function join(Request $request, Page $page)
     {
@@ -217,7 +217,7 @@ class PageController extends Controller
      * Unjoin Font.
      * @param  \App\Page  $page
      * @param  \App\Font  $font
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function unjoinFont(Page $page,Font $font)
     {
@@ -231,7 +231,7 @@ class PageController extends Controller
      * Unjoin Color.
      * @param  \App\Page  $page
      * @param  \App\Color  $color
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function unjoinColor(Page $page,Color $color)
     {
@@ -245,7 +245,7 @@ class PageController extends Controller
      * Unjoin Picture.
      * @param  \App\Page  $page
      * @param  \App\Picture  $picture
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function unjoinPicture(Page $page,Picture $picture)
     {
@@ -267,7 +267,7 @@ class PageController extends Controller
     /**
      * edit homePage.
      * 
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editHomePage()
     {
@@ -285,7 +285,7 @@ class PageController extends Controller
     /**
      * show home page preview.
      * 
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function showPreviewHomePage()
     {

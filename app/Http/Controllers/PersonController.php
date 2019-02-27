@@ -55,7 +55,7 @@ class PersonController extends Controller
      *
      * @param  \App\Person  $person
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit( Movie $movie,Person $person)
     {
@@ -67,7 +67,7 @@ class PersonController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Person  $person
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function update(Request $request, Movie $movie, Person $person)
     {

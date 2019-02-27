@@ -24,7 +24,7 @@ class MovieController extends Controller
      * Display a movie.
      *
      * @param mixed $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function showMovie($movie)
     {
@@ -46,7 +46,7 @@ class MovieController extends Controller
      * Add movie in shopping cart.
      *
      * @param  \App\Movie $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function addMovieInShoppingCart(Movie $movie)
     {
@@ -61,7 +61,7 @@ class MovieController extends Controller
      * Add movie by research.
      *
      * @param \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function showMovieByResearch(Request  $request)
     {
@@ -194,7 +194,7 @@ class MovieController extends Controller
      * Displays the movies informations.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function showMovieInformations(Movie $movie)
     {
@@ -210,7 +210,7 @@ class MovieController extends Controller
     /**
      * Show the form for creating a new movie.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function createStep1()
     {    
@@ -222,7 +222,7 @@ class MovieController extends Controller
      * Show the form for creating a new movie.(step2)
      *
      * @param \App\Movie $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function createStep2($movie)
     {
@@ -245,7 +245,7 @@ class MovieController extends Controller
      * Show the form for creating a new movie.(step3)
      *
      * @param \App\Movie $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function createStep3($movie)
     {  
@@ -267,7 +267,7 @@ class MovieController extends Controller
      * Show the form for creating a new movie.(step4)
      *
      * @param \App\Movie $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function createStep4($movie)
     {  
@@ -286,7 +286,7 @@ class MovieController extends Controller
      * Show the form for creating a new movie.(step5)
      *
      * @param \App\Movie $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function createStep5($movie)
     {  
@@ -300,7 +300,7 @@ class MovieController extends Controller
      * Store a newly created movie in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeStep1(Request $request)
     {
@@ -342,10 +342,10 @@ class MovieController extends Controller
 
     /**
      * Store a newly created movie in storage.
+     * 
      * @param  \App\movie $movie
-     * @param   $id
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeStep2(Request $request, Movie $movie)
     {
@@ -417,7 +417,7 @@ class MovieController extends Controller
      * Store a newly created movie in storage.
      * @param  \App\movie $movie
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeStep3(Request $request, Movie $movie)
     {
@@ -485,7 +485,7 @@ class MovieController extends Controller
      * Store a newly created movie in storage.
      * @param  \App\movie $movie
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeStep4(Request $request, Movie $movie)
     {
@@ -536,7 +536,7 @@ class MovieController extends Controller
      * Store a newly created movie in storage.
      * @param  \App\movie $movie
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeStep5(Request $request, Movie $movie)
     {
@@ -570,7 +570,7 @@ class MovieController extends Controller
      * Show the form for editing the category movie.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editCategory(Movie $movie)
     {
@@ -583,7 +583,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateCategory(Request $request, Movie $movie)
     {
@@ -600,7 +600,7 @@ class MovieController extends Controller
      * Show the form for editing the picture.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editPoster(Movie $movie)
     {
@@ -619,7 +619,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updatePoster(Request $request, Movie $movie)
     {
@@ -667,7 +667,7 @@ class MovieController extends Controller
      * Show the form for editing the title movie.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editTitle(Movie $movie)
     {
@@ -679,7 +679,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateTitle(Request $request, Movie $movie)
     {
@@ -695,7 +695,7 @@ class MovieController extends Controller
      * Show the form for editing the duration movie.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editDuration(Movie $movie)
     {
@@ -707,7 +707,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateDuration(Request $request, Movie $movie)
     {
@@ -723,7 +723,7 @@ class MovieController extends Controller
      * Show the form for editing the release date.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editReleaseDate(Movie $movie)
     {
@@ -735,7 +735,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateReleaseDate(Request $request, Movie $movie)
     {
@@ -751,7 +751,7 @@ class MovieController extends Controller
      * Show the form for editing the price.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editPrice(Movie $movie)
     {
@@ -763,7 +763,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updatePrice(Request $request, Movie $movie)
     {
@@ -779,7 +779,7 @@ class MovieController extends Controller
      * Show the form for editing the synopsis.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editSynopsis(Movie $movie)
     {
@@ -791,7 +791,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateSynopsis(Request $request, Movie $movie)
     {
@@ -807,7 +807,7 @@ class MovieController extends Controller
      * Show the form for add film director.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function addFilmDirector(Movie $movie)
     {
@@ -827,7 +827,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeFilmDirector(Request $request, Movie $movie)
     {
@@ -890,7 +890,7 @@ class MovieController extends Controller
      *
      * @param  \App\Movie  $movie
      * @param  \app\Person $person
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function deleteFilmDirector(Movie $movie,Person $person)
     {
@@ -903,7 +903,7 @@ class MovieController extends Controller
      * Show the form for add actor.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function addActor(Movie $movie)
     {
@@ -924,7 +924,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storeActor(Request $request, Movie $movie)
     {
@@ -998,7 +998,7 @@ class MovieController extends Controller
      *
      * @param  \App\Movie  $movie
      * @param  \app\Person $person
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function deleteActor(Movie $movie,Person $person)
     {
@@ -1011,7 +1011,7 @@ class MovieController extends Controller
      * Show the form for editing the trailer link.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editTrailerLink(Movie $movie)
     {
@@ -1023,7 +1023,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateTrailerLink(Request $request, Movie $movie)
     {
@@ -1040,7 +1040,7 @@ class MovieController extends Controller
      * Show the form for editing the movie link.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function editMovieLink(Movie $movie)
     {
@@ -1052,7 +1052,7 @@ class MovieController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function updateMovieLink(Request $request, Movie $movie)
     {
@@ -1068,7 +1068,7 @@ class MovieController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function destroy(Movie $movie)
     {

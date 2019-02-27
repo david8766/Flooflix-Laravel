@@ -11,7 +11,7 @@ class WebsiteController extends Controller
     /**
      * Display a listing of websites.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class WebsiteController extends Controller
     /**
      * Show the form for creating a new website.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -33,7 +33,7 @@ class WebsiteController extends Controller
      * Store a newly created website in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function store(Request $request)
     {
@@ -67,7 +67,7 @@ class WebsiteController extends Controller
      * Display the specified website.
      *
      * @param  \App\Website  $website
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show(Website $website)
     {
@@ -78,7 +78,7 @@ class WebsiteController extends Controller
      * Show the form for editing the specified website.
      *
      * @param  \App\Website  $website
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit(Website $website)
     {
@@ -90,7 +90,7 @@ class WebsiteController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Website  $website
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function update(Request $request, Website $website)
     {
@@ -121,7 +121,7 @@ class WebsiteController extends Controller
      * Remove the specified website from storage.
      *
      * @param  \App\Website  $website
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function destroy(Website $website)
     {
@@ -133,7 +133,7 @@ class WebsiteController extends Controller
      * Display a listing of pages for website.
      *
      * @param  \App\Website  $website
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function pages(Website $website)
     {

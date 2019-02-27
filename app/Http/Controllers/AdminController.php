@@ -49,7 +49,7 @@ class AdminController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      *
-     * @return Response
+     * @return view
      */
     public function authenticate(Request $request)
     {

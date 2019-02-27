@@ -12,7 +12,7 @@ class PictureController extends Controller
     /**
      * Display a listing of the pictures.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class PictureController extends Controller
     /**
      * Show the form for creating a new picture.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -34,7 +34,7 @@ class PictureController extends Controller
      * Store a newly created picture in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function store(Request $request)
     {
@@ -81,7 +81,7 @@ class PictureController extends Controller
      * Display the specified picture.
      *
      * @param  \App\Picture  $picture
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show(Picture $picture)
     {
@@ -92,7 +92,7 @@ class PictureController extends Controller
      * Show the form for editing the specified picture.
      *
      * @param  \App\Picture  $picture
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit(Picture $picture)
     {
@@ -125,7 +125,7 @@ class PictureController extends Controller
      * Remove the specified picture from storage.
      *
      * @param  \App\Picture  $picture
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function destroy(Picture $picture)
     {
@@ -160,7 +160,7 @@ class PictureController extends Controller
      * Store a newly created picture in storage form management.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function storePictureFromManagement(Request $request)
     {

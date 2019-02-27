@@ -17,19 +17,9 @@ use JavaScript;
 class BankCardController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new bank card.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function create()
     {
@@ -46,7 +36,7 @@ class BankCardController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function store(Request $request)
     {
@@ -115,7 +105,7 @@ class BankCardController extends Controller
      * Display the specified resource.
      *
      * @param  \App\BankCard  $bankCard
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function show(BankCard $bankCard)
     {
@@ -125,7 +115,7 @@ class BankCardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function edit()
     {
@@ -142,7 +132,7 @@ class BankCardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function update(Request $request)
     {
