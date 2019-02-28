@@ -7,6 +7,9 @@
     <header>
         <h1 class="mt-5 separator">Liste des images</h1>
     </header>
+    <div class="row mt-3">
+        <a href="/AjouterUneImage" class="azure hover-red">Ajouter une image</a>
+    </div>
     <div class="row mt-5">
         <div class="col table-responsive">
             <table class="table table-light table-bordered black">
@@ -46,20 +49,31 @@
             </table>
         </div>
     </div>
-    <a href="/AjouterUneImage" class="azure hover-red">Ajouter une image</a>
-    <div class="row separator-top mt-4 justify-content-center">
-        <div class="col col-auto mt-4">
+    @if ($total > 5)
+    <div class="row separator-top mt-5 justify-content-center">
+        <div class="col col-auto mt-3">
             <nav aria-label="Navigation">
-                <ul class="pagination text-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">Précédent</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+                <ul class="pagination text-center" role="navigation">
+                    @if ($pictures->currentPage() != 1)
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $pictures->previousPageUrl() }}">Précédent</a></li>
+                    @if ($pictures->currentPage() >2)
+                       <li class="page-item"><a class="page-link black hover-red" href="{{ $pictures->url(1) }}">1</a></li>  
+                    @endif
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $pictures->previousPageUrl() }}">{{$pictures->currentPage()-1}}</a></li>    
+                    @endif
+                    <li class="page-item"><a class="page-link red" href="{{ $pictures->url($pictures->currentPage()) }}">{{$pictures->currentPage()}}</a></li>
+                    @if ($pictures->currentPage() != $pictures->lastPage())
+                        @if ($pictures->currentPage() != ($pictures->lastPage()-1))
+                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $pictures->nextPageUrl() }}">{{$pictures->currentPage()+1}}</a></li>             
+                        @endif
+                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $pictures->url($pictures->lastPage()) }}">{{$pictures->lastPage()}}</a></li>
+                    @endif
+                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $pictures->nextPageUrl() }}">Suivant</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
+    </div>    
+    @endif
 </article>
 @include('Flooflix.layouts.scripts')
 <script>

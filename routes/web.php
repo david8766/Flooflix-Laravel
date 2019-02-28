@@ -135,6 +135,8 @@ Route::group(['middleware' => ['App\Http\Middleware\IsOwner']], function(){
     Route::get('/ListeDesCouleurs','OwnerController@colorsList');
     Route::get('/AjouterUneCouleur','OwnerController@addColor');
     Route::get('/ListeDesImages','PictureController@picturesList')->name('pictures.list');
+    Route::post('/RechercherUneImage','PictureController@showPictureInformationsByResearch')->name('picture.research');
+    Route::get('/LesInformationsDeLimage/{picture}','PictureController@showPictureInformations')->name('picture.informations');
     Route::get('/AjouterUneImage','PictureController@addPicture');
     Route::post('/AjouterUneImage','PictureController@storePictureFromManagement');
     Route::get('/ModifierLeNomDeLimage/{picture}','PictureController@editPictureName')->name('edit.picture.name');

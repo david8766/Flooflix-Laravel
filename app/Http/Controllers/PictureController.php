@@ -6,6 +6,7 @@ use App\Picture;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class PictureController extends Controller
 {
@@ -159,8 +160,21 @@ class PictureController extends Controller
      */
     public function picturesList()
     {
-        $pictures = Picture::all();
-        return view('Flooflix_websiteManagement.picturesList',compact('pictures'));
+        // total pictures
+        $total = count(Picture::all());
+        dump($total);
+        // get pictures ids sort by last register and paginate result
+        $pictures = DB::table('pictures')
+        ->select('id')
+        ->orderBy('created_at','desc')
+        ->paginate(5);
+
+        // set pictures collection for display
+        foreach ($pictures as $key => $value) {  
+            $picture = Picture::find($value->id);
+            $pictures[$key] = $picture;   
+        }
+        return view('Flooflix_websiteManagement.picturesList',compact('pictures','total'));
     }
 
     /**
@@ -171,6 +185,41 @@ class PictureController extends Controller
     public function addPicture()
     {
         return view('Flooflix_websiteManagement.forms.pictures.createPicture');
+    }
+
+    /**
+     * Displays the view Picture. 
+     *
+     * @return view
+     */
+    public function showPictureInformations()
+    {
+        return view('Flooflix_websiteManagement.pictureInformations');
+    }
+
+    /**
+     * Displays the view picture informations by research. 
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return view
+     */
+    public function showPictureInformationsByResearch(Request  $request)
+    {
+        //dd($request->search);
+        $search = $request->search;
+        $words = explode(" ",$search);
+        $q = "";
+        foreach ($words as $word) {
+            $q .= '%'.$word;
+        };
+        $q .= '%';
+        $picture = Picture::where('name', 'like', $q)->first();
+        if (is_null($picture)) {
+            return back()->with('messageError','Aucune image ne correspond à votre recherche');
+        } else { 
+            return view('Flooflix_websiteManagement.pictureInformations', compact('picture'));
+        }
+        
     }
 
     /**

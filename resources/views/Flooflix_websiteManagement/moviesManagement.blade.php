@@ -37,7 +37,7 @@
         <li class="mt-4">Film le moins vendu : "{{$key}}" avec {{$min_copies_by_category[$key]['total_copies']}} exemplaires pour un total de bénéfices de {{$min_copies_by_category[$key]['total_sales']}} <i class="fas fa-euro-sign"></i></li>   
         @endforeach
     </ul>
-    <h2 class="mt-4"><a href="/ListeDesFilms" class="azure" id="hover-red">Voir la liste des films</a></h2>
+    <h2 class="mt-4"><a href="/ListeDesFilms" class="azure hover-red">Voir la liste des films</a></h2>
     <div class="row">
         <p class="text-left mt-3"><i class="fas fa-arrow-circle-right"></i> Rechercher un film</p>
         <form action="{{ action('MovieController@showMovieByResearchInWebsiteManagement') }}" class="form-inline my-2 my-lg-0 ml-3" role="search" method="POST">
@@ -46,7 +46,7 @@
             <button class="btn btn-outline-danger btn-md my-2 my-sm-0 ml-2" type="submit">Rechercher</button>
         </form>
     </div>
-    <a href="AjouterUnFilm" class="azure" id="hover-red">Ajouter un film</a>
+    <a href="AjouterUnFilm" class="azure hover-red">Ajouter un film</a>
 </article>
 @include('Flooflix.layouts.scripts')
 @include('Flooflix.layouts.varJS')

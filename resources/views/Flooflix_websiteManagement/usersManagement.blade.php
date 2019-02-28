@@ -36,7 +36,7 @@
                 <p class="ml-2">: {{$total_day->total}}  <i class="fas fa-euro-sign"></i></p>
             </div>
         </ul>
-    <h2><a href="{{ route('users.list') }}" class="azure" id="hover-red">Voir la liste des utilisateurs</a></h2>
+    <h2><a href="{{ route('users.list') }}" class="azure hover-red">Voir la liste des utilisateurs</a></h2>
         <div class="row">
             <p class="text-left mt-3"><i class="fas fa-arrow-circle-right"></i> Rechercher un utilisateur</p>
             <form class="form-inline my-2 my-lg-0 ml-3" role="search">
