@@ -36,7 +36,7 @@
                     </form>
                     <div class="row mt-5 justify-content-center">
                         <div class="col col-auto">
-                            <a href="/GestionDesElementsVisuels" class="font-alfa black" id="hover-coral">Annuler</a>
+                            <a href="/GestionDesElementsVisuels" class="font-alfa black hover-coral">Annuler</a>
                         </div>
                     </div>
                 </div>

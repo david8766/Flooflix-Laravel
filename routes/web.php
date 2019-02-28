@@ -133,9 +133,9 @@ Route::group(['middleware' => ['App\Http\Middleware\IsOwner']], function(){
     Route::get('/ListeDesPolices','OwnerController@fontsList');
     Route::get('/AjouterUnePolice','OwnerController@addFont');
     Route::get('/ListeDesCouleurs','OwnerController@colorsList');
-    Route::get('/AjouterUneCouleur','PictureController@addColor');
+    Route::get('/AjouterUneCouleur','OwnerController@addColor');
     Route::get('/ListeDesImages','PictureController@picturesList')->name('pictures.list');
-    Route::get('/AjouterUneImage','OwnerController@addPicture');
+    Route::get('/AjouterUneImage','PictureController@addPicture');
     Route::post('/AjouterUneImage','PictureController@storePictureFromManagement');
     Route::get('/ModifierLeNomDeLimage/{picture}','PictureController@editPictureName')->name('edit.picture.name');
     Route::post('UpdatePictureName/{picture}','PictureController@updatePictureName')->name('update.picture.name');
