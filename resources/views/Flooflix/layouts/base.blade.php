@@ -25,7 +25,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <title>{{ config('app.name', 'Flooflix') }}</title>
+    <title>Flooflix</title>
 </head>  
 <body>
     @yield("content")   

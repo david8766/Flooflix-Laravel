@@ -8,8 +8,8 @@
         <div class="col">
             <h1><u>Choisir l'élément à modifier dans la page d'accueil :</u></h1>
             <ul class="mt-3">
-                <li><a href="{{ route('home') }}" class="azure" id="hover-red">Voir la page d'accueil du site</a></li>
-                <li><a href="{{ route('preview.homePage') }}" target="_blank" class="azure" id="hover-red">Voir l'aperçu</a></li>
+                <li><a href="{{ route('home') }}" class="azure hover-red">Voir la page d'accueil du site</a></li>
+                <li><a href="{{ route('preview.homePage') }}" target="_blank" class="azure hover-red">Voir l'aperçu</a></li>
             </ul>
         </div>
     </header>
