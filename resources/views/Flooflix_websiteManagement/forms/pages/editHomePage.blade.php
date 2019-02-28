@@ -22,7 +22,7 @@
             <div class="col-md-3">
                 <h4>Modifier l'arrière-plan :</h4>
                 <form role="form" class="mt-3">
-                    @include('Flooflix.websiteManagement.partials.form-group-background',[
+                    @include('Flooflix_websiteManagement.partials.form-group-background',[
                         'name_color' => 'backgroundColor_home_jumbotron',
                         'name_picture' => 'backgroundImage_home_jumbotron',
                         ])
@@ -34,14 +34,14 @@
             <div class="col-md-3">
                 <h4>Modifier le titre :</h4>
                 <form role="form" id="prout">
-                    @include('Flooflix.websiteManagement.partials.form-group-text',[
+                    @include('Flooflix_websiteManagement.partials.form-group-text',[
                         'name' => 'text_home_title',
                         ])
                     <button type="button" id="text-home-title-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalTextTitle();"  hidden>Valider</button>
                     <button type="button" id="text-home-title-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForTextTitle();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_home_title',
                         ])
                     <button type="button" id="font-home-title-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontHomeTitle();" hidden>Valider</button>
@@ -49,7 +49,7 @@
                     <button type="button" id="font-home-title-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontHomeTitle();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form>
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_home_title',
                     ])
                     <button type="button" id="color-home-title-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorHomeTitle();" hidden>Valider</button>
@@ -60,14 +60,14 @@
             <div class="col-md-3">
                 <h4>Modifier la phrase d'accroche :</h4>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-text-area',[
+                    @include('Flooflix_websiteManagement.partials.form-group-text-area',[
                         'name' => 'text_home_catch',
                         ])
                     <button type="button" id="text-home-catch-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalTextCatch();" hidden>Valider</button>
                     <button type="button" id="text-home-catch-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForTextCatch();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_home_catch',
                         ])
                     <button type="button" id="font-home-catch-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontHomeCatch();" hidden>Valider</button>
@@ -75,7 +75,7 @@
                     <button type="button" id="font-home-catch-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontHomeCatch();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_home_catch',
                         ])
                     <button type="button" id="color-home-catch-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorHomeCatch();" hidden>Valider</button>
@@ -86,14 +86,14 @@
             <div class="col-md-3">
                 <h4>Modifier le descriptif :</h4>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-text-area',[
+                    @include('Flooflix_websiteManagement.partials.form-group-text-area',[
                         'name' => 'text_home_desc',
                         ])
                     <button type="button" id="text-home-desc-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalTextDesc();" hidden>Valider</button>
                     <button type="button" id="text-home-desc-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForTextDesc();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_home_desc',
                         ])
                     <button type="button" id="font-home-desc-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontHomeDesc();" hidden>Valider</button>
@@ -101,7 +101,7 @@
                     <button type="button" id="font-home-desc-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontHomeDesc();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_home_desc',
                         ])
                     <button type="button" id="color-home-desc-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorHomeDesc();" hidden>Valider</button>
@@ -121,7 +121,7 @@
             <div class="col-md-4">
                 <h4>Modifier l'arrière-plan :</h4>
                 <form role="form" class="mt-3">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'backgroundColor_home_second_article',
                         ])
                     <button type="button" id="background-second-article-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageBackgroundSecondArticle();" hidden>Valider</button>
@@ -132,14 +132,14 @@
             <div class="col-md-4">
                 <h4>Modifier le titre :</h4>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-text',[
+                    @include('Flooflix_websiteManagement.partials.form-group-text',[
                         'name' => 'text_home_top',
                         ])
                         <button type="button" id="text-home-top-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalTextTop();" hidden>Valider</button>
                         <button type="button" id="text-home-top-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForTextTop();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_home_top',
                         ])
                     <button type="button" id="font-home-top-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontHomeTop();" hidden>Valider</button>
@@ -147,7 +147,7 @@
                     <button type="button" id="font-home-top-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontHomeTop();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_home_top',
                         ])
                     <button type="button" id="color-home-top-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorHomeTop();" hidden>Valider</button>
@@ -158,7 +158,7 @@
             <div class="col-md-4">
                 <h4>Pour le titre de ces films :</h4>
                 <form role="form" class="mt-3">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_movie_home_top',
                         ])
                     <button type="button" id="font-movie-home-top-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontMovieHomeTop();" hidden>Valider</button>
@@ -166,7 +166,7 @@
                     <button type="button" id="font-movie-home-top-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontMovieHomeTop();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_movie_home_top',
                         ])
                     <button type="button" id="color-movie-home-top-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorMovieHomeTop();" hidden>Valider</button>
@@ -174,7 +174,7 @@
                     <button type="button" id="color-movie-home-top-delete" class="btn btn-danger btn-sm" onclick="deleteOptionSelectedForColorMovieHomeTop();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color-mouseover',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color-mouseover',[
                         'name' => 'color_movie_mouseover_home_top',
                         ])
                     <button type="button" id="color-movie-mouseover-home-top-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorMovieMouseoverHomeTop();" hidden>Valider</button>
@@ -191,7 +191,7 @@
             <div class="col-md-4">
                 <p class="mt-4">Le 1er film :</p>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'first_movie_top',
                         'number' => '1',
                         ])
@@ -200,7 +200,7 @@
                 </form>
                 <form role="form">
                     <p class="mt-4">Le 4ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'fourth_movie_top',
                         'number' => '4',
                         ])
@@ -211,7 +211,7 @@
             <div class="col-md-4">
                 <form role="form">
                     <p class="mt-4">Le 2ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'second_movie_top',
                         'number' => '2',
                         ])
@@ -220,7 +220,7 @@
                 </form>
                 <form role="form">
                     <p class="mt-4">Le 5ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'fifth_movie_top',
                         'number' => '5',
                         ])
@@ -231,7 +231,7 @@
             <div class="col-md-4">
                 <form role="form">
                     <p class="mt-4">Le 3ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'third_movie_top',
                         'number' => '3',
                         ])
@@ -252,7 +252,7 @@
             <div class="col-md-4">
                 <h4>Modifier l'arrière-plan :</h4>
                 <form role="form" class="mt-3">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'backgroundColor_home_third_article',
                         ])
                     <button type="button" id="background-third-article-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageBackgroundThirdArticle();" hidden>Valider</button>
@@ -263,14 +263,14 @@
             <div class="col-md-4">
                 <h4>Modifier le titre :</h4>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-text',[
+                    @include('Flooflix_websiteManagement.partials.form-group-text',[
                         'name' => 'text_home_new',
                         ])
                         <button type="button" id="text-home-new-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalTextNew();" hidden>Valider</button>
                         <button type="button" id="text-home-new-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForTextNew();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_home_new',
                         ])
                         <button type="button" id="font-home-new-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontHomeNew();" hidden>Valider</button>
@@ -278,7 +278,7 @@
                         <button type="button" id="font-home-new-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontHomeNew();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form"></form>
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_home_new',
                         ])
                         <button type="button" id="color-home-new-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorHomeNew();" hidden>Valider</button>
@@ -289,7 +289,7 @@
             <div class="col-md-4">
                 <h4>Pour le titre de ces films :</h4>
                 <form role="form" class="mt-3">
-                    @include('Flooflix.websiteManagement.partials.form-group-font',[
+                    @include('Flooflix_websiteManagement.partials.form-group-font',[
                         'name' => 'font_movie_home_new',
                         ])
                         <button type="button" id="font-movie-home-new-submit" class="btn btn-success btn-sm mb-3" onclick="writeInLocalStorageFontMovieHomeNew();" hidden>Valider</button>
@@ -297,7 +297,7 @@
                         <button type="button" id="font-movie-home-new-delete" class="btn btn-danger btn-sm mb-3" onclick="deleteOptionSelectedForFontMovieHomeNew();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_movie_home_new',
                         ])
                         <button type="button" id="color-movie-home-new-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorMovieHomeNew();" hidden>Valider</button>
@@ -305,7 +305,7 @@
                         <button type="button" id="color-movie-home-new-delete" class="btn btn-danger btn-sm" onclick="deleteOptionSelectedForColorMovieHomeNew();" hidden>Supprimer l'enregistrement</button>
                 </form>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-color',[
+                    @include('Flooflix_websiteManagement.partials.form-group-color',[
                         'name' => 'color_movie_mouseover_home_new',
                         ])
                         <button type="button" id="color-movie-mouseover-home-new-submit" class="btn btn-success btn-sm" onclick="writeInLocalStorageColorMovieMouseoverHomeNew();" hidden>Valider</button>
@@ -322,7 +322,7 @@
             <div class="col-md-4">
                 <p class="mt-4">Le 1er film :</p>
                 <form role="form">
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'first_movie_new',
                         'number' => '6',
                         ])
@@ -331,7 +331,7 @@
                 </form>
                 <form action="">
                     <p class="mt-4">Le 4ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'fourth_movie_new',
                         'number' => '9',
                         ])
@@ -342,7 +342,7 @@
             <div class="col-md-4">
                 <form role="form">
                     <p class="mt-4">Le 2ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'second_movie_new',
                         'number' => '7',
                         ])
@@ -351,7 +351,7 @@
                 </form>
                 <form action="">
                     <p class="mt-4">Le 5ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'fifth_movie_new',
                         'number' => '10',
                         ])
@@ -362,7 +362,7 @@
             <div class="col-md-4">
                 <form role="form">
                     <p class="mt-4">Le 3ème film :</p>
-                    @include('Flooflix.websiteManagement.partials.form-group-select-movie',[
+                    @include('Flooflix_websiteManagement.partials.form-group-select-movie',[
                         'name' => 'third_movie_new',
                         'number' => '8',
                         ])
