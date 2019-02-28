@@ -190,11 +190,14 @@ class PictureController extends Controller
     /**
      * Displays the view Picture. 
      *
+     * @param \App\Picture  $picture
      * @return view
      */
-    public function showPictureInformations()
+    public function showPictureInformations($picture)
     {
-        return view('Flooflix_websiteManagement.pictureInformations');
+        dump($picture);
+        $picture = Picture::find($picture);
+        return view('Flooflix_websiteManagement.pictureInformations',compact('picture'));
     }
 
     /**
@@ -295,7 +298,7 @@ class PictureController extends Controller
         // Save data
         $name = $request->name;
         if(isset($name) && !is_null($name) && is_string($name)){
-            $picture->name =  $request->name;
+            $picture->name = $name;
             $picture->save();
             return redirect('/ListeDesImages')->with('message', "Le nom de l'image a bien été modifié");
         }else{

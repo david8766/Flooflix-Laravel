@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Font;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FontController extends Controller
 {
@@ -128,5 +129,168 @@ class FontController extends Controller
     {
         $font->delete();
         return redirect('/font')->with('message','Les données ont bien été supprimé');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | FONCTIONS FOR WEBSITE MANAGEMENT
+    |--------------------------------------------------------------------------
+    |
+    | These functions are used for managing the site for its owner.
+    |
+    */
+
+    /**
+     * Displays the view fonts list. 
+     *
+     * @return view
+     */
+    public function fontsList()
+    {
+        // total fonts
+        $total = count(Font::all());
+        // get fonts ids sort by last register and paginate result
+        $fonts = DB::table('fonts')
+        ->select('id')
+        ->orderBy('created_at','desc')
+        ->paginate(15);
+
+        // set fonts collection for display
+        foreach ($fonts as $key => $value) {  
+            $font = Font::find($value->id);
+            $fonts[$key] = $font;   
+        }
+        return view('Flooflix_websiteManagement.fontsList',compact('fonts','total'));
+    }
+
+    /**
+     * Displays the view font. 
+     *
+     * @param \App\Font  $font
+     * @return view
+     */
+    public function showFontInformations($font)
+    {
+        $font = Font::find($font);
+        return view('Flooflix_websiteManagement.fontInformations',compact('font'));
+    }
+
+    /**
+     * Displays the view font informations by research. 
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return view
+     */
+    public function showfontInformationsByResearch(Request  $request)
+    {
+        //dd($request->search);
+        $search = $request->search;
+        $words = explode(" ",$search);
+        $q = "";
+        foreach ($words as $word) {
+            $q .= '%'.$word;
+        };
+        $q .= '%';
+        $font = Font::where('name', 'like', $q)->first();
+        if (is_null($font)) {
+            return back()->with('messageError','Aucune image ne correspond à votre recherche');
+        } else { 
+            return view('Flooflix_websiteManagement.fontInformations', compact('font'));
+        }
+        
+    }
+
+    /**
+     * Displays the view to add font. 
+     *
+     * @return view
+     */
+    public function addFont()
+    {
+        return view('Flooflix_websiteManagement.forms.fonts.createFont');
+    }
+
+    /**
+     * Store a newly created font in database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return view
+     */
+    public function storeFont(Request $request)
+    {
+        // Validate the fields
+        request()->validate([
+            'name' => ['required','string'],
+            'link' => ['required','string'],
+            'style' => ['required','string']
+        ]);
+        // Data verification
+        if(isset($request->name) && isset($request->link) && isset($request->style) && !is_null($request->name) && !is_null($request->link)  && !is_null($request->style) && !empty($request->name) && !empty($request->link) && !empty($request->style) && is_string($request->name) && is_string($request->link) && is_string($request->style)){
+            // Verify if font exists in database
+            $fonts = Font::all();
+            foreach ($fonts as $font) {
+                if(($font->name == $request->name) && ($font->link == $request->link) && ($font->style == $request->style)){
+                    return back()->with('message', 'Cette police existe déjà');
+                }
+            }
+            // Save datas
+            $font = New Font;
+            $font->name = $request->name;
+            $font->link = $request->link;
+            $font->style = $request->style;
+            $font->save();
+            return redirect()->route('fonts.list')->with('message', 'Les données ont bien été ajoutées');
+        }else{
+            return redirect()->route('fonts.list')->with('messageError', "Une erreur est survenue lors de l'enregistrement des données");      
+        } 
+    }
+
+    /** 
+     * Show the form for editing the font name.
+     *
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function editfontName(Font $font)
+    {
+        return view('Flooflix_websiteManagement.forms.fonts.editFontName', compact('font'));
+    }
+
+    /**
+     * Update the font name.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function updatefontName(Request $request,Font $font)
+    {
+        //Validate fields
+        request()->validate(['name' => ['required','string']]);
+
+        // Save data
+        $name = $request->name;
+        if(isset($name) && !is_null($name) && is_string($name)){
+            $font->name = $name;
+            $font->save();
+            return redirect()->route('fonts.list')->with('message', "Le nom de la police a bien été modifié");
+        }else{
+            return redirect()->route('fonts.list')->with('messageError', "Un problème est survenu lors de l'enrtegistrement des données"); 
+        }
+    }
+
+    /**
+     * Delete font.
+     *
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function deleteFont(Font $font)
+    {
+        // Delete font in database
+        $font->delete();
+        
+        return redirect()->route('fonts.list')->with('message', "La police a bien été supprimée");
+        
     }
 }

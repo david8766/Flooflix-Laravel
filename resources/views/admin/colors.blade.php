@@ -24,7 +24,7 @@
                             <td>{{ __($color['name']) }}</td>
                             <td>{{ __($color['rgb']) }}</td>
                             <td>{{ __($color['opacity']) }}</td>
-                        <td><div style="height: 3rem; width: 5rem; background-color: {{ $color['rgb'] }}; opacity: {{ $color['opacity'] }}"></div></td>
+                            <td><div style="height: 3rem; width: 5rem; background-color: {{ $color['rgb'] }}; opacity: {{ $color['opacity'] }}"></div></td>
                             <td>
                                 <a href="{{ action('ColorController@edit', $color) }}" class="btn btn-warning">{{ __('Modifier') }}</a>
                             </td>

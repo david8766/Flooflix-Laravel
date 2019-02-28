@@ -6,42 +6,83 @@
     <header>
         <h1 class="mt-5 separator">Liste des polices</h1>
     </header>
+    <div class="row mt-2">
+        <a href="AjouterUnePolice" class="azure hover-red">Ajouter une police</a>
+    </div>
     <div class="row mt-5">
         <div class="col table-responsive">
             <table class="table table-light table-bordered black">
                 <thead>
                     <tr>
                         <th>NOM</th>
+                        <th>LIEN</th>
+                        <th>STYLE</th>
                         <th>EXEMPLE</th>
                         <th>ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="">anton</td>
-                        <td class="font-anton">Exemple de texte</td>
-                        <td>
-                            <a href="" class="black" id="hover-red">Supprimer</a>
-                        </td>
+                        <td colspan="5">Cliquer sur le nom de la couleur pour modifier le contenu</td>
                     </tr>
+                    @foreach ($fonts as $font)      
+                    @if (!is_null($font))
+                    <tr>       
+                        <td>
+                            <a href="{{ route('font.informations',$font) }}" class="black hover-red" style="font-family: {{ $font->style }}">
+                                {{ $font->name }}
+                            </a>
+                        </td>
+                        <td style="font-family: {{ $font->style }}">
+                            {{$font->link}}
+                        </td>
+                        <td style="font-family: {{ $font->style }}">
+                            {{$font->style}}
+                        </td>
+                        <td style="font-family: {{ $font->style }}, cursive; ">Exemple de texte: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque eligendi suscipit temporibus possimus maxime debitis natus illum voluptatem repellat, deserunt corporis alias doloribus adipisci sapiente? Quae beatae voluptatum odio fugiat?
+                        </td>
+                        <td>
+                            @if ($font->style != 'Alfa Slab One' && $font->style != "Anton")
+                            <a href="{{ action('FontController@deleteFont',$font) }}" class="black font-alfa hover-red">Supprimer</a>   
+                            @else
+                                {{"police de base"}}
+                            @endif
+                        </td>
+                            
+                    </tr>
+                    @else
+                    <tr><td>Pas d'images enregistrée</td></tr>
+                    @endif
                 </tbody>
+                @endforeach
             </table>
         </div>
     </div>
-    <a href="AjouterUnePolice" class="azure" id="hover-red">Ajouter une police</a>
-    <div class="row separator-top mt-4 justify-content-center">
-        <div class="col col-auto mt-4">
+    @if ($total > 15)
+    <div class="row separator-top mt-5 justify-content-center">
+        <div class="col col-auto mt-3">
             <nav aria-label="Navigation">
-                <ul class="pagination text-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">Précédent</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+                <ul class="pagination text-center" role="navigation">
+                    @if ($fonts->currentPage() != 1)
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $fonts->previousPageUrl() }}">Précédent</a></li>
+                    @if ($fonts->currentPage() >2)
+                       <li class="page-item"><a class="page-link black hover-red" href="{{ $fonts->url(1) }}">1</a></li>  
+                    @endif
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $fonts->previousPageUrl() }}">{{$fonts->currentPage()-1}}</a></li>    
+                    @endif
+                    <li class="page-item"><a class="page-link red" href="{{ $fonts->url($fonts->currentPage()) }}">{{$fonts->currentPage()}}</a></li>
+                    @if ($fonts->currentPage() != $fonts->lastPage())
+                        @if ($fonts->currentPage() != ($fonts->lastPage()-1))
+                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $fonts->nextPageUrl() }}">{{$fonts->currentPage()+1}}</a></li>             
+                        @endif
+                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $fonts->url($fonts->lastPage()) }}">{{$fonts->lastPage()}}</a></li>
+                    @endif
+                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $fonts->nextPageUrl() }}">Suivant</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
+    </div>    
+    @endif
 </article>
 @include('Flooflix.layouts.scripts')
 <script>

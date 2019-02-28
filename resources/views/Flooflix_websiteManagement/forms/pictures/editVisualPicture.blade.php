@@ -33,7 +33,7 @@
                 </form>
                 <div class="row mt-5 justify-content-center">
                     <div class="col col-auto">
-                    <a href="{{ route('pictures.list') }}" class="font-alfa black hover-coral">Annuler</a>
+                    <a href="{{ route('picture.informations',$picture) }}" class="font-alfa black hover-coral">Annuler</a>
                     </div>
                 </div>
             </div>

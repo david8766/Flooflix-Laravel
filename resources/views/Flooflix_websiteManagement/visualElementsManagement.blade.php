@@ -12,8 +12,9 @@
         <li class="mt-4">
             <div class="row">
                 <p class="text-left mt-3">Rechercher une police</p>
-                <form class="form-inline my-2 my-lg-0 ml-3" role="search">
-                    <input class="form-control-md mr-sm-2 margin-left-2" type="search" placeholder="" aria-label="Search">
+                <form action="{{ action('FontController@showFontInformationsByResearch') }}" class="form-inline my-2 my-lg-0 ml-3" role="search" method="POST">
+                    @csrf
+                    <input class="form-control-md mr-sm-2 margin-left-2" type="search" name="search" placeholder="nom de la police" aria-label="Search">
                     <button class="btn btn-outline-danger btn-md my-2 my-sm-0 ml-2" type="submit">Rechercher</button>
                 </form>
             </div>
@@ -27,8 +28,9 @@
         <li class="mt-4">
             <div class="row">
                 <p class="text-left mt-3">Rechercher une couleur</p>
-                <form class="form-inline my-2 my-lg-0 ml-3" role="search">
-                    <input class="form-control-md mr-sm-2 margin-left-2" type="search" placeholder="" aria-label="Search">
+                <form action="{{ action('ColorController@showColorInformationsByResearch') }}" class="form-inline my-2 my-lg-0 ml-3" role="search" method="POST">
+                    @csrf
+                    <input class="form-control-md mr-sm-2 margin-left-2" type="search" name="search" placeholder="nom de la couleur" aria-label="Search">
                     <button class="btn btn-outline-danger btn-md my-2 my-sm-0 ml-2" type="submit">Rechercher</button>
                 </form>
             </div>

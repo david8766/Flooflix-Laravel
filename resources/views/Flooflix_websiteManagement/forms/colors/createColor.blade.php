@@ -1,4 +1,4 @@
-@extends('Flooflix.layouts.base')
+@extends('Flooflix_websiteManagement.layouts.base')
 @section('content')
 @include('Flooflix_websiteManagement.layouts.header')
 <!-- Main -->
@@ -10,25 +10,26 @@
                 <header class="text-center mt-4">
                     <h1 class="font-alfa black">Ajouter une couleur</h1>
                 </header>
-                <form action="" class="mt-5 mx-5">
+                <form action="{{ action('ColorController@storeColor') }}" class="mt-5 mx-5" method="POST">
+                    @csrf
                     <div class="form-group mt-5">
                         <label for="name" class="font-alfa black">Nom</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="exemple : Rouge">
                     </div>
-                    <label for="hexa" class="font-alfa black">code hexadécimal</label>
+                    <label for="rgb" class="font-alfa black">code RGB</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">#</span>
                         </div>
-                        <input type="text" class="form-control" name="hexa" id="hexa" placeholder="exemple : FF0200">
+                        <input type="text" class="form-control" name="rgb" placeholder="exemple : rgb(255,0,0)">
                     </div>
                     <div class="form-group mt-3">
-                        <label for="link" class="font-alfa black">opacité</label>
+                        <label for="opacity" class="font-alfa black">opacité</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Entre 0.0 et 1</span>
                             </div>
-                            <input type="text" class="form-control" name="hexa" id="hexa" value="1">
+                            <input type="text" class="form-control" name="opacity" value="1">
                         </div>
                     </div>
                     <div class="row mt-5 justify-content-center">

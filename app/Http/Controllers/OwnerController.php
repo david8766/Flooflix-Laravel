@@ -111,16 +111,6 @@ class OwnerController extends Controller
     }
 
     /**
-     * Displays the view fonts list. 
-     *
-     * @return view
-     */
-    public function fontsList()
-    {
-        return view('Flooflix_websiteManagement.fontsList');
-    }
-
-    /**
      * Displays the view add font. 
      *
      * @return view
@@ -129,25 +119,7 @@ class OwnerController extends Controller
     {
         return view('Flooflix_websiteManagement.forms.createFont');
     }
-    /**
-     * Displays the view colors list. 
-     *
-     * @return view
-     */
-    public function colorsList()
-    {
-        return view('Flooflix_websiteManagement.colorsList');
-    }
-
-    /**
-     * Displays the view add color. 
-     *
-     * @return view
-     */
-    public function addcolor()
-    {
-        return view('Flooflix_websiteManagement.forms.createColor');
-    }
+    
 
     /**
      * Logout a user.

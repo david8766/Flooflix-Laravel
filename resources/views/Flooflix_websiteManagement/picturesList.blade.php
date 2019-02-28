@@ -22,21 +22,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="3">Cliquer sur un élément pour le modifier</td>
+                        <td colspan="3">Cliquer sur un élément pour le nom de l'image pour modifier les informations</td>
                     </tr>
                     @foreach ($pictures as $picture)      
                     @if (!is_null($picture))
                     <tr>       
                         <td>
-                            <a href="{{ route('edit.picture.name',$picture) }}" class="font-alfa black hover-red">
+                            <a href="{{ route('picture.informations',$picture) }}" class="font-alfa black hover-red">
                                 {{ $picture->name }}
                             </a>
                         </td>
-                        <td>
-                            <a href="{{ route('edit.picture.visual',$picture) }}">
-                                <img src="{{ asset($picture->style) }}" alt="{{ $picture->name }}" class="img-fluid figure-img">
-                            </a>
-                        </td>
+                        <td><img src="{{ asset($picture->style) }}" alt="{{ $picture->name }}" class="img-fluid figure-img"></td>
                         <td>
                             <a href="{{ action('PictureController@deletePicture',$picture) }}" class="black font-alfa hover-red">Supprimer</a>
                         </td>
