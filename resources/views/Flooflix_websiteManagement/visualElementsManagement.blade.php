@@ -5,10 +5,10 @@
 <article role="main" class="container font-alfa azure" role="main">
     <h1 class="mt-5 separator">Gestion des éléments visuels</h1>
     <h2 class="mt-4"><u>Les polices :</u></h2>
-    <p class="mt-4">Nombre total de polices enregistrées : xxxxxx</p>
+    <p class="mt-4">Nombre total de polices enregistrées : {{ count($fonts )}}</p>
     <ul>
-        <li class="mt-4"> <a href="/ListeDesPolices" class="font-alfa azure" id="hover-red">Voir la liste</a> </li>
-        <li class="mt-4"> <a href="/AjouterUnePolice" class="font-alfa azure" id="hover-red">Ajouter une police</a> </li>
+        <li class="mt-4"> <a href="/ListeDesPolices" class="font-alfa azure hover-red">Voir la liste</a> </li>
+        <li class="mt-4"> <a href="/AjouterUnePolice" class="font-alfa azure hover-red">Ajouter une police</a> </li>
         <li class="mt-4">
             <div class="row">
                 <p class="text-left mt-3">Rechercher une police</p>
@@ -20,10 +20,10 @@
         </li>
     </ul>
     <h2><u>Les couleurs</u></h2>
-    <p class="mt-4">Nombre total de couleurs enregistrées : xxxxxx</p>
+    <p class="mt-4">Nombre total de couleurs enregistrées : {{ count($colors) }}</p>
     <ul>
-        <li class="mt-4"> <a href="ListeDesCouleurs" class="font-alfa azure" id="hover-red">Voir la liste</a> </li>
-        <li class="mt-4"> <a href="AjouterUneCouleur" class="font-alfa azure" id="hover-red">Ajouter une couleur</a> </li>
+        <li class="mt-4"> <a href="ListeDesCouleurs" class="font-alfa azure hover-red">Voir la liste</a> </li>
+        <li class="mt-4"> <a href="AjouterUneCouleur" class="font-alfa azure hover-red">Ajouter une couleur</a> </li>
         <li class="mt-4">
             <div class="row">
                 <p class="text-left mt-3">Rechercher une couleur</p>
@@ -35,10 +35,10 @@
         </li>
     </ul>
     <h2><u>Les images</u></h2>
-    <p class="mt-4">Nombre total d'images enregistrées : xxxxxx</p>
+    <p class="mt-4">Nombre total d'images enregistrées : {{ count($pictures) }}</p>
     <ul>
-        <li class="mt-4"> <a href="ListeDesImages" class="font-alfa azure" id="hover-red">Voir la liste</a> </li>
-        <li class="mt-4"> <a href="AjouterUneImage" class="font-alfa azure" id="hover-red">Ajouter une image</a> </li>
+        <li class="mt-4"> <a href="ListeDesImages" class="font-alfa azure hover-red">Voir la liste</a> </li>
+        <li class="mt-4"> <a href="AjouterUneImage" class="font-alfa azure hover-red">Ajouter une image</a> </li>
         <li class="mt-4">
             <div class="row">
                 <p class="text-left mt-3">Rechercher une image</p>

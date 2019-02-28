@@ -7,6 +7,10 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use App\Picture;
+use App\Font;
+use App\Text;
+use App\Color;
 
 class OwnerController extends Controller
 {
@@ -100,7 +104,10 @@ class OwnerController extends Controller
      */
     public function visualElementsManagement()
     {
-        return view('Flooflix_websiteManagement.visualElementsManagement');
+        $fonts = Font::all();
+        $colors = Color::all();
+        $pictures = Picture::all();
+        return view('Flooflix_websiteManagement.visualElementsManagement',compact('pictures','colors','fonts'));
     }
 
     /**
@@ -140,16 +147,6 @@ class OwnerController extends Controller
     public function addcolor()
     {
         return view('Flooflix_websiteManagement.forms.createColor');
-    }
-
-    /**
-     * Displays the view add Picture. 
-     *
-     * @return view
-     */
-    public function addPicture()
-    {
-        return view('Flooflix_websiteManagement.forms.createPicture');
     }
 
     /**

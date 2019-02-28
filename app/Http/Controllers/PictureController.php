@@ -164,6 +164,16 @@ class PictureController extends Controller
     }
 
     /**
+     * Displays the view add Picture. 
+     *
+     * @return view
+     */
+    public function addPicture()
+    {
+        return view('Flooflix_websiteManagement.forms.pictures.createPicture');
+    }
+
+    /**
      * Store a newly created picture in storage form management.
      *
      * @param  \Illuminate\Http\Request  $request
