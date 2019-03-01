@@ -21,27 +21,54 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="5">Cliquer sur un élément pour le modifier</td>
+                        @switch(!is_null($font->style))
+                            @case($font->style == 'Alfa Slab One')
+                                {{''}}
+                                @break
+                            @case($font->style == "Anton")
+                                {{''}}
+                                @break
+                            @default
+                            <td colspan="5">Cliquer sur un élément pour le modifier</td>        
+                        @endswitch
                     </tr>  
                     @if (!is_null($font))
                     <tr>
                         <td>
                             @switch(!is_null($font->style))
                                 @case($font->style == 'Alfa Slab One')
-                                    {{"police de base"}}
+                                    {{$font->name}}
                                     @break
                                 @case($font->style == "Anton")
-                                    {{"police de base"}}
+                                    {{$font->name}}
                                     @break
                                 @default
                                     <a href="{{ route('edit.font.name',$font) }}" class="black hover-red" style="font-family: {{ $font->style }}">{{$font->name}}</a>
                             @endswitch
                         </td>
                         <td style="font-family: {{ $font->style }}">
-                            {{$font->link}}
+                            @switch(!is_null($font->style))
+                                @case($font->style == 'Alfa Slab One')
+                                    {{$font->link}}
+                                    @break
+                                @case($font->style == "Anton")
+                                    {{$font->link}}
+                                    @break
+                                @default
+                                    <a href="{{ route('edit.font.link',$font) }}" class="black hover-red" style="font-family: {{ $font->style }}">{{$font->link}}</a>
+                            @endswitch
                         </td>
                         <td style="font-family: {{ $font->style }}">
-                            {{$font->style}}
+                            @switch(!is_null($font->style))
+                                @case($font->style == 'Alfa Slab One')
+                                    {{$font->style}}
+                                    @break
+                                @case($font->style == "Anton")
+                                    {{$font->style}}
+                                    @break
+                                @default
+                                    <a href="{{ route('edit.font.style',$font) }}" class="black hover-red" style="font-family: {{ $font->style }}">{{$font->style}}</a>
+                            @endswitch
                         </td>
                         <td style="font-family: {{ $font->style }}">Exemple de texte: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque eligendi suscipit temporibus possimus maxime debitis natus illum voluptatem repellat, deserunt corporis alias doloribus adipisci sapiente? Quae beatae voluptatum odio fugiat?
                         </td>

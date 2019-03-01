@@ -171,8 +171,9 @@ class FontController extends Controller
      */
     public function showFontInformations($font)
     {
+        $fonts = Font::all();
         $font = Font::find($font);
-        return view('Flooflix_websiteManagement.fontInformations',compact('font'));
+        return view('Flooflix_websiteManagement.fontInformations',compact('font','fonts'));
     }
 
     /**
@@ -251,7 +252,7 @@ class FontController extends Controller
      * @param  \App\Font  $font
      * @return view
      */
-    public function editfontName(Font $font)
+    public function editFontName(Font $font)
     {
         return view('Flooflix_websiteManagement.forms.fonts.editFontName', compact('font'));
     }
@@ -263,7 +264,7 @@ class FontController extends Controller
      * @param  \App\Font  $font
      * @return view
      */
-    public function updatefontName(Request $request,Font $font)
+    public function updateFontName(Request $request,Font $font)
     {
         //Validate fields
         request()->validate(['name' => ['required','string']]);
@@ -273,9 +274,77 @@ class FontController extends Controller
         if(isset($name) && !is_null($name) && is_string($name)){
             $font->name = $name;
             $font->save();
-            return redirect()->route('fonts.list')->with('message', "Le nom de la police a bien été modifié");
+            return redirect()->route('font.informations',$font)->with('message', "Le nom de la police a bien été modifié");
         }else{
-            return redirect()->route('fonts.list')->with('messageError', "Un problème est survenu lors de l'enrtegistrement des données"); 
+            return redirect()->route('font.informations',$font)->with('messageError', "Un problème est survenu lors de l'enrtegistrement des données"); 
+        }
+    }
+
+    /** 
+     * Show the form for editing the font link.
+     *
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function editFontLink(Font $font)
+    {
+        return view('Flooflix_websiteManagement.forms.fonts.editFontLink', compact('font'));
+    }
+
+    /**
+     * Update the font link.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function updateFontLink(Request $request,Font $font)
+    {
+        //Validate fields
+        request()->validate(['link' => ['required','string']]);
+
+        // Save data
+        $link = $request->link;
+        if(isset($link) && !is_null($link) && is_string($link)){
+            $font->link = $link;
+            $font->save();
+            return redirect()->route('font.informations',$font)->with('message', "Le lien de la police a bien été modifié");
+        }else{
+            return redirect()->route('font.informations',$font)->with('messageError', "Un problème est survenu lors de l'enrtegistrement des données"); 
+        }
+    }
+
+    /** 
+     * Show the form for editing the font style.
+     *
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function editFontStyle(Font $font)
+    {
+        return view('Flooflix_websiteManagement.forms.fonts.editFontStyle', compact('font'));
+    }
+
+    /**
+     * Update the font style.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Font  $font
+     * @return view
+     */
+    public function updateFontStyle(Request $request,Font $font)
+    {
+        //Validate fields
+        request()->validate(['style' => ['required','string']]);
+
+        // Save data
+        $style = $request->style;
+        if(isset($style) && !is_null($style) && is_string($style)){
+            $font->style = $style;
+            $font->save();
+            return redirect()->route('font.informations',$font)->with('message', "Le lien de la police a bien été modifié");
+        }else{
+            return redirect()->route('font.informations',$font)->with('messageError', "Un problème est survenu lors de l'enrtegistrement des données"); 
         }
     }
 

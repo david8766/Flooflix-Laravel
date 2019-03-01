@@ -137,6 +137,10 @@ Route::group(['middleware' => ['App\Http\Middleware\IsOwner']], function(){
     Route::post('/AjouterUnePolice','FontController@storeFont')->name('store.font');
     Route::get('/ModifierLeNomDeLaPolice/{font}','FontController@editFontName')->name('edit.font.name');
     Route::post('/MettreAjourLeNomDeLaPolice/{font}','FontController@updateFontName')->name('update.font.name');
+    Route::get('/ModifierLeLienDeLaPolice/{font}','FontController@editFontLink')->name('edit.font.link');
+    Route::post('/MettreAjourLeLienDeLaPolice/{font}','FontController@updateFontLink')->name('update.font.link');
+    Route::get('/ModifierLaRègleCSSDeLaPolice/{font}','FontController@editFontStyle')->name('edit.font.style');
+    Route::post('/MettreAjourLaRègleCSSDeLaPolice/{font}','FontController@updateFontStyle')->name('update.font.style');
     Route::get('/SupprimerLaPolice/{font}','FontController@deleteFont')->name('delete.font');
     Route::get('/ListeDesCouleurs','ColorController@colorsList')->name('colors.list');
     Route::get('/LesInformationsDeLaCouleur/{color}','ColorController@showColorInformations')->name('color.informations');

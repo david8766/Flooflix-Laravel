@@ -14,15 +14,18 @@
                         @csrf
                         <div class="form-group mt-5">
                             <label for="name" class="font-alfa black">Nom</label>
-                            <input type="text" class="form-control" name="name" placeholder="exemple : Roboto">
+                            <div class="input-group-prepend"><span class="input-group-text font-alfa" id="name">Exemple:Roboto</span></div>
+                            <input type="text" class="form-control" name="name" aria-label="name">
                         </div>
                         <div class="form-group mt-3">
-                            <label for="link" class="font-alfa black">Lien</label>
-                            <input type="text" class="form-control" name="link" placeholder="exemple : https://fonts.googleapis.com/css?family=Roboto">
+                            <label for="link" class="font-alfa black mt-3">Lien</label>
+                            <div class="input-group-prepend"><span class="input-group-text font-alfa" id="link">Exemple : https://fonts.googleapis.com/css?family=Roboto</span></div>
+                            <input type="text" class="form-control" name="link" aria-label="link">
                         </div>
                         <div class="form-group mt-3">
                             <label for="style" class="font-alfa black">Règle css</label>
-                            <input type="text" class="form-control" name="style" placeholder="exemple : 'Roboto'">
+                            <div class="input-group-prepend"><span class="input-group-text font-alfa" id="style">Exemple : 'Roboto'</span></div>
+                            <input type="text" class="form-control" name="style" aria-label="style">
                         </div>
                         <div class="row mt-5 justify-content-center">
                             <div class="col col-auto">
@@ -40,7 +43,7 @@
             </div>
         </div>
         <div class="row mt-4 justify-content-center">
-            <a href="https://fonts.google.com/" target="_blank" class="azure hover-red">{{ "Google fonts" }}</a> 
+            <a href="https://fonts.google.com/" target="_blank" class="azure hover-red font-alfa">{{ "Google fonts" }}</a> 
         </div>
     </article>
 @include('Flooflix.layouts.scripts')

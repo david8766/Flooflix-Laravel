@@ -8,15 +8,15 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6 bg-white">
                 <header class="text-center mt-4">
-                    <h1 class="font-alfa black">Modifier le nom de la police :</h1>
+                    <h1 class="font-alfa black">Modifier la règle CSS de la police :</h1>
                 </header>
-                <form action="{{ action('FontController@updateFontName',$font) }}" class="mt-5 mx-5" method="POST">
+                <form action="{{ action('FontController@updateFontStyle',$font) }}" class="mt-5 mx-5" method="POST">
                     @csrf
                     <div class="form-group mt-5">
-                        <label for="name" class="font-alfa black">Nom</label>
-                    <input type="text" name="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="{{ $font->name}}">
-                        @if ($errors->has('name'))
-                            <p class="invalid-feedback" role="alert">{{ __($errors->first('name')) }}</p>
+                        <label for="style" class="font-alfa black">Style</label>
+                    <input type="text" name="style" class="form-control {{ $errors->has('style') ? ' is-invalid' : '' }}" value="{{ old('style') }}" placeholder="{{ $font->style}}">
+                        @if ($errors->has('style'))
+                            <p class="invalid-feedback" role="alert">{{ __($errors->first('style')) }}</p>
                         @endif
                     </div>
                     <div class="row mt-5 justify-content-center">
