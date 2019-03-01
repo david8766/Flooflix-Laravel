@@ -37,14 +37,14 @@
                             <div class="row">
                                 @foreach ($tabs as $movie)
                                 <div class="col-sm-6 col-md text-center">
-                                    <a href="{{ route('movie',[$movie->title]) }}" class="azure" id="hover-coral">
+                                    <a href="{{ route('movie',[$movie->title]) }}" class="azure hover-coral">
                                         <figure class="figure">
                                             @foreach ($pictures as $picture)
                                             @if ($picture->id == $movie->picture_id)
-                                            <img width="150px" height="250px" src="{{ asset($picture->style) }}" alt="{{ $movie->title }}" class="img-fluid figure-img">
+                                            <img src="{{ asset($picture->style) }}" alt="{{ $movie->title }}" class="figure-img image">
                                             @endif
                                             @endforeach         
-                                            <figcaption class="fig-caption font-alfa">{{ $movie->title }}</figcaption>        
+                                            <figcaption class="fig-caption font-alfa hover-coral">{{ $movie->title }}</figcaption>        
                                         </figure>
                                     </a>
                                 </div>    
