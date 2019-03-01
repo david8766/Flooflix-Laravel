@@ -530,6 +530,9 @@ class UserController extends Controller
         ->selectRaw('SUM(price) as total')
         ->whereYear('created_at',$year)
         ->first();
+        if (is_null($total_year->total)) {
+            $total_year->total = 0;
+        }
 
         // total month sales
         $total_month = DB::table('movie_user')
@@ -537,6 +540,10 @@ class UserController extends Controller
         ->whereYear('created_at',$year2)
         ->whereMonth('created_at',$month2)
         ->first();
+        if (is_null($total_month->total)) {
+            $total_month->total = 0;
+        }
+        dump($total_month);
 
         // total day sales
         $total_day = DB::table('movie_user')
@@ -545,6 +552,9 @@ class UserController extends Controller
         ->whereMonth('created_at',$month3)
         ->whereDay('created_at',$day)
         ->first();
+        if (is_null($total_day->total)) {
+            $total_day->total = 0;
+        }
         
         return view('Flooflix_websiteManagement.usersManagement',compact('total_users','total_customers','total_ca','total_year','total_month','total_day','year','year2','year3','month2','month3','day'));
     }
@@ -606,10 +616,16 @@ class UserController extends Controller
      */
     public function addUserByResearch(Request  $request)
     {
+        // Validate the fields
+        request()->validate([
+            'search' => ['required','string'],
+        ]);
         $search = $request->search;
         $words = explode(" ",$search);
         
+        
         $user = User::where('last_name', 'like', ucfirst($words[1]))->where('first_name', 'like', ucfirst($words[0]))->first();
+        dump($user);
         if (is_null($user)) {
             return back()->with('messageError','Aucun utilisateur ne correspond à votre recherche');
         } else { 

@@ -2,7 +2,8 @@
 @section('content')
 @include('Flooflix_websiteManagement.layouts.header')
 <!-- Main -->
-<article role="main" class="container font-alfa azure">   
+<article role="main" class="container font-alfa azure">
+@include('Flooflix.partials.message')  
         <h1 class="mt-5 separator">Gestion des utilisateurs</h1>
         <h2 class="mt-4">Statistiques :</h2>
         <ul>
@@ -39,8 +40,9 @@
     <h2><a href="{{ route('users.list') }}" class="azure hover-red">Voir la liste des utilisateurs</a></h2>
         <div class="row">
             <p class="text-left mt-3"><i class="fas fa-arrow-circle-right"></i> Rechercher un utilisateur</p>
-            <form class="form-inline my-2 my-lg-0 ml-3" role="search">
-                <input class="form-control-md mr-sm-2" type="search" placeholder="" aria-label="Search">
+            <form action="{{ action('UserController@addUserByResearch') }}" class="form-inline my-2 my-lg-0 ml-3" role="search" method="POST">
+                @csrf
+                <input class="form-control-md mr-sm-2" type="text" name="search" placeholder="Prénom Nom" aria-label="Search">
                 <button class="btn btn-outline-danger btn-md my-2 my-sm-0 ml-2" type="submit">Rechercher</button>
             </form>
         </div>  
