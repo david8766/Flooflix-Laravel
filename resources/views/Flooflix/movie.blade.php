@@ -18,7 +18,7 @@
                         @endforeach
                     </figure>
                     <div class="row">
-                    <a class="font-alfa azure btn bg-dark" id="hover-coral" href="{{ route('add.movie.to.shoppingCart',$movie) }}" role="button">AJOUTER AU PANIER</a>     
+                    <a class="font-alfa azure btn bg-dark hover-coral" href="{{ route('add.movie.to.shoppingCart',$movie) }}" role="button">AJOUTER AU PANIER</a>     
                     </div>
                 </div>
                 <div class="col-1"></div>

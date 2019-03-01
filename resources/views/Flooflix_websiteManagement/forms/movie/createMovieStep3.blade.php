@@ -43,7 +43,7 @@
                 </form>
                 <div class="row mt-5 justify-content-center">
                     <div class="col col-auto">
-                    <a href="{{ route('create.movie.step4',$movie) }}" class="font-alfa black" id="hover-coral">Passer à l'étape suivante</a>
+                    <a href="{{ route('create.movie.step4',$movie) }}" class="font-alfa black hover-coral">Passer à l'étape suivante</a>
                     </div>
                 </div>
             </div>

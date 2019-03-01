@@ -372,8 +372,7 @@ class PictureController extends Controller
         // Delete picture in database
         $picture->delete();
         
-        return redirect('/ListeDesImages')->with('message', "L'image a bien été supprimée");
-        
+        return redirect('/ListeDesImages')->with('message', "L'image a bien été supprimée");   
     }
 
 

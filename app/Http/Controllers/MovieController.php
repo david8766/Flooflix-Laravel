@@ -304,7 +304,7 @@ class MovieController extends Controller
      */
     public function storeStep1(Request $request)
     {
-        //Validate fields
+        // Validate fields
         request()->validate(['category' => ['required','string']]);
         request()->validate(['title' => ['required','string']]);
         request()->validate(['release_date' =>['required','date']]);
@@ -349,7 +349,7 @@ class MovieController extends Controller
      */
     public function storeStep2(Request $request, Movie $movie)
     {
-        //Validate fields
+        // Validate fields
         if(isset($request->last_name) && isset($request->first_name)){
             request()->validate(['last_name' => ['required','string']]);
             request()->validate(['first_name'=>['required','string']]);
@@ -388,7 +388,7 @@ class MovieController extends Controller
             return back()->with('mesage','messageError',"Une erreur est survenue lors de l'enregistrement des données.");
         }
         if(isset($request->film_director) && !is_null($request->film_director) && is_string($request->film_director)) {
-            //save datas
+            // save datas
             $film_director = explode(' ',$request->film_director);
             $film_director_last_name = $film_director[0];
             $film_director_first_name = $film_director[1];
@@ -421,7 +421,7 @@ class MovieController extends Controller
      */
     public function storeStep3(Request $request, Movie $movie)
     {
-        //Validate fields 
+        // Validate fields 
         if(isset($request->last_name) && isset($request->first_name)){
             request()->validate(['last_name' => ['required','string']]);
             request()->validate(['first_name'=>['required','string']]);
@@ -431,7 +431,7 @@ class MovieController extends Controller
             request()->validate(['actor'=>['required','string']]);
         }
         if (isset($last_name) && isset($first_name) && !is_null($last_name) && !is_null($first_name) && is_string($last_name) && is_string($first_name)) {
-            //save Datas
+            // save Datas
             $person = Person::where('last_name',$last_name)->where('first_name',$first_name)->first();
             if($person == null){
                 $person = new Person;

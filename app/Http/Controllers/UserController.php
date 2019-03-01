@@ -543,7 +543,6 @@ class UserController extends Controller
         if (is_null($total_month->total)) {
             $total_month->total = 0;
         }
-        dump($total_month);
 
         // total day sales
         $total_day = DB::table('movie_user')
@@ -574,12 +573,14 @@ class UserController extends Controller
         ->orderBy('users.created_at','desc')
         ->paginate(8);
 
+        $total = count($users);
+
         // set users collection for display
         foreach ($users as $key => $value) {  
             $user = User::find($value->id);
             $users[$key] = $user;   
         }
-        return view('Flooflix_websiteManagement.usersList',compact('users'));
+        return view('Flooflix_websiteManagement.usersList',compact('users','total'));
     }
 
     /**

@@ -27,7 +27,7 @@
                     @forelse ($users as $user)
                     <tr>
                         <td>
-                        <a href="{{ route('user.informations',$user) }}" class="black" id="hover-red">{{$user->login}}</a>
+                        <a href="{{ route('user.informations',$user) }}" class="black hover-red">{{$user->login}}</a>
                         </td>
                         <td>{{$user->last_name}}</td>
                         <td>{{$user->first_name}}</td>
@@ -36,14 +36,14 @@
                         <td>{{$user->credits}}</td>
                         <td>{{$user->getTotalSales()}}</td>
                     </tr>
-                        @empty
-                            <td>Aucun utilisateur enregistré</td>
-                        @endforelse
+                    @empty
+                        <td>Aucun utilisateur enregistré</td>
+                    @endforelse
                 </tbody>
             </table>
         </div>
     </div>
-    @if (count($users) > 8)
+    @if ($total > 8)
     <div class="row separator-top mt-5 justify-content-center">
         <div class="col col-auto mt-3">
             <nav aria-label="Navigation">
@@ -56,9 +56,13 @@
                     <li class="page-item"><a class="page-link black hover-red" href="{{ $users->previousPageUrl() }}">{{$users->currentPage()-1}}</a></li>    
                     @endif
                     <li class="page-item"><a class="page-link red" href="{{ $users->url($users->currentPage()) }}">{{$users->currentPage()}}</a></li>
-                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>
-                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->url($users->lastPage()) }}">{{$users->lastPage()}}</a></li>
-                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">Suivant</a></li>
+                    @if ($users->currentPage() != $users->lastPage())
+                        @if ($users->currentPage() != ($users->lastPage()-1))
+                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>             
+                        @endif
+                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->url($users->lastPage()) }}">{{$users->lastPage()}}</a></li>
+                    @endif
+                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">Suivant</a></li>
                 </ul>
             </nav>
         </div>

@@ -5,7 +5,7 @@
     $user = auth()->user('id');
 @endphp
 <!-- Main -->
-<article class="min-88">
+<article class="min-100">
     @include('Flooflix.partials.message')
     <div class="row text-center">
         <div class="col-lg-4 mt-5 px-5">

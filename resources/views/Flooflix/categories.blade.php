@@ -16,7 +16,7 @@
                         <figure class="figure">            
                             @foreach ($pictures as $picture)
                                 @if ($picture->id == $category->picture_id)    
-                                    <img src="{{ asset($picture->style) }}" alt="" class="img-fluid figure-img">
+                                    <img height="300px" width="500px" src="{{ asset($picture->style) }}" alt="" class="figure-img">
                                 @endif  
                             @endforeach
                             <figcaption class="fig-caption links">{{ $category->genre }}</figcaption>

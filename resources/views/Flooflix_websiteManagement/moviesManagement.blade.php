@@ -46,7 +46,21 @@
             <button class="btn btn-outline-danger btn-md my-2 my-sm-0 ml-2" type="submit">Rechercher</button>
         </form>
     </div>
-    <a href="AjouterUnFilm" class="azure hover-red">Ajouter un film</a>
+    <div class="row mt-3">
+        <a href="AjouterUnFilm" class="azure hover-red">Ajouter un film</a>
+    </div>
+    <h2 class="mt-4"><a href="{{ route('categories.list') }}" class="azure hover-red">Voir la liste des catégories</a></h2>
+    <div class="row">
+        <p class="text-left mt-3"><i class="fas fa-arrow-circle-right"></i> Rechercher une catégorie</p>
+        <form action="{{-- {{ action('MovieController@showMovieByResearchInWebsiteManagement') }} --}}" class="form-inline my-2 my-lg-0 ml-3" role="search" method="POST">
+            @csrf
+            <input class="form-control-md mr-sm-2 margin-left-2" type="text" name="search" placeholder="genre de la catégorie" aria-label="Search">
+            <button class="btn btn-outline-danger btn-md my-2 my-sm-0 ml-2" type="submit">Rechercher</button>
+        </form>
+    </div>
+    <div class="row mt-3">
+        <a href="{{ route('create.category') }}" class="azure hover-red">Ajouter une catégorie</a>
+    </div>
 </article>
 @include('Flooflix.layouts.scripts')
 @include('Flooflix.layouts.varJS')

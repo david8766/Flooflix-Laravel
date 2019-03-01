@@ -40,12 +40,12 @@
             </ul>
             @if (!is_null($user))       
             <div>
-                <a href="/logout" class="mr-3 azure" id="hover-coral" data-toggle="tooltip" data-placement="bottom" title="Se déconnecter">
+                <a href="/logout" class="mr-3 azure hover-coral" data-toggle="tooltip" data-placement="bottom" title="Se déconnecter">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
             <div>
-                <a href="{{ route('show.shoppingCart',$user) }}" class="mr-3 azure" id="hover-coral" data-toggle="tooltip" data-placement="bottom" title="Panier">
+                <a href="{{ route('show.shoppingCart',$user) }}" class="mr-3 azure hover-coral" data-toggle="tooltip" data-placement="bottom" title="Panier">
                     <i class="fas fa-cart-arrow-down"></i>
                 </a>
             </div>

@@ -251,7 +251,7 @@ class ColorController extends Controller
      */
     public function updateOpacity(Request $request,Color $color)
     {
-        // Validate fields
+        // Validate field
         request()->validate(['opacity' => ['required','string']]);
 
         // Save data

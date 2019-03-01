@@ -7,7 +7,7 @@
     <header>
         <h1>Liste des films</h1>
     </header>
-    <a href="AjouterUnFilm" class="azure" id="hover-red">Ajouter un film</a>
+    <a href="AjouterUnFilm" class="azure hover-red">Ajouter un film</a>
     <div class="row">
         <p class="text-left mt-3"><i class="fas fa-arrow-circle-right"></i> Rechercher un film</p>
         <form action="{{ action('MovieController@showMovieByResearchInWebsiteManagement') }}" class="form-inline my-2 my-lg-0 ml-3" role="search" method="POST">
@@ -44,10 +44,10 @@
                         <td>{{ $movie->created_at }}</td>
                         <td>{{ $movie->getTotalCopiesSold() }}</td>
                         <td> 
-                            <a href="{{ route('customers.list',[$movie]) }}" class="black" id="hover-red">Voir</a> 
+                            <a href="{{ route('customers.list',[$movie]) }}" class="black hover-red">Voir</a> 
                         </td>
                         <td>
-                            <a href="{{ route('movie.informations',[$movie]) }}" class="black" id="hover-red">Voir</a>
+                            <a href="{{ route('movie.informations',[$movie]) }}" class="black hover-red">Voir</a>
                         </td>
                     </tr>                 
                     @endforeach
@@ -61,20 +61,20 @@
             <nav aria-label="Navigation">
                 <ul class="pagination text-center" role="navigation">
                     @if ($movies->currentPage() != 1)
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $movies->previousPageUrl() }}">Précédent</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->previousPageUrl() }}">Précédent</a></li>
                         @if ($movies->currentPage() >2)
-                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $movies->url(1) }}">1</a></li>  
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->url(1) }}">1</a></li>  
                         @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $movies->previousPageUrl() }}">{{$movies->currentPage()-1}}</a></li>    
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->previousPageUrl() }}">{{$movies->currentPage()-1}}</a></li>    
                     @endif
                     <li class="page-item"><a class="page-link red" href="{{ $movies->url($movies->currentPage()) }}">{{$movies->currentPage()}}</a></li>
                     @if ($movies->currentPage() != $movies->lastPage())
                         @if ($movies->currentPage() != ($movies->lastPage()-1))
-                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $movies->nextPageUrl() }}">{{$movies->currentPage()+1}}</a></li>             
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->nextPageUrl() }}">{{$movies->currentPage()+1}}</a></li>             
                         @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $movies->url($movies->lastPage()) }}">{{$movies->lastPage()}}</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->url($movies->lastPage()) }}">{{$movies->lastPage()}}</a></li>
                     @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $movies->nextPageUrl() }}">Suivant</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->nextPageUrl() }}">Suivant</a></li>
                 </ul>
             </nav>
         </div>
