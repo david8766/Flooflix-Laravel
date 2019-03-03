@@ -6,8 +6,8 @@
 <section role="main" class="container-fluid m-0 p-0"> 
     <!-- Jumbotron -->
     @include('Flooflix.partials.message')
-    <article class="jumbotron jumbotron-fluid text-center min-88 bg-cine pt-1" id="first-article">
-    <h1 id="home-title" class="jumbotron-heading text-3d display-3"></h1>
+    <article class="jumbotron jumbotron-fluid text-center min-100 bg-cine pt-1" id="first-article">
+    <h1 id="home-title" class="jumbotron-heading text-3d display-3 font-anton"></h1>
         <br>
         <p class="relief" id="home-desc"></p>
         <p class="relief" id="home-catch"></p>     
@@ -19,9 +19,11 @@
             <h2 class="ml-3 pt-4" id="home-top"></h2>
         </header>
         <div class="row mt-5 pb-4">
-            @foreach ($top_movies as $movie)
-            @include('Flooflix.components.topMoviesPoster')       
-            @endforeach
+            @forelse ($top_movies as $movie)
+                @include('Flooflix.components.topMoviesPoster')          
+            @empty
+                <p class="font-alfa azure mt-5 text-center">Pas de films enregistrés</p>
+            @endforelse
         </div>
     </article>
 
@@ -31,9 +33,11 @@
             <h2 class="ml-3 pt-4" id="home-new"></h2>
         </header>
         <div class="row mt-5 pb-4">
-            @foreach ($new_movies as $movie)
-            @include('Flooflix.components.newMoviesPoster')       
-            @endforeach
+            @forelse ($new_movies as $movie)
+                @include('Flooflix.components.newMoviesPoster')            
+            @empty
+                <p class="font-alfa azure mt-5 text-center">Pas de films enregistrés</p>
+            @endforelse
         </div>
     </article>
 </section>

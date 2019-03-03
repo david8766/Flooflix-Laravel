@@ -10,37 +10,26 @@
         </div>
 
         <!-- movies line -->
-        @foreach ($movies as $tab)
-        <div class="row mt-5">
-            @foreach ($tab as $movie)
-            <div class="col-md-2 col-sm-4 text-center">
-                <a href="{{ route('movie',[$movie->title]) }}" class="azure hover-coral">
-                    <figure class="figure">
-                        @foreach ($pictures as $picture)
-                            @if ($picture->id == $movie->picture_id)
-                            <img src="{{ asset($picture->style) }}" alt="{{ $movie->title }}" class="figure-img image">
-                            @endif
-                        @endforeach         
-                            <figcaption class="fig-caption font-alfa hover-coral">{{ $movie->title }}</figcaption>        
-                    </figure>
-                </a>
+        @forelse ($movies as $tab)
+            <div class="row mt-5">
+                @foreach ($tab as $movie)
+                <div class="col-md-2 col-sm-4 text-center">
+                    <a href="{{ route('movie',[$movie->title]) }}" class="azure hover-coral">
+                        <figure class="figure">
+                            @foreach ($pictures as $picture)
+                                @if ($picture->id == $movie->picture_id)
+                                <img src="{{ asset($picture->style) }}" alt="{{ $movie->title }}" class="figure-img image">
+                                @endif
+                            @endforeach         
+                                <figcaption class="fig-caption font-alfa hover-coral">{{ $movie->title }}</figcaption>        
+                        </figure>
+                    </a>
+                </div>     
+                @endforeach
             </div>     
-            @endforeach
-        </div>   
-        @endforeach
-        <div class="row separator-top azure mx-5 pt-5 justify-content-center">
-            <footer class="col col-auto">
-                <nav aria-label="Navigation">
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a class="page-link" href="#">Précédent</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
-                    </ul>
-                </nav>   
-            </footer>
-        </div>
+        @empty
+            <p class="font-alfa azure mt-5 text-center">Pas de films enregistrés pour cette catégorie</p>
+        @endforelse
     </article>
 @include('Flooflix.layouts.footer')
 @include('Flooflix.layouts.varJS')

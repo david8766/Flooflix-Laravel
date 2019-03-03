@@ -7,8 +7,8 @@
         <header>
         <h1 class="mt-5" id="categories-title"></h1>
         </header>
-    </div> 
-    @foreach ($categories as $tab)
+    </div>
+    @forelse ($categories as $tab)
         <div class="row mt-5 mx-5">
             @foreach ($tab as $category)
                 <div class="col-md-4">
@@ -24,8 +24,10 @@
                     </a>
                 </div>
             @endforeach  
-        </div>   
-    @endforeach 
+        </div>      
+    @empty
+        <p class="font-alfa azure mt-5 text-center">Pas de catégories enregistrées</p>
+    @endforelse
 </article>
 @include('Flooflix.layouts.footer')
 @include('Flooflix.layouts.varJS')

@@ -39,12 +39,23 @@ class HomeController extends Controller
 
         // get resources for display home page
         $website = Website::where('name','flooflix')->first();
-        $page = Page::where('website_id', $website->id)->where('name','accueil')->first(); 
-        $page->getResourcesToDisplayPage();
+        if (!is_null($website) && !empty($website)) {
+            $page = Page::where('website_id', $website->id)->where('name','accueil')->first();
+            if(!is_null($page) && !empty($page)){
+                $datas = $page->getResourcesToDisplayPage($page);
+            }    
+        }else{
+            return view('errors.404');
+        }
         $movies = Movie::all();
-        $movies_stats = Movie::getStats($movies);
-        $top_movies = Movie::getTopMovies($movies_stats);
-        $new_movies = Movie::getNewMovies();
+        if (!is_null($movies) && !empty($movies)) {
+            $movies_stats = Movie::getStats($movies);
+            $top_movies = Movie::getTopMovies($movies_stats);
+            $new_movies = Movie::getNewMovies();
+        }else{
+            $top_movies = [];
+            $new_movies = [];
+        }
         $pictures = Picture::all();
         
         return view('Flooflix.home',compact('top_movies','new_movies','pictures'));
@@ -59,7 +70,6 @@ class HomeController extends Controller
     {  
         $user = User::find(1);  
         $role = $user->role()->first()->role;
-    
         return view('test');
     }
 
