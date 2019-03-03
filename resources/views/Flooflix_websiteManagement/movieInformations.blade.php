@@ -29,7 +29,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="2">
-                            <a href="{{route('edit.movie.poster',$movie)}}" class="black" id="hover-red">Modifier l'image</a>
+                            <a href="{{route('edit.movie.poster',$movie)}}" class="black hover-red">Modifier l'image</a>
                         </td>
                     </tr>
                 </tfoot>
@@ -60,7 +60,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="2">
-                                    <a href="{{route('edit.movie.category',$movie)}}" class="black" id="hover-red">Modifier la catégorie</a>
+                                    <a href="{{route('edit.movie.category',$movie)}}" class="black hover-red">Modifier la catégorie</a>
                                 </td>
                             </tr>
                         </tfoot>
@@ -81,16 +81,16 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="{{route('edit.movie.title',$movie)}}" class="black" id="hover-red">{{$movie->title}}</a>
+                                    <a href="{{route('edit.movie.title',$movie)}}" class="black hover-red">{{$movie->title}}</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('edit.movie.duration',$movie)}}" class="black" id="hover-red">{{$movie->duration}}</a>
+                                    <a href="{{route('edit.movie.duration',$movie)}}" class="black hover-red">{{$movie->duration}}</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('edit.movie.releaseDate',$movie)}}" class="black" id="hover-red">{{$movie->release_date}}</a>
+                                    <a href="{{route('edit.movie.releaseDate',$movie)}}" class="black hover-red">{{$movie->release_date}}</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('edit.movie.price',$movie)}}" class="black" id="hover-red">{{$movie->price}}</a>
+                                    <a href="{{route('edit.movie.price',$movie)}}" class="black hover-red">{{$movie->price}}</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -118,7 +118,7 @@
                         <tfoot>
                                 <tr>
                                     <td colspan="2">
-                                    <a href="{{ route('edit.movie.synopsis',$movie) }}" class="black" id="hover-red">Modifier le synopsis</a>
+                                    <a href="{{ route('edit.movie.synopsis',$movie) }}" class="black hover-red">Modifier le synopsis</a>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -150,10 +150,10 @@
                                     {{ $person->first_name . ' ' . $person->last_name}}
                                 </td>
                                 <td>
-                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black" id="hover-red">Modifier</a>
+                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black hover-red">Modifier</a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('delete.movie.filmDirector',[$movie,$person]) }}" class="black" id="hover-red">Supprimer</a>
+                                    <a href="{{ route('delete.movie.filmDirector',[$movie,$person]) }}" class="black hover-red">Supprimer</a>
                                 </td>
                                 @endif
                             @endforeach
@@ -167,10 +167,10 @@
                                     {{ $person->first_name . ' ' . $person->last_name}}
                                 </td>
                                 <td>
-                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black" id="hover-red">Modifier</a>
+                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black hover-red">Modifier</a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('delete.movie.filmDirector',[$movie,$person]) }}" class="black" id="hover-red">Supprimer</a>
+                                    <a href="{{ route('delete.movie.filmDirector',[$movie,$person]) }}" class="black hover-red">Supprimer</a>
                                 </td>
                                 @endif
                             @endforeach
@@ -180,7 +180,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="3">
-                        <a href="{{ route('add.movie.filmDirector',$movie) }}" class="black" id="hover-red">Ajouter un réalisateur/réalisatrice</a>
+                        <a href="{{ route('add.movie.filmDirector',$movie) }}" class="black hover-red">Ajouter un réalisateur/réalisatrice</a>
                         </td>
                     </tr>
                 </tfoot>
@@ -209,10 +209,10 @@
                                     {{ $person->first_name . ' ' . $person->last_name}}
                                 </td>
                                 <td>
-                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black" id="hover-red">Modifier</a>
+                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black hover-red">Modifier</a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('delete.movie.actor',[$movie,$person]) }}" class="black" id="hover-red">Supprimer</a>
+                                    <a href="{{ route('delete.movie.actor',[$movie,$person]) }}" class="black hover-red">Supprimer</a>
                                 </td>
                             @endif
                             @endforeach
@@ -226,10 +226,10 @@
                                     {{ $person->first_name . ' ' . $person->last_name}}
                                 </td>
                                 <td>
-                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black" id="hover-red">Modifier</a>
+                                    <a href="{{ route('edit.movie.person',[$movie,$person]) }}" class="black hover-red">Modifier</a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('delete.movie.filmDirector',[$movie,$person]) }}" class="black" id="hover-red">Supprimer</a>
+                                    <a href="{{ route('delete.movie.filmDirector',[$movie,$person]) }}" class="black hover-red">Supprimer</a>
                                 </td>
                                 @endif
                             @endforeach
@@ -237,7 +237,7 @@
                     @endforeach   
                     <tr>
                         <td colspan="3">
-                            <a href="{{ route('add.movie.actor',$movie) }}" class="black" id="hover-red">Ajouter un acteur/actrice</a>
+                            <a href="{{ route('add.movie.actor',$movie) }}" class="black hover-red">Ajouter un acteur/actrice</a>
                         </td>
                     </tr>
                 </tbody>
@@ -262,7 +262,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="2">
-                            <a href="{{ route('edit.movie.trailerLink',$movie) }}" class="black" id="hover-red">Modifier le lien</a>
+                            <a href="{{ route('edit.movie.trailerLink',$movie) }}" class="black hover-red">Modifier le lien</a>
                         </td>
                     </tr>
                 </tfoot>
@@ -285,7 +285,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="2">
-                            <a href="{{ route('edit.movie.movieLink',$movie) }}" class="black" id="hover-red">Modifier le lien</a>
+                            <a href="{{ route('edit.movie.movieLink',$movie) }}" class="black hover-red">Modifier le lien</a>
                         </td>
                     </tr>
                 </tfoot>

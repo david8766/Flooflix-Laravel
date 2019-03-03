@@ -17,13 +17,51 @@
                             @endif
                         @endforeach
                     </figure>
-                    <div class="row">
-                    <a class="font-alfa azure btn bg-dark hover-coral" href="{{ route('add.movie.to.shoppingCart',$movie) }}" role="button">AJOUTER AU PANIER</a>     
-                    </div>
+                    @if ($status == "acquired")
+                        <div class="row">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="font-alfa azure btn bg-dark hover-coral" data-toggle="modal" data-target="#gradeModalCenter">ATTRIBUER UNE NOTE</button>  
+                        </div>
+                    @else
+                        <div class="row">
+                        <a href="{{ route('add.movie.to.shoppingCart',$movie) }}" type="button" role="button" class="font-alfa azure btn bg-dark hover-coral">AJOUTER AU PANIER</a>     
+                        </div>    
+                    @endif
                 </div>
                 <div class="col-1"></div>
             </div>
         </aside>
+        <!-- Modal -->
+        <div class="modal fade" id="gradeModalCenter" tabindex="-1" role="dialog" aria-labelledby="gradeModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-alfa" id="gradeModalLongTitle">Attribuer une note</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="">
+                <div class="modal-body">
+                    <div class="form-group">
+                    <label for="gradeFormControlSelect1" class="font-alfa">Choisir une note entre 1 et 5</label>
+                    <select class="form-control font-alfa" id="gradeFormControlSelect1">
+                    <option class="font-alfa">1</option>
+                    <option class="font-alfa">2</option>
+                    <option class="font-alfa">3</option>
+                    <option class="font-alfa">4</option>
+                    <option class="font-alfa">5</option>
+                    </select>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="font-alfa btn btn-danger" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="font-alfa azure btn bg-dark hover-coral">Enregister</button>
+                </div>
+                </form>
+                </div>
+            </div>
+        </div>
         <article class="col-lg-8 pt-5 font-alfa">
             <header>
                 <h1 class="font-alfa azure">{{ $movie->title }}</h1>
@@ -57,6 +95,10 @@
                 {{ $movie->synopsis }}
             </p>
             <footer class="mt-2">
+                @if ($status == 'acquired')
+                <p class="font-alfa azure">{{ __('Voir le film :')}}</p>
+                {!!$movie->link_movie!!}
+                @else
                 <p class="font-alfa azure">{{ __('Notes des spectateurs :')}}
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -65,7 +107,8 @@
                 </p>
                 <p class="font-alfa azure">{{'Prix : ' . $movie->price }}<i class="fas fa-euro-sign"></i></p>
                 <p class="font-alfa azure">{{ __('Voir la bande annonce :')}}</p>
-                {!!$movie->link_trailer!!}         
+                    {!!$movie->link_trailer!!}             
+                @endif
             </footer>
         </article>
     </div>

@@ -16,8 +16,8 @@
                     <div class="form-group">
                         <div class="form-group displayComboBox" id="comboBox">
                             <label for="film_director" class="font-alfa black">{{ __('Rechercher le nom du réalisateur dans la liste')}}</label>
-                            <input type="text" name="film_director" class="form-control displayEditField" id="comboBoxEditField">
-                            <select disabled="disabled" name="film_director" class="form-control hideComboBoxList" id="comboBoxList">
+                            <input type="text" name="film_director" class="form-control displayEditField" id="comboBoxEditField1">
+                            <select disabled="disabled" name="film_director" class="form-control hideComboBoxList" id="comboBoxList1">
                                 @foreach ($film_directors as $id => $film_director)
                                 <option value="{{ $id }}">{{ $film_director }}</option>
                                 @endforeach
@@ -43,7 +43,7 @@
                 </form>
                 <div class="row mt-5 justify-content-center">
                     <div class="col col-auto">
-                        <a href="{{ route('movie.informations',[$movie]) }}" class="font-alfa black" id="hover-coral">Annuler</a>
+                        <a href="{{ route('movie.informations',[$movie]) }}" class="font-alfa black hover-coral">Annuler</a>
                     </div>
                 </div>
             </div>
@@ -57,5 +57,5 @@
         document.body.style.backgroundColor = 'black';
     })
 </script>
-<script src="http://127.0.0.1:8000/js/flooflix/combobox.js"></script>
+<script src="http://127.0.0.1:8000/js/combobox.js"></script>
 @endsection

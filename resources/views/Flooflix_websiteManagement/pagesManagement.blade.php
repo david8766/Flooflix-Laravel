@@ -7,9 +7,10 @@
     <h2 class="mt-5">Liste des pages du site modifiables :</h2>
     <ul>
         <li class="mt-3">La page d'accueil : 
-        <a href="{{ route('edit.homePage') }}" class="azure ml-4 hover-red">Modifier</a> / 
-        <a href="{{ route('home') }}" target="_blank" class="azure hover-red">Voir la page du site</a> / 
-        <a href="{{ route('preview.homePage') }}" class="azure hover-red">Voir l'aperçu</a></li>
+            <a href="{{ route('edit.homePage') }}" class="azure ml-4 hover-red">Modifier</a> / 
+            <a href="{{ route('home') }}" target="_blank" class="azure hover-red">Voir la page du site</a> / 
+            <a href="{{ route('preview.homePage') }}" class="azure hover-red">Voir l'aperçu</a>
+        </li>
         <li class="mt-3">La page compte client : <a href="" class="azure ml-4 hover-red">Modifier</a> / <a href="" class="azure hover-red">Voir la page du site</a> / <a href="" class="azure hover-red">Voir l'aperçu</a></li>
         <li class="mt-3">La page catégories de films : <a href="" class="azure ml-4 hover-red">Modifier</a> / <a href="" class="azure hover-red">Voir la page du site</a> / <a href="" class="azure hover-red">Voir l'aperçu</a></li>
         <li class="mt-3">La page des films par catégorie : <a href="" class="azure ml-4 hover-red">Modifier</a> / <a href="" class="azure hover-red">Voir la page du site</a> / <a href="" class="azure hover-red">Voir l'aperçu</a></li>

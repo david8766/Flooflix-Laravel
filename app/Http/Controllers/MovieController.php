@@ -28,8 +28,26 @@ class MovieController extends Controller
      */
     public function showMovie($movie)
     {
-        // get resources for display
+        // get movie
         $movie = Movie::where('title', $movie)->first();
+        
+        // get user
+        $user = auth()->user('id');
+        // define status for movie
+        $status = "not acquired";
+        if(!is_null($user) && !empty($user)){
+            //get user's movies
+            $movies = $user->movies()->get();
+            if(!is_null($movies) && !empty($movies)){
+                foreach($movies as $item){
+                    if($item->id == $movie->id){
+                        $status = 'acquired';
+                    }
+                }
+            }
+        }
+
+        // get resources for display
         $film_directors = $movie->getFilmDirectors();
         $actors = $movie->getActors();
         $people = $movie->people()->get();
@@ -39,7 +57,7 @@ class MovieController extends Controller
         $categories = Category::all();
         $pictures = Picture::all();
 
-        return view('Flooflix.movie',compact('movie','datas','categories','pictures','film_directors','actors','people'));
+        return view('Flooflix.movie',compact('movie','datas','categories','pictures','film_directors','actors','people','status'));
     }
 
     /**
