@@ -72,11 +72,11 @@
             </div>
         </div>
         <div class="row"></div>
-        <a href="/selectWebsiteForAddText" class="azure" id="hover-red">{{ __('Ajouter un texte') }}</a>
+        <a href="/selectWebsiteForAddText" class="azure hover-red">{{ __('Ajouter un texte') }}</a>
         </div>
         <hr class="bg-white">
         <div class="row">
-            <a href="/admin/home" class="azure" id="hover-red">{{ __("Retour à l'accueil") }}</a> 
+            <a href="/admin/home" class="azure hover-red">{{ __("Retour à l'accueil") }}</a> 
         </div>
     </article>  
 @endsection

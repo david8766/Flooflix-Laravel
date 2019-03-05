@@ -46,11 +46,11 @@
             </div>
         </div>
         <div class="row">
-            <a href="{{ action('PageController@show', $page) }}" class="azure" id="hover-coral">{{ __("Retour aux informations de cette page") }}</a> 
+            <a href="{{ action('PageController@show', $page) }}" class="azure hover-coral">{{ __("Retour aux informations de cette page") }}</a> 
         </div>
         <hr class="bg-white">
         <div class="row">
-            <a href="/admin/home" class="azure" id="hover-coral">{{ __("Retour à l'accueil") }}</a> 
+            <a href="/admin/home" class="azure hover-coral">{{ __("Retour à l'accueil") }}</a> 
         </div>
     </article>  
 @endsection

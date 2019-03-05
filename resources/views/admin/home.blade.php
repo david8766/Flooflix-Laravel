@@ -7,25 +7,25 @@
       </header>
       <ul class="mt-5">
          <li>
-            <a href="/website" class="azure" id="hover-red">{{ __('Voir la liste des sites') }}</a>
+            <a href="/website" class="azure hover-red">{{ __('Voir la liste des sites') }}</a>
          </li>
          <li>
-            <a href="/page" class="azure" id="hover-red">{{ __('Voir la liste des pages') }}</a>
+            <a href="/page" class="azure hover-red">{{ __('Voir la liste des pages') }}</a>
          </li>
          <li>
-            <a href="/font" class="azure" id="hover-red">{{ __('Voir la liste des polices') }}</a>
+            <a href="/font" class="azure hover-red">{{ __('Voir la liste des polices') }}</a>
          </li>
          <li>
-            <a href="/color" class="azure" id="hover-red">{{ __('Voir la liste des couleurs') }}</a>
+            <a href="/color" class="azure hover-red">{{ __('Voir la liste des couleurs') }}</a>
          </li>
          <li>
-            <a href="/picture" class="azure" id="hover-red">{{ __('Voir la liste des images') }}</a>
+            <a href="/picture" class="azure hover-red">{{ __('Voir la liste des images') }}</a>
          </li>
          <li>
-            <a href="/text" class="azure" id="hover-red">{{ __('Voir la liste des textes') }}</a>
+            <a href="/text" class="azure hover-red">{{ __('Voir la liste des textes') }}</a>
          </li>
          <li>
-            <a href="{{ route('admin.logout') }}" class="azure" id="hover-red">{{ __('se déconnecter') }}</a>
+            <a href="{{ route('admin.logout') }}" class="azure hover-red">{{ __('se déconnecter') }}</a>
          </li>
       </ul>
    </div>  

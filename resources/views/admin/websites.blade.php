@@ -46,11 +46,11 @@
             </div>
         </div>
         <div class="row"></div>
-            <a href="/website/create" class="azure" id="hover-red">{{ __('Ajouter un site') }}</a>
+            <a href="/website/create" class="azure hover-red">{{ __('Ajouter un site') }}</a>
         </div>
         <hr class="bg-white">
         <div class="row">
-            <a href="{{ route('admin.home') }}" class="azure" id="hover-red">{{ __("Retour à l'accueil") }}</a> 
+            <a href="{{ route('admin.home') }}" class="azure hover-red">{{ __("Retour à l'accueil") }}</a> 
         </div>
     </article>  
 @endsection

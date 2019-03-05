@@ -199,18 +199,18 @@
            </form>
         </div>
         <div class="row">
-            <a href="/selectWebsiteForAddText" class="azure" id="hover-red">{{ __("Ajouter du texte") }}</a> 
+            <a href="/selectWebsiteForAddText" class="azure hover-red">{{ __("Ajouter du texte") }}</a> 
         </div>
         <hr class="bg-white">
         <div class="row">
-            <a href="{{ route('page.index') }}" class="azure" id="hover-red">{{ __("Retour à la liste de l'ensemble des pages contenues dans la base de données") }}</a> 
+            <a href="{{ route('page.index') }}" class="azure hover-red">{{ __("Retour à la liste de l'ensemble des pages contenues dans la base de données") }}</a> 
         </div>
         <div class="row">
-            <a href="{{ route('website.pages', [$website]) }}" class="azure" id="hover-red">{{ __("Voir la liste des pages pour ce site") }}</a> 
+            <a href="{{ route('website.pages', [$website]) }}" class="azure hover-red">{{ __("Voir la liste des pages pour ce site") }}</a> 
         </div>
         <hr class="bg-white">
         <div class="row">
-            <a href="/admin/home" class="azure" id="hover-red">{{ __("Retour à l'accueil") }}</a> 
+            <a href="/admin/home" class="azure hover-red">{{ __("Retour à l'accueil") }}</a> 
         </div>
     </article>  
 @endsection

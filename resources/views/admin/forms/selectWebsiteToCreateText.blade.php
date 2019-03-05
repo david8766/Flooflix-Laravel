@@ -27,7 +27,7 @@
         </div>  
     </div>
     <div class="row mt-4 justify-content-center">
-        <a href="/text" class="azure" id="hover-red">{{ __("Retour à la liste") }}</a> 
+        <a href="/text" class="azure hover-red">{{ __("Retour à la liste") }}</a> 
     </div>
 </article>   
 @endsection

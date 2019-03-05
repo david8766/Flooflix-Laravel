@@ -9,16 +9,16 @@
         <p class="mt-5">{{ 'Son contenu: '. $text['text'] }}</p>
         <hr class="bg-white">
         <div class="row">
-            <a href="{{ route('text.index') }}" class="azure" id="hover-red">{{ __("Retour la liste des textes") }}</a> 
+            <a href="{{ route('text.index') }}" class="azure hover-red">{{ __("Retour la liste des textes") }}</a> 
         </div>
         @if (isset($page))
             <div class="row">
-                <a href="{{ action('TextController@showTextsForPage', $page ) }}" class="azure" id="hover-red">{{ __("Retour à la liste des textes pour cette page") }}</a> 
+                <a href="{{ action('TextController@showTextsForPage', $page ) }}" class="azure hover-red">{{ __("Retour à la liste des textes pour cette page") }}</a> 
             </div>
         @endif
         <hr class="bg-white">
         <div class="row">
-            <a href="/admin/home" class="azure" id="hover-red">{{ __("Retour à l'accueil") }}</a> 
+            <a href="/admin/home" class="azure hover-red">{{ __("Retour à l'accueil") }}</a> 
         </div>
     </article>  
 @endsection

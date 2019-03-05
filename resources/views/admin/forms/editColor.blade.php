@@ -39,10 +39,10 @@
                 </div>
             </div>
             <div class="row mt-4 justify-content-center">
-                <a href="/color" class="azure" id="hover-red">{{ __("Retour à la liste") }}</a> 
+                <a href="/color" class="azure hover-red">{{ __("Retour à la liste") }}</a> 
             </div>
             <div class="row mt-4 justify-content-center">
-                <a href="https://www.css3maker.com/css-3-rgba.html" target="_blank" class="azure" id="hover-red">{{ "CSS3 Maker" }}</a> 
+                <a href="https://www.css3maker.com/css-3-rgba.html" target="_blank" class="azure hover-red">{{ "CSS3 Maker" }}</a> 
             </div>
         </div>
     </div>

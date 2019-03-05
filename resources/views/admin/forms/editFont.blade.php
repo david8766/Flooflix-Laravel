@@ -38,10 +38,10 @@
                 </div>
             </div>
             <div class="row mt-4 justify-content-center">
-                <a href="/font" class="azure" id="hover-red">{{ __("Retour à la liste") }}</a> 
+                <a href="/font" class="azure hover-red">{{ __("Retour à la liste") }}</a> 
             </div>
             <div class="row mt-4 justify-content-center">
-                <a href="https://fonts.google.com/" target="_blank" class="azure" id="hover-red">{{ "Google fonts" }}</a> 
+                <a href="https://fonts.google.com/" target="_blank" class="azure hover-red">{{ "Google fonts" }}</a> 
             </div>
         </div>
     </div>

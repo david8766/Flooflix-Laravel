@@ -49,11 +49,11 @@
             </div>
         </div>
         <div class="row"></div>
-        <a href="/font/create" class="azure" id="hover-red">{{ __('Ajouter une police') }}</a>
+        <a href="/font/create" class="azure hover-red">{{ __('Ajouter une police') }}</a>
         </div>
         <hr class="bg-white">
         <div class="row">
-            <a href="/admin/home" class="azure" id="hover-red">{{ __("Retour à l'accueil") }}</a> 
+            <a href="/admin/home" class="azure hover-red">{{ __("Retour à l'accueil") }}</a> 
         </div>
     </article>  
 @endsection

@@ -49,13 +49,13 @@
             </div>
         </div>
         <div class="row">
-            <a href="{{ route('website.show', $website) }}" class="azure" id="hover-red">{{ __("Voir sur les informations du site") }}</a> 
+            <a href="{{ route('website.show', $website) }}" class="azure hover-red">{{ __("Voir sur les informations du site") }}</a> 
         </div>
         <div class="row">
-            <a href="{{ route('page.index') }}" class="azure" id="hover-red">{{ __("Voir toutes les pages") }}</a> 
+            <a href="{{ route('page.index') }}" class="azure hover-red">{{ __("Voir toutes les pages") }}</a> 
         </div>
         <div class="row"></div>
-            <a href="{{ route('page.create') }}" class="azure" id="hover-red">{{ __('Ajouter une page') }}</a>
+            <a href="{{ route('page.create') }}" class="azure hover-red">{{ __('Ajouter une page') }}</a>
         </div>
         <hr class="bg-white">
         <div class="row">

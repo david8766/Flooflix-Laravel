@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row mt-4 justify-content-center">
-                <a href="/website" class="azure" id="hover-red">{{ __("Retour à la liste") }}</a> 
+                <a href="/website" class="azure hover-red">{{ __("Retour à la liste") }}</a> 
             </div>
         </div>
     </div>

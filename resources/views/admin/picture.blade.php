@@ -35,7 +35,7 @@
             <div style="height: 30rem; width: 50rem; border:2px solid white; background-image: url('{{asset($picture['style'])}}');background-repeat: no-repeat;background-size: cover;"></div>
         </div>
         <div class="row">
-            <a href="{{ route('picture.index') }}" class="azure" id="hover-red">{{ __("Retour la liste des images") }}</a> 
+            <a href="{{ route('picture.index') }}" class="azure hover-red">{{ __("Retour la liste des images") }}</a> 
         </div>
     </article>  
 @endsection
