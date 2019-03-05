@@ -30,12 +30,14 @@ class MovieController extends Controller
     {
         // get movie
         $movie = Movie::where('title', $movie)->first();
-        
         // get user
         $user = auth()->user('id');
+        
         // define status for movie
         $status = "not acquired";
         if(!is_null($user) && !empty($user)){
+            // get grade of movie from user
+            $grade = DB::table('movie_user')->select('grade')->where('user_id',$user->id)->where('movie_id',$movie->id)->first();
             //get user's movies
             $movies = $user->movies()->get();
             if(!is_null($movies) && !empty($movies)){
@@ -46,6 +48,38 @@ class MovieController extends Controller
                 }
             }
         }
+        // get average ratings
+        $grades = DB::table('movie_user')->select('grade')->where('movie_id',$movie->id)->get();
+    
+        if (!is_null($grades) && !empty($grades) && count($grades) != 0) {
+            $total = 0;
+            $total_grades = count($grades);
+            foreach ($grades as $item){
+                $total = $total + $item->grade;
+            }
+            $average = $total/$total_grades;
+            switch ($average) {
+                case ($average < 1.5) : 
+                    $average = 1;
+                    break;
+                case ($average >= 1.5 && $average <= 2 && $average < 2.5) :
+                    $average = 2;
+                    break;
+                case ($average >= 2.5 && $average <= 3 && $average < 3.5) :
+                    $average = 3;
+                    break;
+                case ($average >= 3.5 && $average <= 4 && $average < 4.5) :
+                    $average = 4;
+                    break;
+                case ($average >= 4.5 && $average = 5) :
+                    $average = 4;
+                    break;
+            }
+        } else {
+            $average = null;
+        }
+        
+        
 
         // get resources for display
         $film_directors = $movie->getFilmDirectors();
@@ -57,7 +91,7 @@ class MovieController extends Controller
         $categories = Category::all();
         $pictures = Picture::all();
 
-        return view('Flooflix.movie',compact('movie','datas','categories','pictures','film_directors','actors','people','status'));
+        return view('Flooflix.movie',compact('movie','datas','categories','pictures','film_directors','actors','people','status','average','grade'));
     }
 
     /**

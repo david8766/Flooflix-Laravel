@@ -58,6 +58,7 @@ Route::post('/register','UserController@store');
 Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
     Route::get('/MonCompte','UserController@showUserAccount')->name('user.account');
     Route::get('/MaCollection','UserController@showUserMoviesCollection')->name('user.collection');
+    Route::post('/AttribuerUneNote/{movie}','UserController@attributeGrade')->name('grade.movie');
     Route::get('/HistoriqueDesAchats','UserController@showPurchaseHistory')->name('purchase.history');
     Route::get('/ModifierVotreCompte','UserController@edit')->name('user.edit');
     Route::get('/AjouterUneCarteBancaire','BankCardController@create')->name('bankCard.create');

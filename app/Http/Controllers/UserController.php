@@ -26,15 +26,6 @@ use JavaScript;
 class UserController extends Controller
 {
 
-    /*
-    |--------------------------------------------------------------------------
-    | User functions
-    |--------------------------------------------------------------------------
-    |
-    | These functions are used to create,edit,show user account.
-    |
-    */
-
     /**
      * Show the form for creating a new user.
      *
@@ -188,15 +179,6 @@ class UserController extends Controller
             return redirect()->route('user.account', [$user])->with('messageError', "Une erreur est survenue lors de l'enregistrement des données.");
         }
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Credits functions
-    |--------------------------------------------------------------------------
-    |
-    | These functions are used to add and store credits for a user.
-    |
-    */
     
     /**
      * displays the credits addition form.
@@ -218,6 +200,7 @@ class UserController extends Controller
         $datas = $page->getResourcesToDisplayPage($page);
         return view('Flooflix.forms.addCredits',compact('bankCard','datas'));
     }
+
     /**
      * store credits for a user.
      *
@@ -247,15 +230,6 @@ class UserController extends Controller
             return redirect()->route('user.account', [$user])->with('messageError', "Une erreur est survenue lors de l'ajout des crédits.Veuillez contacter l'administrateur du site");
         }
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Shopping cart functions
-    |--------------------------------------------------------------------------
-    |
-    | These functions are used to show shopping cart and remove movies in shopping cart.
-    |
-    */
 
     /**
      * Display shopping cart page for a user.
@@ -303,15 +277,6 @@ class UserController extends Controller
         session()->pull($movie->title);
         return redirect()->route('show.shoppingCart',$user);
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | User Movies collection functions
-    |--------------------------------------------------------------------------
-    |
-    | These functions are used to show shopping cart and remove movies in shopping cart.
-    |
-    */
 
     /**
      * Add movies to movies collection.
@@ -403,14 +368,6 @@ class UserController extends Controller
         return view('Flooflix/app/userMoviesCollection',compact('datas','pictures','user','categories','collection'));  
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | User purchase history functions
-    |--------------------------------------------------------------------------
-    |
-    | These functions are used to display puchase history with different sorts.
-    |
-    */
 
     /**
      * Show the purchase history.
@@ -447,6 +404,33 @@ class UserController extends Controller
         $datas = $page->getResourcesToDisplayPage($page);
         return view('Flooflix/app/purchaseHistory',compact('datas','movies')); 
     }
+
+    /**
+     * Attribute grade for a movie by a user.
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Movie $movie
+     * @return View
+     */
+    public function attributeGrade(Request $request,Movie $movie)
+    {
+        //get user
+        $user = auth()->user('id'); 
+        dump($user->id);
+        dump($movie->id);
+        dump($request->grade);  
+       
+        $result = DB::table('movie_user')->select('movie_id as movie', 'user_id as user')->where('user_id',$user->id)->where('movie_id',$movie->id)->first();
+        if (!is_null($result) && $result->movie == $movie->id && $result->user == $user->id) {
+            $res = DB::table('movie_user')->where('user_id',$user->id)->where('movie_id',$movie->id)->update(['grade'=>$request->grade]);
+            dump($res);
+            return back()->with('message', "votre note a bien été attribuée pour ce film");
+        } else {
+            return back()->with('messageError', "Une erreur est survenue lors de l'attribution de la note.Veuillez contacter l'administrateur du site");
+        }
+    }
+
+
 
     /*
     |--------------------------------------------------------------------------

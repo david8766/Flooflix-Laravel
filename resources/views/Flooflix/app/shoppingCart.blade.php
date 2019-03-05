@@ -22,7 +22,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="row">
                             <div class="col-6">
-                                <a href="{{ route('movie',[$movie->title]) }}" class="azure" id="hover-coral">
+                                <a href="{{ route('movie',[$movie->title]) }}" class="azure hover-coral">
                                     <figure class="figure">
                                         @foreach ($pictures as $picture)
                                             @if ($picture->id == $movie->picture_id)
@@ -35,7 +35,7 @@
                             <div class="col-6 align-self-center">
                                 <p class="font-alfa azure">{{$movie->title}}</p>
                                 <p class="font-alfa azure">{{'Prix: '.$movie->price}} <i class="fas fa-euro-sign"></i></p>   
-                            <p><a href="{{ route('remove.movie.in.cart',[$movie,$user]) }}" class="azure" id="hover-coral">Retirer du panier</a></p>
+                            <p><a href="{{ route('remove.movie.in.cart',[$movie,$user]) }}" class="azure hover-coral">Retirer du panier</a></p>
                             </div>
                         </div>
                     </div>           

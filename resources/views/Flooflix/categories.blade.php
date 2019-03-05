@@ -9,17 +9,17 @@
         </header>
     </div>
     @forelse ($categories as $tab)
-        <div class="row mt-5 mx-5">
+        <div class="row mt-5 mx-5 text-center">
             @foreach ($tab as $category)
-                <div class="col-md-4">
+                <div class="col-sm-12 col-md-12 col-lg-4">
                 <a href="{{ route('category',[$category->genre]) }}">
                         <figure class="figure">            
                             @foreach ($pictures as $picture)
                                 @if ($picture->id == $category->picture_id)    
-                                    <img height="300px" width="500px" src="{{ asset($picture->style) }}" alt="" class="figure-img">
+                                    <img height="300px" width="500px" src="{{ asset($picture->style) }}" alt="" class="img-fluid figure-img">
                                 @endif  
                             @endforeach
-                            <figcaption class="fig-caption links">{{ $category->genre }}</figcaption>
+                            <figcaption class="fig-caption links text-left">{{ $category->genre }}</figcaption>
                         </figure>
                     </a>
                 </div>
