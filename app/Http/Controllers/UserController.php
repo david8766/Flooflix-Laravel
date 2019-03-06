@@ -209,6 +209,7 @@ class UserController extends Controller
      */
     public function storeCredits(User $user,Request $request)
     {
+        // get user
         $user = auth()->user('id');
         // Validate the fields
         request()->validate([
@@ -232,13 +233,13 @@ class UserController extends Controller
 
     /**
      * Display shopping cart page for a user.
-     *
      * 
-     * @param  \App\User $user
      * @return View
      */
-    public function showShoppingCart(User $user)
+    public function showShoppingCart()
     {
+        // get user
+        $user = auth()->user('id');
         //get bank card for user
         $bankCard = BankCard::find($user->bank_card_id);
 

@@ -134,6 +134,7 @@ class BankCardController extends Controller
      */
     public function update(Request $request)
     {
+        // Get user
         $user = auth()->user('id');
         // Validate the fields
         request()->validate([

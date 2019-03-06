@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div>
-                <a href="{{ route('show.shoppingCart',$user) }}" class="mr-3 azure hover-coral" data-toggle="tooltip" data-placement="bottom" title="Panier">
+                <a href="{{ route('show.shoppingCart') }}" class="mr-3 azure hover-coral" data-toggle="tooltip" data-placement="bottom" title="Panier">
                     <i class="fas fa-cart-arrow-down"></i>
                 </a>
             </div>

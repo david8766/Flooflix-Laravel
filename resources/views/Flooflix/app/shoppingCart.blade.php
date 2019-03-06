@@ -50,7 +50,11 @@
             <div class="row bg-black border-azure justify-content-center">
                 <div class="col mt-3">
                     <p class="font-alfa azure">{{$user->last_name . ' ' . $user->first_name}}</p>
-                    <p class="font-alfa azure">{{'Numéro de carte : N°' . substr(decrypt($bankCard->number),0,4) .'-'. substr(decrypt($bankCard->number),4,4).'-XXXX-XXXX'}}</p>
+                    @if (is_null($bankCard))
+                        <p class="font-alfa azure">{{ __('Pas de carte enregistrée')}}</p>
+                    @else
+                        <p class="font-alfa azure">{{'Numéro de carte : N°' . substr(decrypt($bankCard->number),0,4) .'-'. substr(decrypt($bankCard->number),4,4).'-XXXX-XXXX'}}</p>    
+                    @endif
                     <hr height=1px class="bg-white">
                     @forelse ($shopping_cart as $movie)  
                         <div class="row">
@@ -81,9 +85,21 @@
             </div>
             @if ($total > 0)
             <div class="row mt-4 justify-content-center">
-                <div class="col col-auto">
-                    <a href="{{ route('add.movie.to.collection') }}" class="btn btn-warning btn-lg">ACHETER</a>   
-                </div>
+                @if (is_null($bankCard))
+                    <div class="col col-auto">
+                        <a href="{{ route('bankCard.create') }}" class="btn btn-warning btn-lg">AJOUTER UNE CARTE BANCAIRE</a>   
+                    </div>
+                @else
+                    @if ($user->credits == 0)
+                        <div class="col col-auto">
+                            <a href="{{ route('user.credits') }}" class="btn btn-warning btn-lg">AJOUTER DES CREDITS</a>   
+                        </div>
+                    @else
+                        <div class="col col-auto">
+                            <a href="{{ route('add.movie.to.collection') }}" class="btn btn-warning btn-lg">ACHETER</a>   
+                        </div>      
+                    @endif
+                @endif
             </div>     
             @endif
         </div>
