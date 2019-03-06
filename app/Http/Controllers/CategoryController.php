@@ -47,12 +47,14 @@ class CategoryController extends Controller
     public function showMoviesByCategory($category)
     {
         $category = Category::where('genre',$category)->first();
-        $movies = $category->movies()->get();
+        $movies = Movie::where('category_id',$category->id)->orderBy('created_at','desc')->paginate(24);
         $website = Website::where('name','flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name','categorie')->first(); 
         $datas = $page->getResourcesToDisplayPage($page);
-        $chunks = $movies->chunk(6);
+        /* $chunks = $movies->chunk(6);
         $movies = $chunks;
+        
+        dd($movies); */
         $pictures = Picture::all();
 
         return view('Flooflix.category',compact('category','movies','datas','pictures'));

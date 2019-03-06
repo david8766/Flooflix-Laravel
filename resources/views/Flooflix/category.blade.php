@@ -10,10 +10,13 @@
         </div>
 
         <!-- movies line -->
-        @forelse ($movies as $tab)
+        @php
+            $chunks = $movies->chunk(6);
+        @endphp
+        @forelse ($chunks as $chunk)
             <div class="row mt-5">
-                @foreach ($tab as $movie)
-                <div class="col-sm-6 col-lg-4 col-xl-2 text-center">
+                @foreach ($chunk as $movie)
+                <div class="col-sm-6 col-lg-4 col-xl-2 text-center">   
                     <a href="{{ route('movie',[$movie->title]) }}" class="azure hover-coral">
                         <figure class="figure">
                             @foreach ($pictures as $picture)
@@ -24,12 +27,38 @@
                                 <figcaption class="fig-caption font-alfa hover-coral">{{ $movie->title }}</figcaption>        
                         </figure>
                     </a>
-                </div>     
-                @endforeach
-            </div>     
+                </div>               
+                @endforeach   
+            </div>  
         @empty
             <p class="font-alfa azure mt-5 text-center">Pas de films enregistrés pour cette catégorie</p>
-        @endforelse
+        @endforelse    
+        
+        @if ($movies->total() > 18)
+        <div class="row separator-top mt-5 justify-content-center">
+            <div class="col col-auto mt-3">
+                <nav aria-label="Navigation">
+                    <ul class="pagination text-center" role="navigation">
+                        @if ($movies->currentPage() != 1)
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->previousPageUrl() }}">Précédent</a></li>
+                        @if ($movies->currentPage() >2)
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->url(1) }}">1</a></li>  
+                        @endif
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->previousPageUrl() }}">{{$movies->currentPage()-1}}</a></li>    
+                        @endif
+                        <li class="page-item"><a class="page-link red" href="{{ $movies->url($movies->currentPage()) }}">{{$movies->currentPage()}}</a></li>
+                        @if ($movies->currentPage() != $movies->lastPage())
+                            @if ($movies->currentPage() != ($movies->lastPage()-1))
+                            <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->nextPageUrl() }}">{{$movies->currentPage()+1}}</a></li>             
+                            @endif
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->url($movies->lastPage()) }}">{{$movies->lastPage()}}</a></li>
+                        @endif
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $movies->nextPageUrl() }}">Suivant</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>    
+        @endif
     </article>
 @include('Flooflix.layouts.footer')
 @include('Flooflix.layouts.varJS')

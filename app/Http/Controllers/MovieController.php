@@ -1172,15 +1172,4 @@ class MovieController extends Controller
         $movie->save();
         return redirect()->route('movie.informations',$movie)->with('message','Le lien pour la vidéo a bien été modifié');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Movie  $movie
-     * @return view
-     */
-    public function destroy(Movie $movie)
-    {
-        //
-    }
 }
