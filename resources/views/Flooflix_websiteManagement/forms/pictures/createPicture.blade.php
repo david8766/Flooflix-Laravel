@@ -45,8 +45,4 @@
         </div>
     </article>
 @include('Flooflix.layouts.scripts')
-<script>
-    $('document').ready(function() {
-        document.body.style.backgroundColor = 'black';
-    })
-</script>
+<script src="http://127.0.0.1:8000/js/flooflix/script.js"></script>

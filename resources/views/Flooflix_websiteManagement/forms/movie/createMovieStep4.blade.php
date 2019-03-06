@@ -10,8 +10,8 @@
                 @include('Flooflix.partials.message')
                 <header class="text-center mt-4">
                     <h1 class="font-alfa black">Ajouter un image - Etape 4</h1>
-                    <span class="red">* L'image doit avoir environ une hauteur de 500px et une largeur de 400px</span>
-                    <p><a href="https://www.iloveimg.com/fr/redimensionner-image" target="_blank" class="black" id="hover-red"><i class="fas fa-arrow-circle-right"></i> Redimenssionner une image</a></p>
+                    <span class="red">* L'image doit avoir environ une hauteur de 500px</span>
+                    <p><a href="https://www.iloveimg.com/fr/redimensionner-image" target="_blank" class="black hover-red"><i class="fas fa-arrow-circle-right"></i> Redimenssionner une image</a></p>
                 </header>
                 <form action="{{ action('MovieController@storeStep4', $movie) }}" class="mt-5 mb-5 mx-5" method="POST" enctype="multipart/form-data">
                     @csrf

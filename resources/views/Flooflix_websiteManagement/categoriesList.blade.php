@@ -36,7 +36,7 @@
                             </figure>
                         </td>
                         <td>
-                            <a href="{{ action('CategoryController@deleteCategory',$category) }}" class="black font-alfa hover-red">Supprimer</a>
+                            <a href="{{ action('CategoryController@deleteCategory',$category) }}" class="black font-alfa hover-red" id="delete-category">Supprimer</a>
                         </td>
                     </tr>                 
                     @endforeach
@@ -71,9 +71,5 @@
     @endif
 </article>
 @include('Flooflix.layouts.scripts')
-<script>
-    $('document').ready(function() {
-        document.body.style.backgroundColor = 'black';
-    })
-</script>
+<script src="http://127.0.0.1:8000/js/flooflix/script.js"></script>
 @endsection

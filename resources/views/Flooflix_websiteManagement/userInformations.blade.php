@@ -70,21 +70,5 @@
     </div>
 </article>
 @include('Flooflix.layouts.scripts')
-<script>
-    $('document').ready(function() {
-        document.body.style.backgroundColor = 'black';
-    })
-    $("#delete-user").click(function() {
-        if(confirm( "Etes vous sur de vouloir supprimer cet utilisateur ? Toutes ses informations seront définitivement perdus." )){
-            if(confirm("Les informations de cet utilisateur vont être supprimées")){
-            }else{
-                event.preventDefault();
-                alert("suppression annulée")
-            }
-        }else{
-            event.preventDefault();
-            alert("suppression annulée")
-        }
-    });
-</script>
+<script src="http://127.0.0.1:8000/js/flooflix/script.js"></script>
 @endsection

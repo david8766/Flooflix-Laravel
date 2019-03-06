@@ -183,7 +183,7 @@ Route::group(['middleware' => ['App\Http\Middleware\IsOwner']], function(){
     Route::get('/SupprimerLimage/{picture}','PictureController@deletePicture')->name('delete.picture');
     Route::get('/CollectionDeFilmsDunUtilisateur','OwnerController@showUserMoviesCollection');
     
-    // les pages modifiables
+    // Editable pages
     Route::get('/ModifierLaPageAccueil','PageController@editHomePage')->name('edit.homePage');
     Route::get('/AperçuDeLaPageAccueil','PageController@showPreviewHomePage')->name('preview.homePage');
 

@@ -925,8 +925,19 @@ class MovieController extends Controller
      */
     public function storeFilmDirector(Request $request, Movie $movie)
     {
-        $last_name = $request->last_name;
-        $first_name = $request->first_name;
+        // validate fields
+        if(isset($request->last_name) && isset($request->first_name) && !is_null($request->last_name) && !is_null($request->first_name)){
+            request()->validate(['last_name' => ['required','string']]);
+            request()->validate(['first_name'=>['required','string']]);
+            $last_name = $request->last_name;
+            $first_name = $request->first_name;
+        } elseif (isset($request->film_director) && !is_null($request->film_director) ) {
+            request()->validate(['film_director'=>['required','string']]);
+        } else {
+            request()->validate(['last_name' => ['required','string']]);
+            request()->validate(['first_name'=>['required','string']]);
+            request()->validate(['film_director'=>['required','string']]);
+        }
         
         if (isset($last_name) && isset($first_name) && !is_null($last_name) && !is_null($first_name) && is_string($last_name) && is_string($first_name)) {
             //save Datas
@@ -1023,12 +1034,16 @@ class MovieController extends Controller
     public function storeActor(Request $request, Movie $movie)
     {
         // validate fields
-        if(isset($request->last_name) && isset($request->first_name)){
+        if(isset($request->last_name) && isset($request->first_name) && !is_null($request->last_name) && !is_null($request->first_name)){
             request()->validate(['last_name' => ['required','string']]);
             request()->validate(['first_name'=>['required','string']]);
             $last_name = $request->last_name;
             $first_name = $request->first_name;
-        } elseif (isset($request->actor)) {
+        } elseif (isset($request->actor) && !is_null($request->actor) ) {
+            request()->validate(['actor'=>['required','string']]);
+        } else {
+            request()->validate(['last_name' => ['required','string']]);
+            request()->validate(['first_name'=>['required','string']]);
             request()->validate(['actor'=>['required','string']]);
         }
         

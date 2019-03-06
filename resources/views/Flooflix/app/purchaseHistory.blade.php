@@ -5,7 +5,7 @@
     dump($movies);
 @endphp
 <!-- Main -->
-<article class="min-88 pt-5 pb-5 bg-black">
+<article class="min-100 pt-5 pb-5 bg-black">
     <div class="row separator azure mx-5">
         <header>
             <h1 class="font-alfa azure">Historique des achats</h1>

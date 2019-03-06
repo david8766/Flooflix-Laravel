@@ -74,8 +74,8 @@ class UserController extends Controller
             }   
             // Save datas
             $user = new User;
-            $user->last_name = e($request->last_name);
-            $user->first_name = e($request->first_name);
+            $user->last_name = ucfirst(strtolower(e($request->last_name)));
+            $user->first_name = ucfirst(strtolower(e($request->first_name)));
             $user->email = e($request->email);
             $user->login = e($request->login);
             $user->password = bcrypt(e($request->password));
@@ -165,8 +165,8 @@ class UserController extends Controller
                 return redirect()->route('user.account', [$user]);
             }else{
                 // else update datas
-                $user->last_name = e($request->last_name);
-                $user->first_name = e($request->first_name);
+                $user->last_name = ucfirst(strtolower(e($request->last_name)));
+                $user->first_name = ucfirst(strtolower(e($request->first_name)));
                 $user->email = e($request->email);
                 $user->login = e($request->login);
                 $user->password = bcrypt(e($request->password));

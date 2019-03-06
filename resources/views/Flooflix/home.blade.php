@@ -3,7 +3,7 @@
 @include('Flooflix.layouts.header')
 
 <!-- Main -->
-<section role="main" class="container-fluid m-0 p-0"> 
+<section role="main" class="container-fluid m-0 p-0 min-100"> 
     <!-- Jumbotron -->
     @include('Flooflix.partials.message')
     <article class="jumbotron jumbotron-fluid text-center min-100 bg-cine pt-1" id="first-article">

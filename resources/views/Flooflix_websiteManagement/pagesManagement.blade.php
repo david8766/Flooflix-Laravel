@@ -21,9 +21,5 @@
     <h2 class="mt-5"><a href="" class="azure hover-red">Valider les aperçus</a></h2>
 </article>
 @include('Flooflix.layouts.scripts')
-<script>
-    $('document').ready(function() {
-        document.body.style.backgroundColor = 'black';
-    })
-</script>
+<script src="http://127.0.0.1:8000/js/flooflix/script.js"></script>
 @endsection
