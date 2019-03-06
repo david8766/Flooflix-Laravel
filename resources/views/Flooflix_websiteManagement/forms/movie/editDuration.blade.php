@@ -33,7 +33,7 @@
                 </form>
                 <div class="row mt-5 justify-content-center">
                     <div class="col col-auto">
-                        <a href="{{ route('movie.informations',[$movie]) }}" class="font-alfa black" id="hover-coral">Annuler</a>
+                        <a href="{{ route('movie.informations',[$movie]) }}" class="font-alfa black hover-coral">Annuler</a>
                     </div>
                 </div>
             </div>

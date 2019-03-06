@@ -53,6 +53,7 @@ Route::get('/Connection','LoginController@login')->name('user.login');
 Route::post('/login','LoginController@authenticate')->name('user.auth');
 Route::get('/Inscription','UserController@create')->name('user.register');
 Route::post('/register','UserController@store');
+Route::get('AjouterUnFilmAuPanier/{movie}','MovieController@addMovieInShoppingCart')->name('add.movie.to.shoppingCart');
 
 // Route for flooflix websites when users are authenticate
 Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
@@ -67,11 +68,16 @@ Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
     Route::post('/ModifierVotreCarteBancaire','BankCardController@update')->name('bankCard.update');
     Route::get('AjouterDesCrédits','UserController@addCredits')->name('user.credits');
     Route::post('AjouterDesCrédits','UserController@storeCredits')->name('store.credits');
-    Route::get('AjouterUnFilmAuPanier/{movie}','MovieController@addMovieInShoppingCart')->name('add.movie.to.shoppingCart');
     Route::get('VotrePanier/{user}','UserController@showShoppingCart')->name('show.shoppingCart');
     Route::get('RetirerDuPanier/{movie}/{user}','UserController@removeMovieInCart')->name('remove.movie.in.cart');
     Route::get('ValiderLePanier','UserController@addMoviesToCollection')->name('add.movie.to.collection');
     Route::post('user/{user}','UserController@update')->name('user.update');
+    Route::get('ConditionsDutilisation','HomeController@showTermsOfUse')->name('terms.of.use');
+    Route::get('ConditionsGénéralesDeVente','HomeController@showTermsOfSales')->name('terms.of.sales');
+    Route::get('PolitiqueDeConfidentialité','HomeController@showPrivacyPolicy')->name('privacy.policy');
+    Route::get('MentionsLégales','HomeController@showLegalNotice')->name('legal.notice');
+    Route::get('Cookies','HomeController@ShowCookies')->name('cookies');
+    Route::get('Contact','HomeController@showContact')->name('contact');
     Route::get('/logout','LoginController@logout')->name('user.logout');
 });
 

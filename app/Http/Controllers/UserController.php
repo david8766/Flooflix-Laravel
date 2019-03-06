@@ -147,8 +147,7 @@ class UserController extends Controller
         
         // Data verification
         if(isset($request->last_name) && isset($request->first_name) && isset($request->email) && isset($request->login) && isset($request->password) && isset($request->birth_date) && !is_null($request->last_name) && !is_null($request->first_name)  && !is_null($request->email) && !is_null($request->login) && !is_null($request->password) && !is_null($request->birth_date) && !empty($request->last_name) && !empty($request->first_name) && !empty($request->email) && !empty($request->login) && !empty($request->password) && !empty($request->birth_date) && is_string($request->last_name) && is_string($request->first_name) && is_string($request->email) && is_string($request->login) && is_string($request->password) && is_string($request->birth_date)){
-            // Check if user login and user email exists in database
-           
+            // Check if user login and user email exists in database   
             $users = User::all();
             foreach ($users as $item) {
                 if($item->login == $request->login && $item->id != $user->id){
@@ -395,7 +394,7 @@ class UserController extends Controller
             $tab->category = $category; 
         }
         //Separation of the movies_by_date collection into several collections of 2 values for display
-        $chunks = $movies_by_date->chunk(2);
+        $chunks = $movies_by_date->chunk(3);
         $movies = $chunks;
       
         //get ressources for display

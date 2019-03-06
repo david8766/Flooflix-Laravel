@@ -25,7 +25,7 @@
                     @forelse ($users as $user)
                     <tr>
                         <td>
-                        <a href="{{ route('user.informations',$user['user']) }}" class="black" id="hover-red">{{$user['user']->login}}</a>
+                        <a href="{{ route('user.informations',$user['user']) }}" class="black hover-red">{{$user['user']->login}}</a>
                         </td>
                         <td>{{$user['user']->last_name}}</td>
                         <td>{{$user['user']->first_name}}</td>
@@ -39,7 +39,7 @@
             </table>
         </div>
     </div>
-    <a href="/ListeDesFilms" class="azure" id="hover-red">Retour à la liste des films</a>
+    <a href="/ListeDesFilms" class="azure hover-red">Retour à la liste des films</a>
 
     @if (count($users) > 8)
     <div class="row separator-top mt-5 justify-content-center">
@@ -47,21 +47,21 @@
             <nav aria-label="Navigation">
                 <ul class="pagination text-center" role="navigation">
                     @if ($users->currentPage() != 1)
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->previousPageUrl() }}">Précédent</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->previousPageUrl() }}">Précédent</a></li>
                     @if ($users->currentPage() >2)
-                       <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->url(1) }}">1</a></li>  
+                       <li class="page-item"><a class="page-link black hover-red" href="{{ $users->url(1) }}">1</a></li>  
                     @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->previousPageUrl() }}">{{$users->currentPage()-1}}</a></li>    
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->previousPageUrl() }}">{{$users->currentPage()-1}}</a></li>    
                     @endif
                     <li class="page-item"><a class="page-link red" href="{{ $users->url($users->currentPage()) }}">{{$users->currentPage()}}</a></li>
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>
                     @if ($users->currentPage() != $users->lastPage())
                         @if ($users->currentPage() != ($users->lastPage()-1))
-                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>             
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>             
                         @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->url($users->lastPage()) }}">{{$users->lastPage()}}</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->url($users->lastPage()) }}">{{$users->lastPage()}}</a></li>
                     @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">Suivant</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">Suivant</a></li>
                 </ul>
             </nav>
         </div>

@@ -35,10 +35,17 @@
                     <tr>
                         <td>{{ $movie->title }}</td>
                         <td>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            @foreach ($movies_grade as $key => $value)
+                                @if ($movie->id == $key)
+                                    @if (!is_null($value))
+                                        @for ($i = 1; $i <= $value; $i++)
+                                            <i class="fas fa-star"></i>
+                                        @endfor     
+                                    @else
+                                        {{'Aucune note attribuée' }}
+                                    @endif
+                                @endif
+                            @endforeach
                         </td>
                         <td>{{ $movie->price }}</td>
                         <td>{{ $movie->created_at }}</td>

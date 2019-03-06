@@ -22,7 +22,7 @@
                 
             </div>
             @if ($status == "acquired")
-                <div class="row">
+                <div class="row justify-content-center">
                 <!-- Button trigger modal -->
                 <button type="button" class="font-alfa azure btn bg-dark hover-coral justify-content-center" data-toggle="modal" data-target="#gradeModalCenter">ATTRIBUER UNE NOTE</button>  
                 </div>

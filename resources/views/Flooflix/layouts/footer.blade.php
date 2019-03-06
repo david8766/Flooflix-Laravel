@@ -4,22 +4,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Conditions d'utiisation</a>
+                    <a class="nav-link" href="{{route('terms.of.use')}}">Conditions d'utiisation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Conditions générales de vente</a>
+                    <a class="nav-link" href="{{route('terms.of.sales')}}">Conditions générales de vente</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Politique de confidentialité</a>
+                    <a class="nav-link" href="{{route('privacy.policy')}}">Politique de confidentialité</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mentions légales</a>
+                    <a class="nav-link" href="{{route('legal.notice')}}">Mentions légales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cookies</a>
+                    <a class="nav-link" href="{{route('cookies')}}">Cookies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{route('contact')}}">Contact</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

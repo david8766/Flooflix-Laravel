@@ -32,6 +32,7 @@ class MovieController extends Controller
         $movie = Movie::where('title', $movie)->first();
         // get user
         $user = auth()->user('id');
+       
         
         // define status for movie
         $status = "not acquired";
@@ -102,11 +103,19 @@ class MovieController extends Controller
      */
     public function addMovieInShoppingCart(Movie $movie)
     {
-        // put in session: movie
-        session()->put($movie->title,$movie);
-        // get title for url movie page
-        $movie = $movie->title;
-        return redirect()->route('movie',$movie)->with('message','le film a bien été ajouté au panier.');
+        // get user
+        $user = auth()->user('id');
+
+        if (is_null($user) || empty($user)) {
+            return back()->with('messageError','Vous devez être inscrit et identifié pour ajouter des films au panier.');
+        } else { 
+            // put in session: movie
+            session()->put($movie->title,$movie);
+            // get title for url movie page
+            $movie = $movie->title;
+            return redirect()->route('movie',$movie)->with('message','le film a bien été ajouté au panier.');
+        }
+        
     }
 
     /**
@@ -190,11 +199,44 @@ class MovieController extends Controller
      */
     public function moviesList()
     {
+        $movies = Movie::all();
+        $movies_grades = [];
+        foreach ($movies as $movie) {  
+            $grades = DB::table('movie_user')->select('grade')->where('movie_id',$movie->id)->get();
+            if (!is_null($grades) && !empty($grades) && count($grades) != 0) {
+                $total = 0;
+                $total_grades = count($grades);
+                foreach ($grades as $item){
+                    $total = $total + $item->grade;
+                }
+                $average = $total/$total_grades;
+                switch ($average) {
+                    case ($average < 1.5) : 
+                        $average = 1;
+                        break;
+                    case ($average >= 1.5 && $average <= 2 && $average < 2.5) :
+                        $average = 2;
+                        break;
+                    case ($average >= 2.5 && $average <= 3 && $average < 3.5) :
+                        $average = 3;
+                        break;
+                    case ($average >= 3.5 && $average <= 4 && $average < 4.5) :
+                        $average = 4;
+                        break;
+                    case ($average >= 4.5 && $average = 5) :
+                        $average = 4;
+                        break;
+                }
+            } else {
+                $average = null;
+            }
+            $movies_grade[$movie->id] = $average;
+        }
         // Pagination
         $movies = Movie::orderBy('created_at', 'DESC')->paginate(15);
         $categories = Category::all();
         $people = Person::all();
-        return view('Flooflix_websiteManagement.moviesList',compact('movies','people','categories'));
+        return view('Flooflix_websiteManagement.moviesList',compact('movies','people','categories','movies_grade'));
     }
 
     /**

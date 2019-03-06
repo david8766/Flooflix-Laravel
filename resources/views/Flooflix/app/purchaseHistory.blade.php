@@ -11,18 +11,22 @@
             <h1 class="font-alfa azure">Historique des achats</h1>
         </header>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         @forelse ($movies as $item)
             <div class="row mt-5">
                 @foreach ($item as $movie)   
-                <div class="col-md-3">
+                <div class="col-md-2 text-right">
                     <figure class="figure">
                     <img width="150px" height="250px" src="{{ asset($movie->picture->style) }}" alt="{{ $movie->movie->title }}" class="img-fluid figure-img">
                     </figure>
                 </div>  
-                <div class="col-md-3 align-self-center">
+                <div class="col-md-2 align-self-center">
                     <p class="font-alfa azure">{{ __($movie->category->genre) }}</p>
-                    <p class="font-alfa azure">{{ $movie->movie->title }}</p>
+                    <p class="font-alfa azure">
+                        <a href="{{ route('movie',[$movie->movie->title]) }}" class="azure hover-coral">
+                            {{$movie->movie->title}}
+                        </a>
+                    </p>
                     <p class="font-alfa azure">{{ __('acheté le : ' . $movie->date)}}</p>
                 </div>       
                 @endforeach

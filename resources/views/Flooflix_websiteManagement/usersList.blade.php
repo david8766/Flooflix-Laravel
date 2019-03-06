@@ -58,11 +58,11 @@
                     <li class="page-item"><a class="page-link red" href="{{ $users->url($users->currentPage()) }}">{{$users->currentPage()}}</a></li>
                     @if ($users->currentPage() != $users->lastPage())
                         @if ($users->currentPage() != ($users->lastPage()-1))
-                        <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>             
+                        <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">{{$users->currentPage()+1}}</a></li>             
                         @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->url($users->lastPage()) }}">{{$users->lastPage()}}</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->url($users->lastPage()) }}">{{$users->lastPage()}}</a></li>
                     @endif
-                    <li class="page-item"><a class="page-link black" id="hover-red" href="{{ $users->nextPageUrl() }}">Suivant</a></li>
+                    <li class="page-item"><a class="page-link black hover-red" href="{{ $users->nextPageUrl() }}">Suivant</a></li>
                 </ul>
             </nav>
         </div>

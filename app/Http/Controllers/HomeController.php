@@ -21,7 +21,7 @@ class HomeController extends Controller
     /**
      * Displays view the website's homepage flooflix
      *
-     * @return void
+     * @return view
      */
     public function flooflix()
     {   
@@ -59,6 +59,66 @@ class HomeController extends Controller
         $pictures = Picture::all();
         
         return view('Flooflix.home',compact('top_movies','new_movies','pictures'));
+    }
+
+    /**
+     * Displays view of terms of use for the website's flooflix
+     *
+     * @return view
+     */
+    public function showTermsOfUse()
+    {   
+        return view('Flooflix.termsOfUse');
+    }
+
+    /**
+     * Displays view of terms of sales for the website's flooflix
+     *
+     * @return view
+     */
+    public function showTermsOfSales()
+    {   
+        return view('Flooflix.termsOfSales');
+    }
+
+    /**
+     * Displays view of privacy policy for the website's flooflix
+     *
+     * @return view
+     */
+    public function showPrivacyPolicy()
+    {   
+        return view('Flooflix.privacyPolicy');
+    }
+
+    /**
+     * Displays view of legal notice for the website's flooflix
+     *
+     * @return view
+     */
+    public function showLegalNotice()
+    {   
+        return view('Flooflix.legalNotice');
+    }
+
+    /**
+     * Displays view of cookies for the website's flooflix
+     *
+     * @return view
+     */
+    public function showCookies()
+    {   
+        return view('Flooflix.cookies');
+    }
+
+    /**
+     * Displays view of contact for the website's flooflix
+     *
+     * @return view
+     */
+    public function showContact()
+    {   
+        return view('Flooflix.contact');
     }
 
     /**
