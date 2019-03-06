@@ -54,7 +54,7 @@ class AdminController extends Controller
     public function authenticate(Request $request)
     {
         // Form fields validation.
-        $res = request()->validate([
+        request()->validate([
             'login' => ['required','string'],
             'password' => ['required','string']
         ]);

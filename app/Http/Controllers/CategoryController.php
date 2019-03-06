@@ -27,8 +27,14 @@ class CategoryController extends Controller
     {
         // get resources for display
         $website = Website::where('name','flooflix')->first();
-        $page = Page::where('website_id', $website->id)->where('name','categories')->first(); 
-        $datas = $page->getResourcesToDisplayPage($page);
+        if (!is_null($website) && !empty($website)) {
+            $page = Page::where('website_id', $website->id)->where('name','categories')->first();
+            if(!is_null($page) && !empty($page)){
+                $datas = $page->getResourcesToDisplayPage($page);
+            }    
+        }else{
+            return view('errors.404');
+        }
         $categories = Category::all();
         $pictures = Picture::all();
         $texts = Text::all();
@@ -46,15 +52,18 @@ class CategoryController extends Controller
      */
     public function showMoviesByCategory($category)
     {
+        // get resources for display
+        $website = Website::where('name','flooflix')->first();
+        if (!is_null($website) && !empty($website)) {
+            $page = Page::where('website_id', $website->id)->where('name','categorie')->first();
+            if(!is_null($page) && !empty($page)){
+                $datas = $page->getResourcesToDisplayPage($page);
+            }    
+        }else{
+            return view('errors.404');
+        }
         $category = Category::where('genre',$category)->first();
         $movies = Movie::where('category_id',$category->id)->orderBy('created_at','desc')->paginate(24);
-        $website = Website::where('name','flooflix')->first();
-        $page = Page::where('website_id', $website->id)->where('name','categorie')->first(); 
-        $datas = $page->getResourcesToDisplayPage($page);
-        /* $chunks = $movies->chunk(6);
-        $movies = $chunks;
-        
-        dd($movies); */
         $pictures = Picture::all();
 
         return view('Flooflix.category',compact('category','movies','datas','pictures'));

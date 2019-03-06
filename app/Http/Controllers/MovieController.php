@@ -28,12 +28,21 @@ class MovieController extends Controller
      */
     public function showMovie($movie)
     {
+        // get resources for display
+        $website = Website::where('name','flooflix')->first();
+        if (!is_null($website) && !empty($website)) {
+            $page = Page::where('website_id', $website->id)->where('name','film')->first();
+            if(!is_null($page) && !empty($page)){
+                $datas = $page->getResourcesToDisplayPage($page);
+            }    
+        }else{
+            return view('errors.404');
+        }
+
         // get movie
         $movie = Movie::where('title', $movie)->first();
         // get user
         $user = auth()->user('id');
-       
-        
         // define status for movie
         $status = "not acquired";
         if(!is_null($user) && !empty($user)){
@@ -79,16 +88,10 @@ class MovieController extends Controller
         } else {
             $average = null;
         }
-        
-        
 
-        // get resources for display
         $film_directors = $movie->getFilmDirectors();
         $actors = $movie->getActors();
         $people = $movie->people()->get();
-        $website = Website::where('name','flooflix')->first();
-        $page = Page::where('website_id', $website->id)->where('name','film')->first();
-        $datas = $page->getResourcesToDisplayPage($page);
         $categories = Category::all();
         $pictures = Picture::all();
 

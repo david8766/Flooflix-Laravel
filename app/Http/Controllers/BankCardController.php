@@ -23,12 +23,16 @@ class BankCardController extends Controller
      */
     public function create()
     {
-        $website = Website::where('name', 'flooflix')->first();
-        //dump($website);
-        $page = Page::where('website_id', $website->id)->where('name','carte')->first();
-        //dump($page); 
-        $datas = $page->getResourcesToDisplayPage($page);
-        dump($datas);
+        // get resources for display 
+        $website = Website::where('name','flooflix')->first();
+        if (!is_null($website) && !empty($website)) {
+            $page = Page::where('website_id', $website->id)->where('name','carte')->first();
+            if(!is_null($page) && !empty($page)){
+                $datas = $page->getResourcesToDisplayPage($page);
+            }    
+        }else{
+            return view('errors.404');
+        }     
         return view('flooflix.forms.createBankCard',compact('datas'));
     }
 
@@ -101,16 +105,6 @@ class BankCardController extends Controller
         } 
     }
     
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\BankCard  $bankCard
-     * @return view
-     */
-    public function show(BankCard $bankCard)
-    {
-        //
-    }
     
     /**
      * Show the form for editing the specified resource.
@@ -119,12 +113,16 @@ class BankCardController extends Controller
      */
     public function edit()
     {
-        $website = Website::where('name', 'flooflix')->first();
-        //dump($website);
-        $page = Page::where('website_id', $website->id)->where('name', 'modifier-carte')->first();
-        //dump($page);
-        $datas = $page->getResourcesToDisplayPage($page);
-        //dump($datas);
+        // get resources for display 
+        $website = Website::where('name','flooflix')->first();
+        if (!is_null($website) && !empty($website)) {
+            $page = Page::where('website_id', $website->id)->where('name','modifier_carte')->first();
+            if(!is_null($page) && !empty($page)){
+                $datas = $page->getResourcesToDisplayPage($page);
+            }    
+        }else{
+            return view('errors.404');
+        }
         return view('Flooflix.forms.editBankCard', compact('datas'));
     }
     
@@ -199,17 +197,6 @@ class BankCardController extends Controller
         }else{
             return redirect('/AjouterUneCarteBancaire')->with('messageError', "Une erreur est survenue lors de l'enregistrement de votre nouvelle carte.Veuillez contacter l'administrateur du site");
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\BankCard  $bankCard
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BankCard $bankCard)
-    {
-        //
     }
 
     /**
