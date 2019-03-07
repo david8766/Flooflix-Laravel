@@ -37,7 +37,7 @@ class LoginController extends Controller
      */
     public function login()
     {
-        //get resources for display login form
+        // get resources for display login form
         $website = Website::where('name', 'flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name', 'connexion')->first();
         $datas = $page->getResourcesToDisplayPage($page);

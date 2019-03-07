@@ -3,7 +3,7 @@
 @include('Flooflix.layouts.header')
 <!-- Main -->
 <article>
-    <div class="container min-88">
+    <div class="container min-100">
         <div class="row pt-5">
             <div class="col-lg-4"></div>
             <div class="col-lg-4" id="bg">

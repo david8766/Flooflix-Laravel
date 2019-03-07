@@ -92,25 +92,6 @@ class UserController extends Controller
         }  
     }
 
-
-    /**
-     * Display the user account.
-     *
-     * @return View
-     */
-    public function showUserAccount()
-    {
-        $user = auth()->user('id');
-        $bankCard = BankCard::find($user->bank_card_id);
-
-        //get ressources for display
-        $website = Website::where('name', 'flooflix')->first();
-        $page = Page::where('website_id', $website->id)->where('name', 'compte')->first();
-        $datas = $page->getResourcesToDisplayPage($page);;
-        $pictures = Picture::all();
-        return view('Flooflix/app/userAccount',compact('datas','pictures','bankCard'));  
-    }
-
     /**
      * Show the form for editing the user.
      *
@@ -177,6 +158,24 @@ class UserController extends Controller
         }else{
             return redirect()->route('user.account', [$user])->with('messageError', "Une erreur est survenue lors de l'enregistrement des données.");
         }
+    }
+
+    /**
+     * Display the user account.
+     *
+     * @return View
+     */
+    public function showUserAccount()
+    {
+        $user = auth()->user('id');
+        $bankCard = BankCard::find($user->bank_card_id);
+
+        //get ressources for display
+        $website = Website::where('name', 'flooflix')->first();
+        $page = Page::where('website_id', $website->id)->where('name', 'compte')->first();
+        $datas = $page->getResourcesToDisplayPage($page);;
+        $pictures = Picture::all();
+        return view('Flooflix/app/userAccount',compact('datas','pictures','bankCard'));  
     }
     
     /**
@@ -648,18 +647,5 @@ class UserController extends Controller
      */
     public function isDigits($element) {
         return !preg_match ("/[^0-9]/", $element);
-    }
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return View
-     */
-    public function destroy(User $user)
-    {
-        //
     }
 }
