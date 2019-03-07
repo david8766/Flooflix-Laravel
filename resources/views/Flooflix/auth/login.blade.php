@@ -27,7 +27,7 @@
                         @if ($errors->has('pwd'))
                             <p class="invalid-feedback" role="alert">{{ __($errors->first('pwd')) }}</p>
                         @endif
-                        <small><a href="#" class="links">{{ __('Mot de passe oublié?') }}</a></small>
+                        <small><a href="{{ route('password.request') }}" class="links">{{ __('Mot de passe oublié?') }} </a></small>     
                     </div>
                     <div class="row mt-5 justify-content-center">
                         <div class="col col-auto">
@@ -49,4 +49,5 @@
 @include('Flooflix.layouts.varJS')
 @include('Flooflix.layouts.scripts')
 <script src="js/flooflix/login.js"></script>
+
 @endsection

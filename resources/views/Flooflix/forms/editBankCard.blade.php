@@ -2,14 +2,14 @@
 @section('content')
 @include('Flooflix.layouts.header')
 <!-- Main -->
-<article class="min-88">
+<article class="min-100 bg-black">
     @php
         $user = auth()->user('id');
     @endphp 
     <div class="container">
         <div class="row pt-5">
             <div class="col-md-4"></div>
-            <div class="col-md-4" id="bg">
+            <div class="col-md-4 font-alfa bg-white">
                 @include('Flooflix.partials.message')
                 <header class="text-center">
                     <h1 class="mt-5 mx-2" id="title">Modifier votre carte</h1>
@@ -52,13 +52,13 @@
                     </div>
                     <div class="row mt-4 justify-content-center">     
                         <div class="col col-auto">
-                            <button type="submit" class="btn btn-color btn-md">Valider</button>
+                            <button type="submit" class="btn btn-warning btn-md">Valider</button>
                         </div>   
                     </div>
                 </form>
                 <div class="row mt-5 justify-content-center">   
                     <div class="col col-auto">
-                        <a href="{{ route('user.account') }}" id="link">Annuler</a>
+                        <a href="{{ route('user.account') }}" class="black hover-coral" id="link">Annuler</a>
                     </div>    
                 </div>
             </div>

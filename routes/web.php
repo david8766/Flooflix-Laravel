@@ -54,6 +54,8 @@ Route::post('/login','LoginController@authenticate')->name('user.auth');
 Route::get('/Inscription','UserController@create')->name('user.register');
 Route::post('/register','UserController@store');
 Route::get('AjouterUnFilmAuPanier/{movie}','MovieController@addMovieInShoppingCart')->name('add.movie.to.shoppingCart');
+Route::get('MotDePasseOublié','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('MotDePasseOublié','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
 // Route for flooflix websites when users are authenticate
 Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
