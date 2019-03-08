@@ -8,7 +8,8 @@
     <h2 class="font-alfa">Bonjour {{$user->first_name}}!</h2>
     <p class="font-alfa">Le {{$date}}</p>
     <p class="font-alfa">Cliquez sur le lien ci-dessous pour être rediriger vers le formulaire de rénitialisation de votre ùmot de passe.</p>
-    <a href="http://127.0.0.1:8000/RéinitialisationDuMotDePasse" class="font-alfa hover-coral">Cliquez - ici</a>
+   
+    <a href="{{ route('password.reset',$token)}}" class="font-alfa hover-coral">Cliquez - ici</a>
        
     </article>
 </section>

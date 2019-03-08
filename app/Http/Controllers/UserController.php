@@ -9,6 +9,10 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Password;
+use App\Mail\ResetPassword;
 use Carbon\Carbon;
 use App\User;
 use App\Role;
@@ -156,6 +160,81 @@ class UserController extends Controller
             }
         }else{
             return redirect()->route('user.account', [$user])->with('messageError', "Une erreur est survenue lors de l'enregistrement des données.");
+        }
+    }
+
+    /**
+     * Create link request form.
+     *
+     * @return void
+     */
+    public function showLinkRequestForm()
+    {
+        return view('Flooflix.auth.passwords.email');
+    }
+
+    /**
+     * Send a reset link to the given user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return view
+     */
+    public function sendResetLinkEmail(Request  $request)
+    {
+        request()->validate(['email' => 'required|email']);
+        $users = User::all();
+        foreach ($users as $user) {
+            if($user->email == $request->email){
+                $key = str_random(32);
+                $date = now()->format('Y-m-d H:i:s');
+                DB::table('password_resets')->insert(['email' => $request->email , 'token' => $key, 'created_at' => $date]);
+                $token = DB::table('password_resets')->select('token')->where('email',$user->email)->first();
+                //dd($token->token);
+                Mail::to($user->email)->send(new ResetPassword($user,$token->token));
+                return redirect()->route('home')->with('message','Un message vient de vous être envoyé avec un lien de redirection pour réinitialiser votre mot de passe');
+            }else{
+                return back()->with('messageError','Votre adresse email ne correspond à aucune adresse email connue de notre site.');
+            }
+        }      
+    }
+
+    /**
+     * Show password reset form.
+     *
+     * @param string $token
+     * @return view
+     */
+    public function showResetForm($token)
+    {
+        return view('Flooflix.auth.passwords.reset',compact('token'));
+    }
+
+
+    /**
+     * Upadte password.
+     *
+     * @param string $token
+     * @param  \Illuminate\Http\Request  $request
+     * @return view
+     */
+    public function updatePassword(Request $request,string $token)
+    {
+        request()->validate(['email' => 'required|email']);
+        request()->validate(['password' => 'required']);
+        $password = $request->password;
+        $test = DB::table('password_resets')->select('email')->where('email',$request->email)->where('token',$token)->first();
+        if(!is_null($test) && !empty($test) && is_string($test->email)){
+            $user = User::where('email',$test->email)->first();
+            if(!is_null($password) && !empty($password) && is_string($password)){
+                $user->password = bcrypt($request->password);
+                $user->save();
+                DB::table('password_resets')->where('email',$request->email)->where('token',$token)->delete();
+                return redirect()->route('home')->with('message','Votre nouveau mot de passe a bien été enregistré.');
+            }else{
+                return back()->with('messageError', "Votre mot de passe n'est pas reconnu par le système.");
+            }
+        }else{
+            return back()->with('messageError', "Votre adresse email n'est pas reconnu par le système.");
         }
     }
 

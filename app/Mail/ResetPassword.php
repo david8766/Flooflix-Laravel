@@ -16,12 +16,14 @@ class ResetPassword extends Mailable
     /**
      * Create a new message instance.
      *
+     * @param string $token
      * @param User $user
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $user,String $token)
     {
         $this->user = $user;
+        $this->token = $token;
     }
 
     /**
@@ -30,12 +32,13 @@ class ResetPassword extends Mailable
      * @return $this
      */
     public function build()
-    {
+    {    
         return $this->subject('Invitation à réinitialiser le mot de passe')
         ->from('contact@flooflix.com')
         ->view('Flooflix.mail.resetPassword')->with([
             'date' => (new Carbon)->format('d/m/Y'),
-            'user' => $this->user
+            'user' => $this->user,
+            'token' => $this->token
             ]);
     }
 }
