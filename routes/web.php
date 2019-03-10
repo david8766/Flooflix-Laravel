@@ -58,6 +58,12 @@ Route::get('MotDePasseOublié','UserController@showLinkRequestForm')->name('pass
 Route::post('MotDePasseOublié','UserController@sendResetLinkEmail')->name('password.email');
 Route::get('/RéinitialisationDuMotDePasse\{token}','UserController@showResetForm')->name('password.reset');
 Route::post('/RéinitialisationDuMotDePasse\{token}','UserController@updatePassword')->name('update.password');
+Route::get('ConditionsDutilisation','HomeController@showTermsOfUse')->name('terms.of.use');
+Route::get('ConditionsGénéralesDeVente','HomeController@showTermsOfSales')->name('terms.of.sales');
+Route::get('PolitiqueDeConfidentialité','HomeController@showPrivacyPolicy')->name('privacy.policy');
+Route::get('MentionsLégales','HomeController@showLegalNotice')->name('legal.notice');
+Route::get('Cookies','HomeController@ShowCookies')->name('cookies');
+Route::get('Contact','HomeController@showContact')->name('contact');
 
 // Route for flooflix websites when users are authenticate
 Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
@@ -76,12 +82,6 @@ Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
     Route::get('RetirerDuPanier/{movie}/{user}','UserController@removeMovieInCart')->name('remove.movie.in.cart');
     Route::get('ValiderLePanier','UserController@addMoviesToCollection')->name('add.movie.to.collection');
     Route::post('user/{user}','UserController@update')->name('user.update');
-    Route::get('ConditionsDutilisation','HomeController@showTermsOfUse')->name('terms.of.use');
-    Route::get('ConditionsGénéralesDeVente','HomeController@showTermsOfSales')->name('terms.of.sales');
-    Route::get('PolitiqueDeConfidentialité','HomeController@showPrivacyPolicy')->name('privacy.policy');
-    Route::get('MentionsLégales','HomeController@showLegalNotice')->name('legal.notice');
-    Route::get('Cookies','HomeController@ShowCookies')->name('cookies');
-    Route::get('Contact','HomeController@showContact')->name('contact');
     Route::get('/logout','LoginController@logout')->name('user.logout');
 });
 
