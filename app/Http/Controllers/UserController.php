@@ -182,14 +182,21 @@ class UserController extends Controller
     public function sendResetLinkEmail(Request  $request)
     {
         request()->validate(['email' => 'required|email']);
+        // Get users
         $users = User::all();
+        
+        // test email if exists in database
         foreach ($users as $user) {
             if($user->email == $request->email){
+                // generate token
                 $key = str_random(32);
+                // get datetime
                 $date = now()->format('Y-m-d H:i:s');
+                // save data in database
                 DB::table('password_resets')->insert(['email' => $request->email , 'token' => $key, 'created_at' => $date]);
+                // get token
                 $token = DB::table('password_resets')->select('token')->where('email',$user->email)->first();
-                //dd($token->token);
+                // send email to user
                 Mail::to($user->email)->send(new ResetPassword($user,$token->token));
                 return redirect()->route('home')->with('message','Un message vient de vous être envoyé avec un lien de redirection pour réinitialiser votre mot de passe');
             }else{
@@ -219,15 +226,23 @@ class UserController extends Controller
      */
     public function updatePassword(Request $request,string $token)
     {
+        // validate fields
         request()->validate(['email' => 'required|email']);
         request()->validate(['password' => 'required']);
+        // get password
         $password = $request->password;
+        // get token and email in database
         $test = DB::table('password_resets')->select('email')->where('email',$request->email)->where('token',$token)->first();
+        // test email
         if(!is_null($test) && !empty($test) && is_string($test->email)){
+            // get user
             $user = User::where('email',$test->email)->first();
+            // test password
             if(!is_null($password) && !empty($password) && is_string($password)){
+                // save password for user
                 $user->password = bcrypt($request->password);
                 $user->save();
+                // clear the verification data
                 DB::table('password_resets')->where('email',$request->email)->where('token',$token)->delete();
                 return redirect()->route('home')->with('message','Votre nouveau mot de passe a bien été enregistré.');
             }else{
@@ -336,8 +351,8 @@ class UserController extends Controller
         
         //get ressources for display
         $pictures = Picture::all();
-        $website = Website::where('name', 'flooflix')->first();
-        $page = Page::where('website_id', $website->id)->where('name', 'panier')->first();
+        $website = Website::where('name','flooflix')->first();
+        $page = Page::where('website_id', $website->id)->where('name','panier')->first();
         $datas = $page->getResourcesToDisplayPage($page);
         return view('flooflix.app.shoppingCart',compact('user','datas','bankCard','shopping_cart','movies','pictures'));
     }
@@ -379,13 +394,11 @@ class UserController extends Controller
                 }
             }
         }
-
         //get total purchases
         $total = 0;
         foreach ($shopping_cart as $movie) {
             $total += $movie->price;
         }
-
         //check if the user has enough credits and store movies in collection user with bying date
         $date = now();
         if($total > $user->credits){
@@ -525,7 +538,6 @@ class UserController extends Controller
      */
     public function usersManagement(Request $request)
     {
-        //dd($request);
         //get users total
         $users = DB::table('roles')
         ->join('users','roles.id','=','users.role_id')
@@ -680,16 +692,13 @@ class UserController extends Controller
         ]);
         $search = $request->search;
         $words = explode(" ",$search);
-        
-        
+    
         $user = User::where('last_name', 'like', ucfirst($words[1]))->where('first_name', 'like', ucfirst($words[0]))->first();
-        dump($user);
         if (is_null($user)) {
             return back()->with('messageError','Aucun utilisateur ne correspond à votre recherche');
         } else { 
             return redirect()->route('user.informations',$user);
-        }
-        
+        }  
         return view('Flooflix_websiteManagement.userInformations',compact('user'));
         
     }

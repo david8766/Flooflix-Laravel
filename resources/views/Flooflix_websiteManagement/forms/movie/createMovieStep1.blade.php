@@ -10,7 +10,7 @@
                 <header class="text-center mt-4">
                     <h1 class="font-alfa black">Ajouter un film</h1>
                 </header>
-                <form action="{{ action('MovieController@storeStep1') }}" class="mt-5 mx-5" method="POST">
+                <form action="{{ action('MovieController@storeStep1') }}" role="form" class="mt-5 mx-5" method="POST">
                     @csrf
                     <div class="form-group">
                         <label class="font-alfa black">Choisir la catégorie:</label>

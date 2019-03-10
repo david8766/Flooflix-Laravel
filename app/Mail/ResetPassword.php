@@ -39,6 +39,6 @@ class ResetPassword extends Mailable
             'date' => (new Carbon)->format('d/m/Y'),
             'user' => $this->user,
             'token' => $this->token
-            ]);
+        ]);
     }
 }

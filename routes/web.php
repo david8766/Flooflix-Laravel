@@ -64,6 +64,8 @@ Route::get('PolitiqueDeConfidentialité','HomeController@showPrivacyPolicy')->na
 Route::get('MentionsLégales','HomeController@showLegalNotice')->name('legal.notice');
 Route::get('Cookies','HomeController@ShowCookies')->name('cookies');
 Route::get('Contact','HomeController@showContact')->name('contact');
+Route::post('Contact','HomeController@sendMessage')->name('send.message');
+
 
 // Route for flooflix websites when users are authenticate
 Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){

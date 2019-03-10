@@ -3,7 +3,7 @@
 <!-- Main -->
 <section role="main" class="container-fluid m-0 p-0 min-100"> 
     <!-- Jumbotron -->
-    <article class="jumbotron jumbotron-fluid text-center min-100 bg-cine pt-1" id="first-article">
+    <article class="jumbotron jumbotron-fluid text-center min-100">
     <h1 class="jumbotron-heading font-alfa">Réinitialisation de votre mot de passe:</h1>
     <h2 class="font-alfa">Bonjour {{$user->first_name}}!</h2>
     <p class="font-alfa">Le {{$date}}</p>

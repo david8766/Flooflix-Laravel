@@ -163,6 +163,7 @@ return [
         'hour'                  => 'heure',
         'minute'                => 'minute',
         'second'                => 'seconde',
+        'subject'               => 'sujet',
         'title'                 => 'titre',
         'content'               => 'contenu',
         'description'           => 'description',
