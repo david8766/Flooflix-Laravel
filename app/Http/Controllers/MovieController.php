@@ -108,17 +108,24 @@ class MovieController extends Controller
     {
         // get user
         $user = auth()->user('id');
-
+        // check user
         if (is_null($user) || empty($user)) {
             return back()->with('messageError','Vous devez être inscrit et identifié pour ajouter des films au panier.');
         } else { 
+            // get session values with movies title
+            $session = session()->all();
+            // check if movie title exists in session
+            foreach($session as $key => $value){  
+                if($key == $movie->title){
+                    return back()->with('messageError','Ce film est déjà ajouté au panier.');
+                }
+            }
             // put in session: movie
             session()->put($movie->title,$movie);
             // get title for url movie page
             $movie = $movie->title;
             return redirect()->route('movie',$movie)->with('message','le film a bien été ajouté au panier.');
-        }
-        
+        }   
     }
 
     /**
