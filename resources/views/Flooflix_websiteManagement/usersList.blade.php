@@ -2,6 +2,7 @@
 @section('content')
 @include('Flooflix_websiteManagement.layouts.header')
 <!-- Main -->
+@include('Flooflix.partials.message')
 <article role="main" class="container azure font-alfa">
     <header>
         <h1 class="mt-5 separator">Liste des utilisateurs</h1>
