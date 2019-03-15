@@ -6,6 +6,7 @@
 @endphp 
 <!-- Main -->
 <article class="min-100 pt-5">
+    @include('Flooflix.partials.message')
     <div class="container">
         <div class="row pt-5">
             <div class="col-lg-4"></div>

@@ -511,7 +511,7 @@ class UserController extends Controller
         $result = DB::table('movie_user')->select('movie_id as movie', 'user_id as user')->where('user_id',$user->id)->where('movie_id',$movie->id)->first();
         if (!is_null($result) && $result->movie == $movie->id && $result->user == $user->id) {
             $res = DB::table('movie_user')->where('user_id',$user->id)->where('movie_id',$movie->id)->update(['grade'=>$request->grade]);
-            return back()->with('message', "votre note a bien été attribuée pour ce film");
+            return back()->with('message', "Votre note a bien été attribuée pour ce film");
         } else {
             return back()->with('messageError', "Une erreur est survenue lors de l'attribution de la note.Veuillez contacter l'administrateur du site");
         }

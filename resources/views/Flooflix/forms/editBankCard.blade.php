@@ -6,11 +6,11 @@
     @php
         $user = auth()->user('id');
     @endphp 
+    @include('Flooflix.partials.message')
     <div class="container">
         <div class="row pt-5">
             <div class="col-md-4"></div>
             <div class="col-md-4 font-alfa bg-white">
-                @include('Flooflix.partials.message')
                 <header class="text-center">
                     <h1 class="mt-5 mx-2" id="title">Modifier votre carte</h1>
                 </header>

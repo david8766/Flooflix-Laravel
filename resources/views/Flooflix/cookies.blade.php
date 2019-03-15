@@ -4,6 +4,7 @@
 
 <!-- Main -->
 <article class="min-100 pt-5 pb-5 bg-black" role="main">
+    @include('Flooflix.partials.message')
     <div class="row separator mx-5 azure">
         <header>
             <h1 class="font-alfa azure">Cookies</h1>

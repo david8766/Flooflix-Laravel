@@ -15,7 +15,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="movie" class="font-alfa black">Lien de la video du film</label>
-                        <textarea name="movie" cols="30" rows="5" class="form-control {{ $errors->has('movie') ? 'is-invalid' : ''}}" value="{{ old('movie') }}"></textarea>
+                    <textarea name="movie" cols="30" rows="5" class="form-control {{ $errors->has('movie') ? 'is-invalid' : ''}}" placeholder="{{ old('movie') }}">{{ $movie->link_movie }}</textarea>
                         @if ($errors->has('movie'))
                             <p class="invalid-feedback" role="alert">{{ __($errors->first('movie')) }}</p>
                         @endif

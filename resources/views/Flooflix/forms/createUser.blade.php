@@ -3,6 +3,7 @@
 @include('Flooflix.layouts.header')
 <!-- Main -->
 <article class="min-100">
+    @include('Flooflix.partials.message')
     <div class="container">
         <div class="row pt-5 pb-5">
             <div class="col-lg-4"></div>

@@ -25,7 +25,7 @@
                     <a href="{{ route('user.edit', $user) }}" class="btn btn-color btn-md">{{ __('MODIFIER') }}</a>
                     <hr>
                     <small>
-                        <a href="/SupprimerVotreCompte" class="delete-link">{{ __('Supprimer mon compte') }}</a>
+                        <a href="#" class="delete-link">{{ __('Supprimer mon compte') }}</a>
                     </small>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 </div>    
                 @else
                 <div class="card-footer ">
-                    <a href=" {{ route('bankCard.edit') }}" class="btn btn-color btn-md">MODIFIER</a>
+                    <a href=" {{ route('bankCard.edit') }} " class="btn btn-color btn-md">MODIFIER</a>
                     <hr>
                     <small>
                         <a href="#" class="delete-link">Supprimer cette carte</a>

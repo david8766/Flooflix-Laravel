@@ -4,6 +4,7 @@
 <!-- Main -->
 <article>
     <div class="container min-100">
+        @include('Flooflix.partials.message')
         <div class="row pt-5">
             <div class="col-lg-4"></div>
             <div class="col-lg-4" id="bg">

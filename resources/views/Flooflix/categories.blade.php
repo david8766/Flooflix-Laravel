@@ -3,6 +3,7 @@
 @include('Flooflix.layouts.header')
 <!-- Main -->
 <article role="main" class="pb-5 min-100" id="bg-categories">
+    @include('Flooflix.partials.message')
     <div class="row separator mx-5">
         <header>
         <h1 class="mt-5" id="categories-title"></h1>

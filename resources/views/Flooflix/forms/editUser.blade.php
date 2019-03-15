@@ -7,10 +7,10 @@
         $user = auth()->user('id');
     @endphp 
     <div class="container-fluid">
+        @include('Flooflix.partials.message')
         <div class="row pt-5 pb-5">
             <div class="col-lg-4"></div>
             <div class="col-lg-4 bg-white">
-                @include('Flooflix.partials.message')
                 <header class="mt-5 text-center">
                     <h1 id="title" class="font-alfa">Modifiez votre compte</h1>
                 </header>

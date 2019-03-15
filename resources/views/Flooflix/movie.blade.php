@@ -5,6 +5,7 @@
 <!-- Main -->
 @include('Flooflix.partials.message')
 <section class="bg-black min-100" role="main">
+    @include('Flooflix.partials.message')
     <div class="row mx-5">
         <aside class="col-12 col-lg-4 pt-5">
             <div class="row justify-content-center">

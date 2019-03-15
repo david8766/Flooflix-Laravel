@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('content')
 <body>
+        @include('Flooflix.partials.message')
     <h1>Page de test</h1>
     <div class="card text-white bg-dark mb-3" id="box">
     <div class="card-body">

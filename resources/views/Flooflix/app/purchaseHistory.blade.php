@@ -1,11 +1,9 @@
 @extends('Flooflix.layouts.base')
 @section('content')
 @include('Flooflix.layouts.header')
-@php
-    dump($movies);
-@endphp
 <!-- Main -->
 <article class="min-100 pt-5 pb-5 bg-black">
+    @include('Flooflix.partials.message')
     <div class="row separator azure mx-5">
         <header>
             <h1 class="font-alfa azure">Historique des achats</h1>

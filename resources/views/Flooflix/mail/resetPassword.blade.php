@@ -2,6 +2,7 @@
 @section('content')
 <!-- Main -->
 <section role="main" class="container-fluid m-0 p-0 min-100"> 
+    @include('Flooflix.partials.message')
     <!-- Jumbotron -->
     <article class="jumbotron jumbotron-fluid text-center min-100">
     <h1 class="jumbotron-heading font-alfa">Réinitialisation de votre mot de passe:</h1>
