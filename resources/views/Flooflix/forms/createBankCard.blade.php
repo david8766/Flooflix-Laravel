@@ -2,7 +2,7 @@
 @section('content')
 @include('Flooflix.layouts.header')
 <!-- Main -->
-<article class="min-88">
+<article class="min-100">
     @php
         $user = auth()->user('id');
     @endphp 

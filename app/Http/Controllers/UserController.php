@@ -266,7 +266,7 @@ class UserController extends Controller
         //get ressources for display
         $website = Website::where('name', 'flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name', 'compte')->first();
-        $datas = $page->getResourcesToDisplayPage($page);;
+        $datas = $page->getResourcesToDisplayPage($page);
         $pictures = Picture::all();
         return view('Flooflix/app/userAccount',compact('datas','pictures','bankCard'));  
     }
@@ -330,7 +330,7 @@ class UserController extends Controller
      */
     public function showShoppingCart()
     {
-        // get user
+        //get user
         $user = auth()->user('id');
         //get bank card for user
         $bankCard = BankCard::find($user->bank_card_id);
@@ -377,6 +377,7 @@ class UserController extends Controller
      */
     public function addMoviesToCollection()
     {
+        //get user
         $user = auth()->user('id');
 
         //get movies
@@ -444,13 +445,13 @@ class UserController extends Controller
             }
         }
 
-        //Separation of the movies collection by category into several array of 6 values for display
+        // Separation of the movies collection by category into several array of 6 values for display
         foreach ($collection as $category => $movies) {
             $chunks = array_chunk($movies,6);
             $collection[$category] = $chunks;   
         }
         
-        //get ressources for display
+        // get ressources for display
         $website = Website::where('name','flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name', 'collection')->first();
         $datas = $page->getResourcesToDisplayPage($page);

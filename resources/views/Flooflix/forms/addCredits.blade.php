@@ -5,7 +5,7 @@
     $user = auth()->user('id');
 @endphp 
 <!-- Main -->
-<article class="min-88 pt-5">
+<article class="min-100 pt-5">
     <div class="container">
         <div class="row pt-5">
             <div class="col-lg-4"></div>

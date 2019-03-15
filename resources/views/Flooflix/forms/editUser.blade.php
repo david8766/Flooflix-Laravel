@@ -2,11 +2,11 @@
 @section('content')
 @include('Flooflix.layouts.header')
 <!-- Main -->
-<article class="min-88">
+<article class="min-100 bg-black">
     @php
         $user = auth()->user('id');
     @endphp 
-    <div class="container-fluid bg-black">
+    <div class="container-fluid">
         <div class="row pt-5 pb-5">
             <div class="col-lg-4"></div>
             <div class="col-lg-4 bg-white">
