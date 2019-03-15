@@ -717,7 +717,7 @@ class UserController extends Controller
 
         $user = User::find($user);
         $bank_card = BankCard::find($user->bank_card_id);
-        dd($user->bank_card()->get());
+        //dd($user->bank_card()->get());
         if(!is_null($user)){
             $user->delete();
         }
