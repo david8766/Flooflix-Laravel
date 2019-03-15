@@ -63,7 +63,7 @@ class UserController extends Controller
 
         // Data verification
         if(isset($request->last_name) && isset($request->first_name) && isset($request->email) && isset($request->login) && isset($request->password) && isset($request->birth_date) && !is_null($request->last_name) && !is_null($request->first_name)  && !is_null($request->email) && !is_null($request->login) && !is_null($request->password) && !is_null($request->birth_date) && !empty($request->last_name) && !empty($request->first_name) && !empty($request->email) && !empty($request->login) && !empty($request->password) && !empty($request->birth_date) && is_string($request->last_name) && is_string($request->first_name) && is_string($request->email) && is_string($request->login) && is_string($request->password) && is_string($request->birth_date)){ 
-            // Check if website exists in database
+            // Check if login or email exists in database
             $users = User::all();
             foreach ($users as $user) {
                 if(($user->login == $request->login)){
@@ -98,7 +98,6 @@ class UserController extends Controller
     /**
      * Show the form for editing the user.
      *
-     * @param  mixed  $user
      * @return View
      */
     public function edit(User $user)
@@ -107,6 +106,7 @@ class UserController extends Controller
         $website = Website::where('name', 'flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name', 'compte')->first();
         $datas = $page->getResourcesToDisplayPage($page);
+
         return view('Flooflix.forms.editUser',compact('user','datas'));
     }
 

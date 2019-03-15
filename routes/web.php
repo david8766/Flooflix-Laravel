@@ -74,6 +74,7 @@ Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
     Route::post('/AttribuerUneNote/{movie}','UserController@attributeGrade')->name('grade.movie');
     Route::get('/HistoriqueDesAchats','UserController@showPurchaseHistory')->name('purchase.history');
     Route::get('/ModifierVotreCompte','UserController@edit')->name('user.edit');
+    Route::post('user/{user}','UserController@update')->name('user.update');
     Route::get('/AjouterUneCarteBancaire','BankCardController@create')->name('bankCard.create');
     Route::post('/AjouterUneCarteBancaire','BankCardController@store')->name('bankCard.store');
     Route::get('/ModifierVotreCarteBancaire','BankCardController@edit')->name('bankCard.edit');
@@ -83,7 +84,6 @@ Route::group(['middleware' => ['App\Http\Middleware\Authenticate']],function (){
     Route::get('VotrePanier','UserController@showShoppingCart')->name('show.shoppingCart');
     Route::get('RetirerDuPanier/{movie}/{user}','UserController@removeMovieInCart')->name('remove.movie.in.cart');
     Route::get('ValiderLePanier','UserController@addMoviesToCollection')->name('add.movie.to.collection');
-    Route::post('user/{user}','UserController@update')->name('user.update');
     Route::get('/logout','LoginController@logout')->name('user.logout');
 });
 
