@@ -100,8 +100,11 @@ class UserController extends Controller
      *
      * @return View
      */
-    public function edit(User $user)
+    public function edit()
     {
+        //get user
+        $user =  auth()->user('id');
+
         //get ressources for display
         $website = Website::where('name', 'flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name', 'compte')->first();
@@ -713,7 +716,9 @@ class UserController extends Controller
     public function deleteUser($user){
         $user = User::find($user);
         $bank_card = BankCard::find($user->bank_card_id);
-        $bank_card->delete();
+        if(!is_null($bank_card)){
+            $bank_card->delete();
+        }
         $user->delete();  
         return redirect()->route('users.list')->with('message',"L'utilisateur a bine été supprimé");
     }

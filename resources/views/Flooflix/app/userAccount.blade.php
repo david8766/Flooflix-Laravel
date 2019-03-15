@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('user.edit', $user) }}" class="btn btn-color btn-md">{{ __('MODIFIER') }}</a>
+                    <a href="{{ route('user.edit') }}" class="btn btn-color btn-md">{{ __('MODIFIER') }}</a>
                     <hr>
                     <small>
                         <a href="#" class="delete-link">{{ __('Supprimer mon compte') }}</a>
