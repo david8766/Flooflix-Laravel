@@ -169,11 +169,13 @@ class MovieController extends Controller
      */
     public function moviesManagement(Request $request)
     {
+        // chek if request exists
         if (isset($request->category) && !is_null($request->category) && !empty($request->category)) {
             $category = Category::find($request->category)->id;
         }else{
             $category = Category::first()->id;
         }
+        // get movies for this category
         $movies_by_category = Movie::where('category_id',$category)->get();
         // use static functions in App/movie for stats for a category
         $stats_by_category = Movie::getStats($movies_by_category);

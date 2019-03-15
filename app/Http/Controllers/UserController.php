@@ -98,7 +98,6 @@ class UserController extends Controller
     /**
      * Show the form for editing the user.
      *
-     * @param  mixed  $user
      * @return View
      */
     public function edit(User $user)
@@ -107,6 +106,7 @@ class UserController extends Controller
         $website = Website::where('name', 'flooflix')->first();
         $page = Page::where('website_id', $website->id)->where('name', 'compte')->first();
         $datas = $page->getResourcesToDisplayPage($page);
+
         return view('Flooflix.forms.editUser',compact('user','datas'));
     }
 

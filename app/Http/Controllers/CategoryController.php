@@ -35,13 +35,14 @@ class CategoryController extends Controller
         }else{
             return view('errors.404');
         }
+        // get categories
         $categories = Category::all();
+        // get pictures
         $pictures = Picture::all();
-        $texts = Text::all();
+        // divide categories into tables of 3 units for display
         $chunks = $categories->chunk(3);
         $categories = $chunks;
-
-        return view('Flooflix.categories',compact('categories','datas','pictures','texts'));
+        return view('Flooflix.categories',compact('categories','datas','pictures'));
     }
 
     /**
